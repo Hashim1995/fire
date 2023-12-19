@@ -1,0 +1,378 @@
+/***
+
+==================================================================
+    Why Choose Us
+==================================================================
+
+***/
+
+.why-choose-us {
+    position: relative;
+    background-color: var(--bg-theme-color4);
+    background-image: url(../images/icons/pattern-13.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.why-choose-us .content-column {
+    position: relative;
+
+    .inner-column {
+        position: relative;
+        padding: 120px 0 120px;
+        padding-right: 80px;
+    }
+
+    .sec-title {
+        margin-bottom: 35px;
+
+        .text {
+            font-size: 16px;
+            line-height: 30px;
+        }
+    }
+
+    .info-box {
+        position: relative;
+        padding-left: 95px;
+        min-height: 65px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d9e0e6;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        &:hover {
+            .icon {
+                transform: scaleX(-1);
+            }
+        }
+
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: inline-block;
+            font-size: 64px;
+            color: var(--theme-color2);
+            line-height: 1em;
+            transition: all 300ms ease;
+        }
+
+        .sub-title {
+            position: relative;
+            font-size: 14px;
+            line-height: 25px;
+            color: #73787d;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+        }
+
+        .title {
+            margin-bottom: 0;
+        }
+
+        .read-more {
+            @include absolute-right;
+            @include flex-center;
+            height: 52px;
+            width: 52px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-top: 5px;
+        }
+    }
+}
+
+.why-choose-us .image-column {
+    position: relative;
+
+    .inner-column {
+        position: relative;
+    }
+
+    .plane {
+        position: absolute;
+        left: -110px;
+        top: -200px;
+    }
+
+    .stemp {
+        position: absolute;
+        right: -55px;
+        top: 285px;
+    }
+
+    .image {
+        position: relative;
+        margin-right: -260px;
+        margin-left: -30px;
+        margin-top: -65px;
+        margin-bottom: 0;
+        text-align: right;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/***
+
+==================================================================
+    Why Choose Us Two
+==================================================================
+
+***/
+
+.why-choose-us-two{
+    position: relative;
+    padding: 120px 0;
+    background-color: var(--bg-theme-color4);
+    .bg-layer{
+        @include overlay;
+        @include background;
+        background-image: url(../images/icons/pattern-15.jpg);
+    }
+    .content-column {
+        position: relative;
+        margin-bottom: 60px;
+        .inner-column {
+            position: relative;
+            padding-right: 70px;
+        }
+        .sec-title{
+            margin-bottom: 20px;
+        }
+        .info-box{
+            position: relative;
+            display: flex;
+            align-items: center;
+            .inner{
+                position: relative;
+                padding-left: 110px;
+                min-height: 88px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .thumb{
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 88px;
+                width: 88px;
+                padding: 2px;
+                border-radius: 50%;
+                overflow: hidden;
+                &:before{
+                    @include overlay;
+                    background: var(--gradient-3);
+                    content: "";
+                }
+                img{
+                    position: relative;
+                    width: 100%;
+                    border-radius: 50%;
+                    border: 8px solid var(--bg-theme-color4);
+                }
+            }
+            .title{
+                margin-bottom: 0px;
+            }
+            .sub-title{
+                font-size: 14px;
+                color: #73787d;
+            }
+            .theme-btn{
+                margin-left: 30px;
+            }
+        }
+    }
+}
+
+
+.feature-block-two {
+    position: relative;
+    margin-bottom: 30px;
+    .inner-box{
+        position: relative;
+        background-color: #fff;
+        padding: 30px 30px 30px;
+        padding-right: 70px;
+        box-shadow: 0 10px 60px rgba(0,0,0,.10);
+        height: 100%;
+        transition: all 400ms ease;
+        &:before{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 5px;
+            width: 100%;
+            background: var(--gradient-2);
+            content: "";
+        }
+        &:hover{
+            box-shadow: none;
+            .icon{
+                color: var(--theme-color2);
+            }
+        }
+        .icon{
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            font-size: 28px;
+            color: var(--theme-color1);
+            transition: all 300ms ease;
+        }
+    }
+}
+
+/***
+
+==================================================================
+    Why Choose Us Three
+==================================================================
+
+***/
+
+.why-choose-us-three{
+    position: relative;
+    padding: 120px 0;
+    .icon-object-1{
+        left: -340px;
+        bottom: 0;
+    }
+    .content-column {
+        position: relative;
+        .inner-column {
+            position: relative;
+            padding-right: 60px;
+        }
+        .bold-text{
+            font-size: 18px;
+            margin-top: 30px;
+            color: var(--theme-color1);
+        }
+        .list-style-three{
+            margin-bottom: 40px;
+            li{
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+    }
+    .image-column{
+        position: relative;
+        .inner-column{
+            position: relative;
+        }
+        .bg-image{
+            position: absolute;
+            right: -370px;
+            top: -120px;
+            &:before{
+                @include overlay;
+                opacity: .9;
+                background:var(--gradient-3);
+                content: "";
+            };
+        }
+        .image{
+            position: relative;
+            z-index: 2;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .info-box{
+        position: absolute;
+        left: 30px;
+        bottom: -30px;
+        z-index: 2;
+        background-color: #fff;
+        max-width: 280px;
+        padding: 40px 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.10);
+        &::before{
+            position: absolute;
+            left: 0;
+            top: -10px;
+            height: 10px;
+            width: 100%;
+            background:var(--gradient-2);
+            content: "";
+            z-index: 2;
+        }
+        .icon{
+            position: relative;
+            display: block;
+            font-size: 64px;
+            line-height: 1em;
+            color: var(--theme-color2);
+            margin-bottom: 20px;
+        }
+        .count{
+            display: block;
+            font-size: 36px;
+            color: var(--theme-color1);
+            margin-bottom: 36px;
+        }
+        .text{
+            font-size: 18px;
+        }
+    }
+    .banner-box-three{
+        margin-top: 120px;
+    }
+}
+
+
+.banner-box-three{
+    position: relative;
+    background:var(--gradient-2);
+    padding: 4px;
+    .inner-box{
+        position: relative;
+        padding: 35px;
+        padding-right: 50px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title-column{
+            position: relative;
+            padding-left: 290px;
+            min-height: 130px;
+            padding-top: 20px;
+            max-width: 600px;
+            .image{
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .title{
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .text-column{
+            max-width: 390px;
+            padding-left: 40px;
+            border-left: 1px solid #d9e0e6;
+            .text{
+                font-size: 18px;
+                line-height: 34px;
+            }
+        }
+        
+    }
+}

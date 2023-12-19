@@ -1,0 +1,33 @@
+{
+  "name": "next-js-13-intl",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "appear": "^1.0.1",
+    "fancybox": "^3.0.1",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "next": "13.4.3",
+    "next-intl": "^3.3.2",
+    "react": "18.2.0",
+    "react-animated-slider": "^1.1.4",
+    "react-countup": "^6.4.1",
+    "react-dom": "18.2.0",
+    "react-fancybox": "^0.2.5",
+    "react-i18next": "^13.5.0",
+    "react-modal-video": "^2.0.0",
+    "react-range-slider-input": "^3.0.7",
+    "react-visibility-sensor": "^5.1.1",
+    "sass": "^1.57.1",
+    "swiper": "^8.4.6",
+    "typewriter-effect": "^2.19.0",
+    "wowjs": "^1.1.3",
+    "yet-another-react-lightbox": "^2.3.1"
+  }
+}

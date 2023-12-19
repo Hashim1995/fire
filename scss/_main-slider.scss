@@ -1,0 +1,58 @@
+/*** 
+
+====================================================================
+  Main Slider
+====================================================================
+
+***/
+
+.main-slider {
+  position: relative;
+}
+
+.main-slider {
+  .title {
+    position: relative;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+  h1{
+    position: relative;
+    display: block;
+    font-size: 90px;
+    line-height: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+  }
+  .text{
+    font-size: 18px;
+    line-height: 36px;
+    color: rgba(255,255,255,.50);
+  }
+  .btn-box {
+    position: relative;
+  }
+  .theme-btn {
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 200px !important;
+  }
+}
+
+
+.tp-dottedoverlay {
+  background:var(--gradient-1);
+  width: 55%;
+  opacity: .8;
+}
+
+.tp-bannertimer {
+  display: none;
+}

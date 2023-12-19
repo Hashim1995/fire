@@ -1,0 +1,218 @@
+
+/*** 
+
+====================================================================
+    Fun Fact Section
+====================================================================
+
+***/
+
+.fun-fact-section{
+    position: relative;
+    padding: 120px 0 70px;
+    .bg-layer{
+        @include overlay;
+        @include background;
+        background-image: url(../images/icons/pattern-6.png);
+        min-height: 615px;
+    }
+}
+
+.counter-block {
+    position: relative;
+    margin-bottom: 50px;
+    .inner {
+        position: relative;
+        text-align: center;
+        transition: all 300ms ease;
+        &:hover{
+            .icon{
+                &:after{
+                    margin-top: -10px;
+                }
+            }
+        }
+    }
+    .icon {
+        position: relative;
+        @include flex-center;
+        height: 122px;
+        width: 122px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        color: var(--theme-color2);
+        font-size: 62px;
+        line-height: 1em;
+        transition: all 300ms ease;
+        box-shadow: 0 10px 60px rgba(0,0,0, .1);
+        margin: 0 auto 15px;
+        &:after{
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            height: 120px;
+            width: 120px;
+            background-color: var(--bg-theme-color2);
+            border-radius: 50%;
+            transition: all 300ms ease;
+            z-index: -2;
+            content: "";
+        }
+    }
+    .count-box {
+        font-size: 36px;
+        color: var(--theme-color1);
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        .count-text {
+            font-size: 36px;
+            color: var(--theme-color1);
+            font-weight: 700;
+            line-height: 1em;
+        }
+    }
+    .counter-title {
+        display: block;
+        font-size: 18px;
+        color: #73787d;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+}
+
+/*** 
+
+====================================================================
+    Fun Fact Section Two
+====================================================================
+
+***/
+
+.fun-fact-section-two{
+    position: relative;
+    .fact-counter{
+        position: relative;
+        padding: 50px 50px 10px;
+        &:before {
+            @include absolute-right;
+            height: 100%;
+            width: 100%;
+            background-color: var(--bg-theme-color3);
+            background-image: url(../images/icons/pattern-11.png);
+            background-repeat: repeat;
+            content: "";
+        }
+        &.pull-up{
+            margin-top: -80px;
+        }
+    }
+}
+
+// Counter Block Two 
+
+.counter-block-two{
+    position: relative;
+    margin-bottom: 40px;
+    .inner {
+        position: relative;
+        padding-left: 80px;
+        min-height: 64px;
+        transition: all 300ms ease;
+        &:hover{
+            .icon{
+                color: #fff;
+                transform:scaleX(-1);
+            }
+        }
+    }
+    .icon {
+        @include absolute;
+        color: var(--theme-color2);
+        font-size: 68px;
+        line-height: 1em;
+        transition: all 300ms ease;
+        z-index: 1;
+        margin-bottom: 20px;
+    }
+    .count-box {
+        font-size: 36px;
+        color: #ffffff;
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        .count-text {
+            font-size: 36px;
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1em;
+        }
+    }
+
+    .counter-title {
+        display: block;
+        font-size: 18px;
+        line-height: 30px;
+        color: #ffffff;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+}
+
+// Counter Block Three
+.counter-block-three{
+    position: relative;
+    border-right: 1px solid rgba(255,255,255, .1);
+    &:last-child{
+        border-right: 0;
+    }
+    &:before{
+        position: absolute;
+        left:50%;
+        top: 0;
+        width: 0;
+        height: 4px;
+        background-color: var(--border-theme-color2);
+        transition: all 300ms ease;
+        content: "";
+    }
+    &:hover{
+        &:before{
+            left: 0;
+            width: 100%;
+        }
+    }
+    .inner {
+        position: relative;
+        padding: 120px 0 10px;
+        text-align: center;
+        transition: all 300ms ease;
+    }
+    .count-box {
+        font-size: 46px;
+        color: #fff;
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        font-family: var(--title-font);
+        margin-bottom: 15px;
+        .count-text {
+            font-size: 46px;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1em;
+        }
+    }
+    .counter-title {
+        display: block;
+        font-size: 12px;
+        line-height: 30px;
+        color: #fff;
+        letter-spacing: .1em;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}

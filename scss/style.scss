@@ -1,0 +1,105 @@
+/* Vizox | Visa & Immigrations HTML Template
+
+Template Name: Vizox
+Version: 1.0.0
+License: copyright commercial
+
+/************ TABLE OF CONTENTS ***************
+1. Fonts
+2. Reset
+3. Global Settings
+4. Main Header / TWO / Three
+5. Sticky Header 
+6. Mobile Menu
+7. Section Title
+8. Page Title
+9. Main Slider
+10. Banner Section / Two 
+11. About Section / Two / Three / Four / Five
+12. Countries Section / Two / Three
+13. Services Section / Two 
+14. Testimonial / Two / Three
+15. Clients Section
+16. Fun Fact Section / Two
+17. Gallery Section / Two
+18. Why Choose Us / Two / Three
+19. Training Section / Two / Three
+20. Process Section / Two
+21. Call To Action / Two
+22. FAQ's Sectiom
+23. team Section
+24. News Section / Two / Three
+25. Main Footer
+**********************************************/
+
+
+@import "common/root.scss";
+@import "common/mixing.scss";
+@import "common/loader.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+
+@font-face {
+    font-family: 'Reey';
+    src: url('../fonts/Reey-Regular.woff2') format('woff2'),
+        url('../fonts/Reey-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import url('animate.css');
+@import url('owl.css');
+@import url('jquery.fancybox.min.css');
+@import url('linear.css');
+@import url('fontawesome-all.css');
+@import url('flaticon.css');
+@import url('tm-bs-mp.css');
+@import url('tm-utility-classes.css');
+@import "../../node_modules/react-modal-video/scss/modal-video.scss";
+
+// import SCSS components one by one
+@import "reset.scss";
+@import "button.scss";
+@import "animate-icon.scss";
+@import "search-popup.scss";
+@import "header.scss";
+@import "mobile-menu.scss";
+@import "section-title.scss";
+@import "main-slider.scss";
+@import "slider-animation";
+@import "animated-slider";
+@import "banner.scss";
+@import "features.scss";
+@import "about.scss";
+@import "countries.scss";
+@import "services.scss";
+@import "testimonials.scss";
+@import "clients.scss";
+@import "funfact.scss";
+@import "gallery.scss";
+@import "why-choose-us.scss";
+@import "training.scss";
+@import "process.scss";
+@import "call-to-action.scss";
+@import "faqs.scss";
+@import "team.scss";
+@import "news.scss";
+@import "footer.scss";
+
+@import "shop/loader.scss";
+
+//inner
+@import "inner/page-title.scss";
+@import "inner/404.scss";
+@import "inner/course-details.scss";
+@import "inner/service-details.scss";
+@import "inner/project-details.scss";
+@import "inner/news-details.scss";
+@import "inner/news-sidebar.scss";
+@import "inner/news-comment.scss";
+@import "inner/team-details.scss";
+@import "inner/contact-page.scss";
+@import "inner/country-details";
+
+@import "footer.scss";

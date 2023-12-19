@@ -1,0 +1,256 @@
+/***
+
+====================================================================
+    Process Section
+====================================================================
+
+***/
+
+.process-section{
+    position: relative;
+    padding: 120px 0 80px;
+    
+    .icon-object-1{
+        left: -370px;
+        bottom: 0;
+    }
+    
+    .wide-map{
+        position: absolute;
+        left: 50%;
+        margin-left: 100px;
+        top: -240px;
+        height: 100%;
+        max-width: 1260px;
+        width: 100%;
+        background-image: url(../images/icons/icon-wide-map.png);
+        background-size: contain;
+        content: "";
+    }
+}
+
+.process-block{
+    position: relative;
+    margin-bottom: 40px;
+    &:last-child{
+        .image-box:before{
+            display: none;
+        }
+    }
+    .inner-box {
+        position: relative;
+        &:hover {
+            .info-box{
+                background-color: #ffffff;
+                box-shadow: 0 10px 50px rgba(0,0,0,.10);
+                &:before{
+                    border-bottom-color: #ffffff;
+                }
+            }
+            .count {
+                transform: scale(-1) rotate(-180deg);
+            }
+        }
+    }
+
+    .image-box {
+        position: relative;
+        height: 154px;
+        width: 154px;
+        border-radius: 50%;
+        margin-bottom: 28px;
+        &::before{
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            margin-top: -9px;
+            width: 175px;
+            height: 18px;
+            margin-left: 45px;
+            background-image: url(../images/icons/icon-arrow-2.png);
+            content: "";
+        }
+        .image {
+            position: relative;
+            height: 154px;
+            width: 154px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 300ms linear;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .count {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            height: 60px;
+            width: 60px;
+            margin-top: -30px;
+            background: var(--gradient-3);
+            font-size: 16px;
+            color: #ffffff;
+            border: 6px solid #ffffff;
+            @include flex-center;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 300ms linear;
+        }
+    }
+
+    .info-box {
+        position: relative;
+        background-color: var(--bg-theme-color4);
+        margin-left: 20px;
+        padding: 25px 30px 20px;
+        transition: all 300ms ease;
+        &:before{
+            position: absolute;
+            left: 35px;
+            bottom: 100%;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid var(--bg-theme-color4);
+            content: "";
+            z-index: 2;
+            transition: all 300ms ease;
+        }
+        .title {
+            z-index: 2;
+            margin-bottom: 8px;
+        }
+        .text{
+            line-height: 26px;
+        }
+    }
+
+}
+
+
+/***
+
+====================================================================
+    Process Section Two
+====================================================================
+
+***/
+
+.process-section-two{
+    position: relative;
+    padding: 120px 0 50px;
+    overflow: hidden;
+    .icon-cards{
+        right: 0;
+        top: -10px;
+    }
+    .icon-object-1{
+        left: 10px;
+        bottom: 30px;
+    }
+}
+
+.process-block-two{
+    position: relative;
+    margin-bottom: 70px;
+    .inner-box {
+        position: relative;
+
+        &:hover {
+            .icon-box {
+                &:after {
+                    clip-path: polygon(25% -70%, 75% -70%, 120% 50%, 75% 170%, 25% 170%, -20% 50%);
+                }
+                &::before{
+                    clip-path: polygon(50% 0, 50% 0, 50% 50%, 50% 100%, 50% 100%, 50% 50%);
+                }
+            }
+            .icon{
+                background-color: var(--bg-theme-color2);
+                color: #ffffff;
+            }
+            .count{
+                left: 165px;
+                bottom: 165px;
+                transform: scale(-1) rotate(-180deg);
+            }
+        }
+    }
+    .icon-box {
+        position: relative;
+        height: 255px;
+        width: 255px;
+        border-radius: 50%;
+        padding: 40px;
+        margin: 0 auto 20px;
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            content: "";
+            border: 2px solid var(--bg-theme-color4);
+            border-radius: 200px 200px 0 0;
+            border-bottom: 0;
+            transition: all 700ms ease;
+            clip-path: polygon(25% -70%, 75% -70%, 120% 50%, 75% 170%, 25% 170%, -20% 50%);
+        }
+
+        &:after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            clip-path: polygon(50% 0, 50% 0, 50% 50%, 50% 100%, 50% 100%, 50% 50%);
+            border: 2px solid var(--border-theme-color2);
+            border-top: 0;
+            content: "";
+            border-radius: 0 0 200px 200px;
+            transition: all 700ms ease;
+        }
+
+        .icon{
+            position: relative;
+            @include flex-center;
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            background-color: var(--bg-theme-color4);
+            margin-bottom: 0;
+            z-index: 1;
+            font-size: 64px;
+            color: var(--theme-color2);
+            transition: all 300ms linear;
+        }
+        .count{
+            position: absolute;
+            left: 38px;
+            bottom: 38px;
+            height: 54px;
+            width: 54px;
+            background-color: var(--bg-theme-color1);
+            font-size: 16px;
+            color: #ffffff;
+            @include flex-center;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 300ms linear;
+        }
+    }
+    .info-box {
+        position: relative;
+        text-align: center;
+        .title{
+            z-index: 2;
+            margin-bottom: 15px;
+        }
+        .text{
+            padding: 0 40px;
+        }
+
+    }
+
+}
