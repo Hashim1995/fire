@@ -1,11 +1,12 @@
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 import React from "react";
 import Image from "next/image";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import MobileMenu from "./MobileMenu";
 import NavLinks from "./NavLinks";
 import LogoDark from "../../../../public/images/logo.png";
 import LogoWhite from "../../../../public/images/logo-2.png";
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
+
 const locales = ["az", "en"];
 const Header3 = ({
   handleOpen,
@@ -30,12 +31,12 @@ const Header3 = ({
               </Link>
             </div>
           </div>
-          {/*Nav Box*/}
+          {/* Nav Box */}
           <div className="nav-outer">
             <nav className="nav main-menu">
               <NavLinks extraClassName="header3" />
             </nav>
-            {/* Main Menu End*/}
+            {/* Main Menu End */}
           </div>
 
           <div className="outer-box">
@@ -45,12 +46,18 @@ const Header3 = ({
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item >  <Link href="/" locale="az">
-                  In Azeri
-                </Link></Dropdown.Item>
-                <Dropdown.Item >  <Link href="/" locale="en">
-                  In English
-                </Link></Dropdown.Item>
+                <Dropdown.Item>
+                  {" "}
+                  <Link href="/" locale="az">
+                    In Azeri
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  {" "}
+                  <Link href="/" locale="en">
+                    In English
+                  </Link>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
@@ -77,7 +84,7 @@ const Header3 = ({
         {/* Mobile Menu  */}
         <div className="mobile-menu">
           <div className="menu-backdrop" onClick={handleRemove} />
-          {/*Here Menu Will Come Automatically ViLink Javascript / Same Menu as in Header*/}
+          {/* Here Menu Will Come Automatically ViLink Javascript / Same Menu as in Header */}
           <nav className="menu-box">
             <div className="upper-box">
               <div className="nav-logo">
@@ -91,7 +98,6 @@ const Header3 = ({
             </div>
             <MobileMenu />
             <ul className="contact-list-one">
-
               <li>
                 {/* Contact Info Box */}
                 <div className="contact-info-box">
@@ -172,13 +178,13 @@ const Header3 = ({
         >
           <div className="auto-container">
             <div className="inner-container">
-              {/*Logo*/}
+              {/* Logo */}
               <div className="logo">
                 <Link href="/" title>
                   <Image src={LogoDark} title="Vixoz" />
                 </Link>
               </div>
-              {/*Right Col*/}
+              {/* Right Col */}
               <div className="nav-outer">
                 {/* Main Menu */}
                 <nav className="main-menu">
@@ -186,8 +192,8 @@ const Header3 = ({
                     <MobileMenu />
                   </div>
                 </nav>
-                {/* Main Menu End*/}
-                {/*Mobile Navigation Toggler*/}
+                {/* Main Menu End */}
+                {/* Mobile Navigation Toggler */}
                 <div className="mobile-nav-toggler" onClick={handleOpen}>
                   <span className="icon lnr-icon-bars" />
                 </div>
@@ -197,7 +203,7 @@ const Header3 = ({
         </div>
         {/* End Sticky Menu */}
       </header>
-      {/*End Main Header */}
+      {/* End Main Header */}
     </>
   );
 };
