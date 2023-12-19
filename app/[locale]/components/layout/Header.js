@@ -1,20 +1,47 @@
-import Dropdown from "react-bootstrap/Dropdown";
-import React from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import MobileMenu from "./MobileMenu";
 import NavLinks from "./NavLinks";
 import LogoDark from "../../../../public/images/logo.png";
+import { BiWorld } from "react-icons/bi";
 import LogoWhite from "../../../../public/images/logo-2.png";
+import Az from "../../../../public/images/azerbaijan.png";
+import En from "../../../../public/images/uk.png";
+import Ru from "../../../../public/images/russia.png";
+import { DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
 
 const locales = ["az", "en"];
-const Header3 = ({
-  handleOpen,
-  handleRemove,
-  searchToggle,
-  handleToggle,
-  scroll,
-}) => {
+const Header = () => {
+  const [searchToggle, setSearchToggled] = useState(false);
+  const [scroll, setScroll] = useState(0);
+  const handleToggle = () => setSearchToggled(!searchToggle);
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const scrollCheck = window.scrollY > 100;
+      if (scrollCheck !== scroll) {
+        setScroll(scrollCheck);
+      }
+    });
+  });
+
+  const handleOpen = () => {
+    document.body.classList.add("mobile-menu-visible");
+  };
+
+  const handleRemove = () => {
+    document.body.classList.remove("mobile-menu-visible");
+  };
+
+  useEffect(() => {
+    const WOW = require("wowjs");
+    window.wow = new WOW.WOW({
+      live: false,
+    });
+    window.wow.init();
+
+  }, []);
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
   return (
@@ -40,26 +67,36 @@ const Header3 = ({
           </div>
 
           <div className="outer-box">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Dropdown Button
-              </Dropdown.Toggle>
+            <UncontrolledDropdown className="lang-switcher ">
+              <DropdownToggle
+                aria-label="Select Language"
+                className={`bg-transparent border-white Rounded `}
+              >
+                <BiWorld className="" size={24} />
 
-              <Dropdown.Menu>
-                <Dropdown.Item>
-                  {" "}
+              </DropdownToggle>
+              <DropdownMenu >
+                <div>
                   <Link href="/" locale="az">
-                    In Azeri
+                    <Image width={24}
+                      height={24} src={Az} title="Az" />
                   </Link>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  {" "}
+                </div>
+                <div>
                   <Link href="/" locale="en">
-                    In English
+                    <Image width={24}
+                      height={24} src={En} title="En" />
                   </Link>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+                </div>   <div>
+                  <Link href="/" locale="ru">
+                    <Image width={24}
+                      height={24} src={Ru} title="Ru" />
+                  </Link>
+                </div>
+
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
 
             <Link href="tel:+92(8800)9806" className="info-btn">
               <i className="icon fa fa-phone" />
@@ -67,12 +104,7 @@ const Header3 = ({
               <br /> + 88 ( 9800 ) 6802
             </Link>
             <div className="ui-btn-outer">
-              <button
-                className="ui-btn ui-btn search-btn"
-                onClick={handleToggle}
-              >
-                <span className="icon lnr lnr-icon-search" />
-              </button>
+              login
             </div>
             {/* Mobile Nav toggler */}
             <div className="mobile-nav-toggler" onClick={handleOpen}>
@@ -202,10 +234,10 @@ const Header3 = ({
           </div>
         </div>
         {/* End Sticky Menu */}
-      </header>
+      </header >
       {/* End Main Header */}
     </>
   );
 };
 
-export default Header3;
+export default Header;

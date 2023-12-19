@@ -15,7 +15,7 @@ const ProcessTwo = () => {
                     </div>
                     <div className="row">
                         {/* Process block Two  */}
-                        <div className="process-block-two col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
+                        <div className="process-block-two col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
                             <div className="inner-box">
                                 <div className="icon-box">
                                     <i className="icon flaticon-interview-1" />
@@ -28,7 +28,7 @@ const ProcessTwo = () => {
                             </div>
                         </div>
                         {/* Process block Two  */}
-                        <div className="process-block-two col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                        <div className="process-block-two col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
                             <div className="inner-box">
                                 <div className="icon-box">
                                     <i className="icon flaticon-form" />
@@ -41,7 +41,7 @@ const ProcessTwo = () => {
                             </div>
                         </div>
                         {/* Process block Two  */}
-                        <div className="process-block-two col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+                        <div className="process-block-two col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
                             <div className="inner-box">
                                 <div className="icon-box">
                                     <i className="icon flaticon-documents" />
@@ -54,7 +54,7 @@ const ProcessTwo = () => {
                             </div>
                         </div>
                         {/* Process block Two */}
-                        <div className="process-block-two col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
+                        {/* <div className="process-block-two col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
                             <div className="inner-box">
                                 <div className="icon-box">
                                     <i className="icon flaticon-visa-3" />
@@ -65,7 +65,7 @@ const ProcessTwo = () => {
                                     <div className="text">Lorem Ipsum is simply dummy text of the new des printng and type.</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

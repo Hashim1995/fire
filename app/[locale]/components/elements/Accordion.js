@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 
 const Accordion = () => {
@@ -9,7 +10,7 @@ const Accordion = () => {
     const handleToggle = (key) => {
         if (isActive.key === key) {
             setIsActive({
-                status: false, 
+                status: false,
             });
         } else {
             setIsActive({

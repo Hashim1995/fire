@@ -73,7 +73,7 @@ const BannerSliderTwo = () => {
                 className="bg-image"
                 style={{ backgroundImage: "url(images/main-slider/3.jpg)" }}
               />
-              <div className="auto-container">
+              {/* <div className="auto-container">
                 <div className="content-box">
                   <span className="sub-title animate-1">
                     Solutions for all type of visas
@@ -93,7 +93,7 @@ const BannerSliderTwo = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </SwiperSlide>
         ))}
