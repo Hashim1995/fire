@@ -7,12 +7,12 @@ import Layout from "./components/layout/Layout";
 import "../../public/css/responsive.css";
 import { Inter } from "next/font/google";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
-
 import {
   NextIntlClientProvider,
   useMessages,
 } from "next-intl";
 import { notFound } from "next/navigation";
+import Providers from "./components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,9 +35,11 @@ export default function LocaleLayout({ children, params: { locale } }) {
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className={inter.className}>
 
-          <Layout HeaderStyle="three">
-            {children}
-          </Layout>
+          <Providers >
+            <Layout HeaderStyle="three">
+              {children}
+            </Layout>
+          </Providers>
         </body>
       </NextIntlClientProvider>
     </html>

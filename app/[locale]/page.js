@@ -15,6 +15,7 @@ import NewsThree from "./components/sections/NewsThree";
 
 export default function Home() {
   return (
+
     <div>
       <BannerTwo />
       <AboutFive />
