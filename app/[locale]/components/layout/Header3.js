@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Dropdown from 'react-bootstrap/Dropdown';
 import React from "react";
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
@@ -14,14 +14,13 @@ const Header3 = ({
   handleToggle,
   scroll,
 }) => {
-    const { Link, redirect, usePathname, useRouter } =
+  const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
   return (
     <>
       <header
-        className={`main-header header-style-three ${
-          scroll ? "fixed-header" : ""
-        } ${searchToggle ? "moblie-search-active" : ""}`}
+        className={`main-header header-style-three ${scroll ? "fixed-header" : ""
+          } ${searchToggle ? "moblie-search-active" : ""}`}
       >
         <div className="main-box">
           <div className="logo-box">
@@ -38,13 +37,23 @@ const Header3 = ({
             </nav>
             {/* Main Menu End*/}
           </div>
+
           <div className="outer-box">
-                <Link href="/" locale="az">
-            In Azeri
-          </Link>
-          <Link href="/" locale="en">
-            In english
-          </Link>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Dropdown Button
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item >  <Link href="/" locale="az">
+                  In Azeri
+                </Link></Dropdown.Item>
+                <Dropdown.Item >  <Link href="/" locale="en">
+                  In English
+                </Link></Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
             <Link href="tel:+92(8800)9806" className="info-btn">
               <i className="icon fa fa-phone" />
               <small>Call Anytime</small>
@@ -82,6 +91,7 @@ const Header3 = ({
             </div>
             <MobileMenu />
             <ul className="contact-list-one">
+
               <li>
                 {/* Contact Info Box */}
                 <div className="contact-info-box">
@@ -157,9 +167,8 @@ const Header3 = ({
         {/* End Header Search */}
         {/* Sticky Header  */}
         <div
-          className={`sticky-header ${
-            scroll ? "fixed-header animated slideInDown" : ""
-          }`}
+          className={`sticky-header ${scroll ? "fixed-header animated slideInDown" : ""
+            }`}
         >
           <div className="auto-container">
             <div className="inner-container">
