@@ -43,7 +43,7 @@ const NewsThree = () => {
                             <div className="news-block-three">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <figure className="image"><Link href="news-details"><img src="images/resource/news-7.jpg" title="Vixoz" /></Link></figure>
+                                        <figure className="image"><Link href="news-details"><img alt="img " src="images/resource/news-7.jpg" title="Vixoz" /></Link></figure>
                                     </div>
                                     <div className="content-box">
                                         <ul className="post-info">
@@ -60,7 +60,7 @@ const NewsThree = () => {
                             <div className="news-block-four">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <figure className="image"><Link href="news-details"><img src="images/resource/news-8.jpg" title="Vixoz" /></Link></figure>
+                                        <figure className="image"><Link href="news-details"><img alt="img " src="images/resource/news-8.jpg" title="Vixoz" /></Link></figure>
                                     </div>
                                     <div className="content-box">
                                         <ul className="post-info">
@@ -75,7 +75,7 @@ const NewsThree = () => {
                             <div className="news-block-four">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <figure className="image"><Link href="news-details"><img src="images/resource/news-9.jpg" title="Vixoz" /></Link></figure>
+                                        <figure className="image"><Link href="news-details"><img alt="img " src="images/resource/news-9.jpg" title="Vixoz" /></Link></figure>
                                     </div>
                                     <div className="content-box">
                                         <ul className="post-info">
@@ -90,7 +90,7 @@ const NewsThree = () => {
                             <div className="news-block-four">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <figure className="image"><Link href="news-details"><img src="images/resource/news-10.jpg" title="Vixoz" /></Link></figure>
+                                        <figure className="image"><Link href="news-details"><img alt="img " src="images/resource/news-10.jpg" title="Vixoz" /></Link></figure>
                                     </div>
                                     <div className="content-box">
                                         <ul className="post-info">

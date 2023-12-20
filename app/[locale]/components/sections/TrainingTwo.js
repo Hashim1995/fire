@@ -43,7 +43,7 @@ const TrainingTwo = () => {
                     <a onClick={() => setOpen(true)} className="play-now-two lightbox-image">
                       <i className="icon fa fa-play" />
                     </a>
-                    <img src="images/icons/icon-arrow.png" title="Vixoz" className="arrow" />
+                    <img alt="img " src="images/icons/icon-arrow.png" title="Vixoz" className="arrow" />
                     <h4 className="title style-font">Play Video</h4>
                     <span className="sub-title">Watch training videos</span>
                   </div>
@@ -59,7 +59,7 @@ const TrainingTwo = () => {
                     <div className="image-box">
                       <figure className="image">
                         <Link href="page-training-details">
-                          <img src={`images/resource/${item.thumb_img}`} title="training-img" />
+                          <img alt="img " src={`images/resource/${item.thumb_img}`} title="training-img" />
                         </Link>
                       </figure>
                       <div className="info-box">

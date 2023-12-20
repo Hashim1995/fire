@@ -20,7 +20,7 @@ const WhyChooseTwo = () => {
                                 </div>
                                 <div className="info-box">
                                     <div className="inner">
-                                        <figure className="thumb"><img src="images/resource/avatar-1.jpg" title="Vixoz" /></figure>
+                                        <figure className="thumb"><img alt="img " src="images/resource/avatar-1.jpg" title="Vixoz" /></figure>
                                         <h5 className="title">Aleesha Brown</h5>
                                         <span className="sub-title">CEO &amp; CO Founder</span>
                                     </div>

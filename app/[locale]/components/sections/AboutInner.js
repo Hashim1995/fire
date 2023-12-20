@@ -38,10 +38,10 @@ const AboutOne = () => {
                         {/* Image Column */}
                         <div className="image-column col-xl-6 col-lg-5 col-md-12 col-sm-12">
                             <div className="inner-column wow fadeInLeft">
-                                <figure className="image-1 overlay-anim wow fadeInUp"><img src="/images/resource/about-1.jpg" title='Vizox' /></figure>
-                                <figure className="image-2 overlay-anim wow fadeInRight"><img src="/images/resource/about-2.jpg" title='Vizox' /></figure>
+                                <figure className="image-1 overlay-anim wow fadeInUp"><img alt="img " src="/images/resource/about-1.jpg" title='Vizox' /></figure>
+                                <figure className="image-2 overlay-anim wow fadeInRight"><img alt="img " src="/images/resource/about-2.jpg" title='Vizox' /></figure>
                                 <div className="experience bounce-y">
-                                    <img src="/images/resource/image-1.jpg" title="Vizox" className="icon" />
+                                    <img alt="img " src="/images/resource/image-1.jpg" title="Vizox" className="icon" />
                                     <strong>3600+</strong> Satisfied Client
                                 </div>
                             </div>

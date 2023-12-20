@@ -10,7 +10,7 @@ const Pricing = () => {
                         <div className="pricing-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                             <div className="pricing-block">
                                 <div className="inner-box">
-                                    <figure className="image"><img src="/images/resource/pricing-1.png" title='Vizox' /></figure>
+                                    <figure className="image"><img alt="img " src="/images/resource/pricing-1.png" title='Vizox' /></figure>
                                     <div className="price-box">
                                         <h4 className="price"><sup>$</sup>49</h4>
                                         <span className="validaty">/ Monthly</span>
@@ -31,7 +31,7 @@ const Pricing = () => {
                         <div className="pricing-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                             <div className="pricing-block">
                                 <div className="inner-box">
-                                    <figure className="image"><img src="/images/resource/pricing-2.png" title='Vizox' /></figure>
+                                    <figure className="image"><img alt="img " src="/images/resource/pricing-2.png" title='Vizox' /></figure>
                                     <div className="price-box">
                                         <h4 className="price"><sup>$</sup>69</h4>
                                         <span className="validaty">/ Monthly</span>
@@ -52,7 +52,7 @@ const Pricing = () => {
                         <div className="pricing-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                             <div className="pricing-block">
                                 <div className="inner-box">
-                                    <figure className="image"><img src="/images/resource/pricing-1.png" title='Vizox' /></figure>
+                                    <figure className="image"><img alt="img " src="/images/resource/pricing-1.png" title='Vizox' /></figure>
                                     <div className="price-box">
                                         <h4 className="price"><sup>$</sup>49</h4>
                                         <span className="validaty">/ Monthly</span>

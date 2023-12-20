@@ -33,7 +33,7 @@ const ProcessOne = () => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <img src={`images/resource/${item.thumb_img}`} title="Vixoz" />                    </figure>
+                      <img alt="img " src={`images/resource/${item.thumb_img}`} title="Vixoz" />                    </figure>
                     <span className="count">01</span>
                   </div>
                   <div className="info-box">

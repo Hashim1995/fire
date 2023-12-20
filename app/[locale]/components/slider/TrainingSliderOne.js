@@ -87,7 +87,7 @@ const TrainingSliderOne = () => {
                 <div className="image-box">
                   <figure className="image">
                     <Link href="page-training-details">
-                      <img src={`images/resource/${item.thumb_img}`} title="training-img" />
+                      <img alt="img " src={`images/resource/${item.thumb_img}`} title="training-img" />
                     </Link>
                   </figure>
                   <div className="info-box">

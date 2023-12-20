@@ -80,7 +80,7 @@ const CountrySliderTwo = () => {
             <div className="country-block-two">
               <div className="inner-box">
                 <div className="flag">
-                  <img src={`images/resource/${item.thumb_img}`} title="country-img" />
+                  <img alt="img " src={`images/resource/${item.thumb_img}`} title="country-img" />
                 </div>
                 <div className="info">
                   <h5 className="title">

@@ -38,9 +38,9 @@ const WhyChooseOne = () => {
                         <div className="image-column col-xl-6 col-lg-12 col-md-12">
                             <div className="inner-column wow fadeInLeft">
                                 <div className="image-box">
-                                    <figure className="plane"><img src="images/resource/icon-plane.png" title="Vixoz" /></figure>
-                                    <figure className="image"><img src="images/resource/image-3.png" title="Vixoz" /></figure>
-                                    <figure className="stemp"><img src="images/resource/stemp-2.png" title="Vixoz" /></figure>
+                                    <figure className="plane"><img alt="img " src="images/resource/icon-plane.png" title="Vixoz" /></figure>
+                                    <figure className="image"><img alt="img " src="images/resource/image-3.png" title="Vixoz" /></figure>
+                                    <figure className="stemp"><img alt="img " src="images/resource/stemp-2.png" title="Vixoz" /></figure>
                                 </div>
                             </div>
                         </div>

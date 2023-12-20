@@ -80,7 +80,7 @@ const GallerySliderOne = () => {
           <SwiperSlide>
             <div className="gallery-item">
               <a onClick={() => setOpen(true)} className="lightbox-image">
-                <img src={`${item.src}`} alt="" title="Vixoz" />
+                <img alt="img " src={`${item.src}`} alt="" title="Vixoz" />
               </a>
             </div>
           </SwiperSlide>

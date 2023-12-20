@@ -62,7 +62,7 @@ const TestimonialSliderOne = () => {
             <div className="inner-box">
               <div className="image-box">
                 <figure className="image">
-                  <img src={`images/resource/${item.img}`} title="Vixoz" />
+                  <img alt="img " src={`images/resource/${item.img}`} title="Vixoz" />
                 </figure>
                 <span className="icon icon-quote" />
               </div>

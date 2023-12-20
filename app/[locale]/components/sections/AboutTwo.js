@@ -54,7 +54,7 @@ const AboutTwo = () => {
               <div className="inner-column wow fadeInLeft">
                 <div className="image-box">
                   <figure className="image overlay-anim wow fadeInUp">
-                    <img src="images/resource/image-2.jpg" title="Vixoz" />
+                    <img alt="img " src="images/resource/image-2.jpg" title="Vixoz" />
                   </figure>
                   <span className="float-text">Trusted by Clients</span>
                 </div>

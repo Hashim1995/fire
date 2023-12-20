@@ -36,7 +36,7 @@ const CtaThree = () => {
                   >
                     <i className="icon fa fa-play" />
                   </a>
-                  <img
+                  <img alt="img "
                     src="images/icons/icon-arrow.png"
                     title="Vixoz"
                     className="arrow"

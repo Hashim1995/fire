@@ -41,7 +41,7 @@ const CountryThree = () => {
           <div className="row">
             <div className="col-lg-6 col-md-12">
               <div className="country-details__img">
-                <img src="images/resource/country-details.jpg" title="Vixoz" />              </div>
+                <img alt="img " src="images/resource/country-details.jpg" title="Vixoz" />              </div>
             </div>
             <div className="col-lg-6 col-md-12">
               <div className="country-content">
@@ -94,7 +94,7 @@ const CountryThree = () => {
                   <div className="inner-box">
                     <div className="content">
                       <div className="flag">
-                        <img src={`images/resource/${item.img}`} title="Vixoz" />
+                        <img alt="img " src={`images/resource/${item.img}`} title="Vixoz" />
                       </div>
                       <h5 className="title">
                         <Link href="page-country-details">{item.title}</Link>

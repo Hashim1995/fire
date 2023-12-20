@@ -41,7 +41,7 @@ const NewsTwo = () => {
                   <div className="image-box">
                     <figure className="image">
                       <Link href="news-details">
-                        <img src={`images/resource/${item.thumb_img}`} title="Vixoz" />                      </Link>
+                        <img alt="img " src={`images/resource/${item.thumb_img}`} title="Vixoz" />                      </Link>
                     </figure>
                     <span className="date">
                       <b>26</b> Nov

@@ -83,7 +83,7 @@ const Serviceone = ({ alternate }) => {
 
             <div className="col-xl-8 col-lg-8">
               <div className="services-details__content">
-                <img src="/images/resource/service-details.jpg" title="Vizox" />
+                <img alt="img " src="/images/resource/service-details.jpg" title="Vizox" />
                 <h2 className="mt-4">Service Overview</h2>
                 <p>
                   Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus quis enim var sed efficitur
