@@ -1,21 +1,18 @@
 
+'use client'
 
-import { getServerSession } from "next-auth"
-import { redirect } from 'next/navigation'
+import { useSession } from "next-auth/react";
 
-import UserInfo from "../components/UserInfo"
+export default function Dashboard() {
+    const session = useSession()
 
-export default async function Dashboard() {
-    const session = await getServerSession()
-
-    if (!session) {
-        redirect('/api/auth/signin?callbackUrl=/server')
+    if (!session?.data?.user?.token) {
+        return <p>Access Denied</p>
     }
 
     return (
         <section className="flex flex-col items-center gap-4">
-            <h1 className="text-2xl text-white">Server page</h1>
-            <UserInfo user={session.user} />
+            <h1 className="text-2xl text-danger">Secret page</h1>
         </section>
     )
 }

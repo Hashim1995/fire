@@ -41,12 +41,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 export const options = {
   providers: [
     CredentialsProvider({
-      // The name to display on the sign in form (e.g. 'Sign in with...')
       name: 'my-project',
-      // The credentials is used to generate a suitable form on the sign in page.
-      // You can specify whatever fields you are expecting to be submitted.
-      // e.g. domain, username, password, 2FA token, etc.
-      // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
         email: {
           label: 'email',
@@ -75,30 +70,26 @@ export const options = {
 
       },
     }),
-    // ...add more providers here
+
   ],
   secret: process.env.JWT_SECRET,
   pages: {
     signIn: '/auth/signin',
-    // signOut: '/auth/signout',
-    // error: '/auth/error',
-    // verifyRequest: '/auth/verify-request',
-    // newUser: '/auth/new-user'
+
   },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.user = user; // Store the entire user object in the token
+        token.user = user;
       }
       return token;
     },
 
     async session({ session, token }) {
-      session.user = token.user; // Transfer the user data from the token to the session
+      session.user = token.user;
       return session;
     },
   },
 
-  // Enable debug messages in the console if you are having problems
   debug: process.env.NODE_ENV === 'development',
 };

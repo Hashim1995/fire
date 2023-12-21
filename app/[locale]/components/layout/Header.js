@@ -113,9 +113,9 @@ const Header = () => {
             </Link>
             {session?.data && <Link className="text-danger" href="/dashboard">dashboard</Link>}
             {session?.data ? (
-              <Link className="text-danger" href="#" onClick={() => signOut({ callbackUrl: "/" })}>
+              <Button className="text-danger" onClick={() => signOut({ callbackUrl: "/" })}>
                 Sign Out
-              </Link>
+              </Button>
             ) : (
               <Link className="text-danger" href="/api/auth/signin">SignIn</Link>
 
