@@ -52,7 +52,7 @@ const MobileMenu = () => {
           <Link href="/page-contact">{t("services")}</Link>
         </li>
         <li>
-          <Link href="/ramiz">{t("about")}</Link>
+          <Link href="/page-about">{t("about")}</Link>
         </li>
         <li>
           <Link href="/page-contact">{t("blog")}</Link>

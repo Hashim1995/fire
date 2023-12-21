@@ -12,7 +12,7 @@ import En from "../../../../public/images/uk.png";
 import Ru from "../../../../public/images/russia.png";
 import { Button, DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
 import LoginForm from "../auth/login";
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 
 const locales = ["az", "en"];
 const Header = () => {
@@ -51,7 +51,7 @@ const Header = () => {
   const toggleLoginFormModal = () => setModal(!modal);
 
   const session = useSession()
-  console.log(session);
+  console.log(session, 'ramiz');
   return (
     <>
       <header
@@ -111,9 +111,20 @@ const Header = () => {
               <small>Call Anytime</small>
               <br /> + 88 ( 9800 ) 6802
             </Link>
-            <Button color="danger" onClick={toggleLoginFormModal}>
-              Login
-            </Button>
+            {session?.data && <Link className="text-danger" href="/dashboard">dashboard</Link>}
+            {session?.data ? (
+              <Link className="text-danger" href="#" onClick={() => signOut({ callbackUrl: "/" })}>
+                Sign Out
+              </Link>
+            ) : (
+              <Link className="text-danger" href="/api/auth/signin">SignIn</Link>
+
+            )}
+
+
+
+
+
             {/* Mobile Nav toggler */}
             <div className="mobile-nav-toggler" onClick={handleOpen}>
               <span className="icon lnr-icon-bars" />
@@ -244,7 +255,7 @@ const Header = () => {
         {/* End Sticky Menu */}
       </header >
       {/* End Main Header */}
-      {modal && <LoginForm isOpen={modal} toggle={toggleLoginFormModal} />}
+      {/* {modal && <LoginForm isOpen={modal} toggle={toggleLoginFormModal} />} */}
     </>
   );
 };
