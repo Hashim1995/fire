@@ -66,7 +66,11 @@ export const options = {
 
         const userJson = await res.json();
         const user = userJson.data
-        return user
+        const jwt = userJson?.data?.token
+        return {
+          ...user,
+          jwt,
+        };
 
       },
     }),
@@ -78,17 +82,23 @@ export const options = {
 
   },
   callbacks: {
-    async jwt({ token, user }) {
+    jwt: async ({ token, user }) => {
+      // user is only available the first time a user signs in authorized
       if (user) {
-        token.user = user;
+        return {
+          ...token,
+          jwt: user.jwt,
+        };
       }
       return token;
     },
-
-    async session({ session, token }) {
-      session.user = token.user;
+    session: async ({ session, token }) => {
+      if (token) {
+        session.jwt = token.jwt;
+      }
       return session;
     },
+
   },
 
   debug: process.env.NODE_ENV === 'development',
