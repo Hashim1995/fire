@@ -10,7 +10,9 @@ import LogoWhite from "../../../../public/images/logo-2.png";
 import Az from "../../../../public/images/azerbaijan.png";
 import En from "../../../../public/images/uk.png";
 import Ru from "../../../../public/images/russia.png";
-import { DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
+import { Button, DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
+import LoginForm from "../auth/login";
+import { signOut, useSession } from 'next-auth/react'
 
 const locales = ["az", "en"];
 const Header = () => {
@@ -44,6 +46,12 @@ const Header = () => {
   }, []);
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
+
+  const [modal, setModal] = useState(false);
+  const toggleLoginFormModal = () => setModal(!modal);
+
+  const session = useSession()
+  console.log(session, 'ramiz');
   return (
     <>
       <header
@@ -54,7 +62,7 @@ const Header = () => {
           <div className="logo-box">
             <div className="logo">
               <Link href="/">
-                <Image src={LogoWhite} title="Vixoz" />
+                <Image alt="test" src={LogoWhite} title="Vixoz" />
               </Link>
             </div>
           </div>
@@ -78,18 +86,18 @@ const Header = () => {
               <DropdownMenu >
                 <div>
                   <Link href="/" locale="az">
-                    <Image width={24}
+                    <Image alt="test" width={24}
                       height={24} src={Az} title="Az" />
                   </Link>
                 </div>
                 <div>
                   <Link href="/" locale="en">
-                    <Image width={24}
+                    <Image alt="test" width={24}
                       height={24} src={En} title="En" />
                   </Link>
                 </div>   <div>
                   <Link href="/" locale="ru">
-                    <Image width={24}
+                    <Image alt="test" width={24}
                       height={24} src={Ru} title="Ru" />
                   </Link>
                 </div>
@@ -103,9 +111,20 @@ const Header = () => {
               <small>Call Anytime</small>
               <br /> + 88 ( 9800 ) 6802
             </Link>
-            <div className="ui-btn-outer">
-              login
-            </div>
+            {session?.data && <Link className="text-danger" href="/dashboard">dashboard</Link>}
+            {session?.data ? (
+              <Button className="text-danger" onClick={() => signOut({ callbackUrl: "/" })}>
+                Sign Out
+              </Button>
+            ) : (
+              <Link className="text-danger" href="/api/auth/signin">SignIn</Link>
+
+            )}
+
+
+
+
+
             {/* Mobile Nav toggler */}
             <div className="mobile-nav-toggler" onClick={handleOpen}>
               <span className="icon lnr-icon-bars" />
@@ -121,7 +140,7 @@ const Header = () => {
             <div className="upper-box">
               <div className="nav-logo">
                 <Link href="/">
-                  <Image src={LogoDark} title="Vixoz" />
+                  <Image alt="test" src={LogoDark} title="Vixoz" />
                 </Link>
               </div>
               <div className="close-btn" onClick={handleRemove}>
@@ -213,7 +232,7 @@ const Header = () => {
               {/* Logo */}
               <div className="logo">
                 <Link href="/" title>
-                  <Image src={LogoDark} title="Vixoz" />
+                  <Image alt="test" src={LogoDark} title="Vixoz" />
                 </Link>
               </div>
               {/* Right Col */}
@@ -236,6 +255,7 @@ const Header = () => {
         {/* End Sticky Menu */}
       </header >
       {/* End Main Header */}
+      {/* {modal && <LoginForm isOpen={modal} toggle={toggleLoginFormModal} />} */}
     </>
   );
 };

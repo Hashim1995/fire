@@ -6,32 +6,32 @@ const CountryThree = () => {
         {
             img: "flag-aus.jpg",
             title: "Australia",
-            sub:"Fusce pretium sem eget mattis"
+            sub: "Fusce pretium sem eget mattis"
         },
         {
             img: "flag-usa.jpg",
             title: "United States",
-            sub:"Fusce pretium sem eget mattis"
+            sub: "Fusce pretium sem eget mattis"
         },
         {
             img: "flag-dub.jpg",
             title: "Dubai",
-            sub:"Fusce pretium sem eget mattis"
+            sub: "Fusce pretium sem eget mattis"
         },
         {
             img: "flag-la.jpg",
             title: "Los Angeles",
-            sub:"Fusce pretium sem eget mattis"
+            sub: "Fusce pretium sem eget mattis"
         },
         {
             img: "flag-in.jpg",
             title: "India",
-            sub:"Fusce pretium sem eget mattis"
+            sub: "Fusce pretium sem eget mattis"
         },
         {
             img: "flag-turkey.jpg",
             title: "Turkey",
-            sub:"Fusce pretium sem eget mattis"
+            sub: "Fusce pretium sem eget mattis"
         },
     ];
     return (
@@ -52,7 +52,7 @@ const CountryThree = () => {
                                 <div className="country-block-three col-lg-4 col-md-6 col-sm-12">
                                     <div className="inner-box">
                                         <div className="content">
-                                            <div className="flag"><img src={`images/resource/${item.img}`} title="Vixoz" /></div>
+                                            <div className="flag"><img alt="img " src={`images/resource/${item.img}`} title="Vixoz" /></div>
                                             <h5 className="title"><Link href="page-country-details">{item.title}</Link></h5>
                                             <div className="text">{item.sub}</div>
                                         </div>

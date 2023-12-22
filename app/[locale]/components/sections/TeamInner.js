@@ -14,7 +14,7 @@ const TeamOne = () => {
                         <div className="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
                             <div className="inner-box">
                                 <div className="image-box">
-                                    <figure className="image"><Link href="/page-team-details"><img src="/images/resource/team-1.jpg" title='Vizox' /></Link></figure>
+                                    <figure className="image"><Link href="/page-team-details"><img alt="img " src="/images/resource/team-1.jpg" title='Vizox' /></Link></figure>
                                 </div>
                                 <div className="info-box">
                                     <h5 className="name"><Link href="/page-team-details">Kevin Hardson</Link></h5>
@@ -31,7 +31,7 @@ const TeamOne = () => {
                         <div className="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
                             <div className="inner-box">
                                 <div className="image-box">
-                                    <figure className="image"><Link href="/page-team-details"><img src="/images/resource/team-2.jpg" title='Vizox' /></Link></figure>
+                                    <figure className="image"><Link href="/page-team-details"><img alt="img " src="/images/resource/team-2.jpg" title='Vizox' /></Link></figure>
                                 </div>
                                 <div className="info-box">
                                     <h5 className="name"><Link href="/page-team-details">Jessica Brown</Link></h5>
@@ -48,7 +48,7 @@ const TeamOne = () => {
                         <div className="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="600ms">
                             <div className="inner-box">
                                 <div className="image-box">
-                                    <figure className="image"><Link href="/page-team-details"><img src="/images/resource/team-3.jpg" title='Vizox' /></Link></figure>
+                                    <figure className="image"><Link href="/page-team-details"><img alt="img " src="/images/resource/team-3.jpg" title='Vizox' /></Link></figure>
                                 </div>
                                 <div className="info-box">
                                     <h5 className="name"><Link href="/page-team-details">michale smith</Link></h5>
@@ -65,7 +65,7 @@ const TeamOne = () => {
                         <div className="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="900ms">
                             <div className="inner-box">
                                 <div className="image-box">
-                                    <figure className="image"><Link href="/page-team-details"><img src="/images/resource/team-3.jpg" title='Vizox' /></Link></figure>
+                                    <figure className="image"><Link href="/page-team-details"><img alt="img " src="/images/resource/team-3.jpg" title='Vizox' /></Link></figure>
                                 </div>
                                 <div className="info-box">
                                     <h5 className="name"><Link href="/page-team-details">michale smith</Link></h5>
@@ -82,7 +82,7 @@ const TeamOne = () => {
                         <div className="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
                             <div className="inner-box">
                                 <div className="image-box">
-                                    <figure className="image"><Link href="/page-team-details"><img src="/images/resource/team-1.jpg" title='Vizox' /></Link></figure>
+                                    <figure className="image"><Link href="/page-team-details"><img alt="img " src="/images/resource/team-1.jpg" title='Vizox' /></Link></figure>
                                 </div>
                                 <div className="info-box">
                                     <h5 className="name"><Link href="/page-team-details">Kevin Hardson</Link></h5>
@@ -99,7 +99,7 @@ const TeamOne = () => {
                         <div className="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1500ms">
                             <div className="inner-box">
                                 <div className="image-box">
-                                    <figure className="image"><Link href="/page-team-details"><img src="/images/resource/team-2.jpg" title='Vizox' /></Link></figure>
+                                    <figure className="image"><Link href="/page-team-details"><img alt="img " src="/images/resource/team-2.jpg" title='Vizox' /></Link></figure>
                                 </div>
                                 <div className="info-box">
                                     <h5 className="name"><Link href="/page-team-details">Jessica Brown</Link></h5>

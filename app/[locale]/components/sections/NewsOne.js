@@ -32,7 +32,7 @@ const NewsOne = () => {
                             <div className="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="600ms">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <figure className="image"><Link href="news-details"><img src={`images/resource/${item.img}`} title="Vixoz" /></Link></figure>
+                                        <figure className="image"><Link href="news-details"><img alt="img " src={`images/resource/${item.img}`} title="Vixoz" /></Link></figure>
                                         <span className="date"><b>26</b> Nov</span>
                                     </div>
                                     <div className="content-box">

@@ -45,10 +45,10 @@ const WhyChooseThree = () => {
               <div className="inner-column">
                 <div className="image-box">
                   <figure className="bg-image">
-                    <img src="images/resource/image-6.jpg" title="Vixoz" />
+                    <img alt="img " src="images/resource/image-6.jpg" title="Vixoz" />
                   </figure>
                   <figure className="image">
-                    <img src="images/resource/image-5.jpg" title="Vixoz" />
+                    <img alt="img " src="images/resource/image-5.jpg" title="Vixoz" />
                   </figure>
                   <div className="info-box">
                     <i className="icon flaticon-licensing" />
@@ -65,7 +65,7 @@ const WhyChooseThree = () => {
             <div className="inner-box">
               <div className="title-column">
                 <figure className="image">
-                  <img src="images/resource/image-7.jpg" title="Vixoz" />
+                  <img alt="img " src="images/resource/image-7.jpg" title="Vixoz" />
                 </figure>
                 <h3 className="title">
                   Skilled Visa’s in Global Immigration Sumit

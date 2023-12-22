@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-const PortfolioFilter = ({col, show}) => {
+const PortfolioFilter = ({ col, show }) => {
     const portfolio = [
         {
             name: "Flyer design",
@@ -81,7 +81,7 @@ const PortfolioFilter = ({col, show}) => {
 
             <div className="mt-70 mb-50">
                 <div className="row">
-                    {projects.slice(0,show).map(item =>
+                    {projects.slice(0, show).map(item =>
                         item.filtered === true ?
                             <>
                                 <div className={`col-lg-${col}`} key={item.name}>
@@ -89,7 +89,7 @@ const PortfolioFilter = ({col, show}) => {
                                         <div className="item-content">
                                             <div className="card-style-1 hover-up mb-30" data-wow-delay=".0s">
                                                 <div className="card-image">
-                                                    <Link className="link-post" href="#"><img src={`assets/imgs/page/about/${item.img}`} alt="Genz" />
+                                                    <Link className="link-post" href="#"><img alt="img " src={`assets/imgs/page/about/${item.img}`} alt="Genz" />
                                                         <div className="card-info card-bg-2">
                                                             <div className="info-bottom mb-15">
                                                                 <h3 className="color-white mb-10">{item.name}</h3>

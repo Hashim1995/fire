@@ -46,7 +46,7 @@ const TrainingGrid = () => {
                     <div className="image-box">
                       <div className="image">
                         <Link href="page-training-details">
-                          <img src={`images/resource/${item.thumb_img}`} />
+                          <img alt="img " src={`images/resource/${item.thumb_img}`} />
                         </Link>
                       </div>
                       <Link href="page-training-details" className="read-more">

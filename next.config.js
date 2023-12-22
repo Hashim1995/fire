@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   ignoreDuringBuilds: true,
+
 };
 
 const withNextIntl = require("next-intl/plugin")(

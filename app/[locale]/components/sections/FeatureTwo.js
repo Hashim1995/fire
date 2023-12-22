@@ -19,7 +19,7 @@ const FeatureTwo = () => {
                             </div>
                             <div className="features-column col-lg-6">
                                 <div className="inner-column">
-                                    <figure className="image"><img src="images/resource/image-1.png" title="Vixoz" /></figure>
+                                    <figure className="image"><img alt="img " src="images/resource/image-1.png" title="Vixoz" /></figure>
                                     <ul className="features-list">
                                         <li>Entering &amp; Leaving From Country</li>
                                         <li>Visas</li>

@@ -65,12 +65,12 @@ const CountryGrid = () => {
                   <div className="image-box">
                     <figure className="image">
                       <Link href="page-country-details" className="lightbox-image">
-                        <img src={`images/resource/${item.thumb_img}`} title="Vixoz" />                      </Link>
+                        <img alt="img " src={`images/resource/${item.thumb_img}`} title="Vixoz" />                      </Link>
                     </figure>
                   </div>
                   <div className="content-box">
                     <div className="flag">
-                      <img src={`images/resource/${item.country_img}`} title="Vixoz" />                    </div>
+                      <img alt="img " src={`images/resource/${item.country_img}`} title="Vixoz" />                    </div>
                     <h5 className="title">
                       <Link href="page-country-details">{item.title}</Link>
                     </h5>

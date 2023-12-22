@@ -48,7 +48,7 @@ const ServiceOne = () => {
                   <div className="image-box">
                     <figure className="image">
                       <Link href="page-visa-details">
-                        <img src={`images/resource/${item.thumb_img}`} title="Vixoz" />
+                        <img alt="img " src={`images/resource/${item.thumb_img}`} title="Vixoz" />
                       </Link>
                     </figure>
                     <div className="icon-box">

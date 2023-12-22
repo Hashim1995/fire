@@ -12,7 +12,7 @@ const TeamDetails = ({ alternate }) => {
 						<div className="row">
 							<div className="col-xl-6 col-lg-6">
 								<div className="team-details__top-left">
-									<div className="team-details__top-img"> <img src="/images/resource/team-details.jpg" title='Vizox' />
+									<div className="team-details__top-img"> <img alt="img " src="/images/resource/team-details.jpg" title='Vizox' />
 										<div className="team-details__big-text"></div>
 									</div>
 								</div>
@@ -42,64 +42,64 @@ const TeamDetails = ({ alternate }) => {
 							<div className="col-xl-6 col-lg-6">
 								<div className="team-details__bottom-right">
 									<div className="">
-                    <div className="skills">
-                        <div className="skill-item">
-                            <div className="skill-header">
-                                <h6 className="skill-title">Technology</h6>
-                            </div>
-                            <div className="skill-bar">
-                                <div className="bar-inner">
-                                    <div className="bar progress-line" data-width={77} style={{width: `77%`}} >
-                                        <div className="skill-percentage">
-                                            <div className="count-box">
-                                                <span className="count-text" data-speed={3000} data-stop={77}>77</span>%
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+										<div className="skills">
+											<div className="skill-item">
+												<div className="skill-header">
+													<h6 className="skill-title">Technology</h6>
+												</div>
+												<div className="skill-bar">
+													<div className="bar-inner">
+														<div className="bar progress-line" data-width={77} style={{ width: `77%` }} >
+															<div className="skill-percentage">
+																<div className="count-box">
+																	<span className="count-text" data-speed={3000} data-stop={77}>77</span>%
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 									<div className="">
-                    <div className="skills">
-                        <div className="skill-item">
-                            <div className="skill-header">
-                                <h6 className="skill-title">Marketing</h6>
-                            </div>
-                            <div className="skill-bar">
-                                <div className="bar-inner">
-                                    <div className="bar progress-line" data-width={90} style={{width: `90%`}} >
-                                        <div className="skill-percentage">
-                                            <div className="count-box">
-                                                <span className="count-text" data-speed={3000} data-stop={90}>90</span>%
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+										<div className="skills">
+											<div className="skill-item">
+												<div className="skill-header">
+													<h6 className="skill-title">Marketing</h6>
+												</div>
+												<div className="skill-bar">
+													<div className="bar-inner">
+														<div className="bar progress-line" data-width={90} style={{ width: `90%` }} >
+															<div className="skill-percentage">
+																<div className="count-box">
+																	<span className="count-text" data-speed={3000} data-stop={90}>90</span>%
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 									<div className="">
-                    <div className="skills">
-                        <div className="skill-item">
-                            <div className="skill-header">
-                                <h6 className="skill-title">Business</h6>
-                            </div>
-                            <div className="skill-bar">
-                                <div className="bar-inner">
-                                    <div className="bar progress-line" data-width={99} style={{width: `99%`}} >
-                                        <div className="skill-percentage">
-                                            <div className="count-box">
-                                                <span className="count-text" data-speed={3000} data-stop={99}>99</span>%
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+										<div className="skills">
+											<div className="skill-item">
+												<div className="skill-header">
+													<h6 className="skill-title">Business</h6>
+												</div>
+												<div className="skill-bar">
+													<div className="bar-inner">
+														<div className="bar progress-line" data-width={99} style={{ width: `99%` }} >
+															<div className="skill-percentage">
+																<div className="count-box">
+																	<span className="count-text" data-speed={3000} data-stop={99}>99</span>%
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

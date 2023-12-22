@@ -10,7 +10,7 @@ const BlogOne = ({ alternate }) => {
             <div className="col-xl-8 col-lg-7">
               <div className="blog-details__left">
                 <div className="blog-details__img">
-                  <img src="/images/resource/news-details.jpg" title="Vizox" />
+                  <img alt="img " src="/images/resource/news-details.jpg" title="Vizox" />
                   <div className="blog-details__date">
                     <span className="day">28</span>
                     <span className="month">Aug</span>
@@ -81,7 +81,7 @@ const BlogOne = ({ alternate }) => {
                   <div className="comment-one__single">
                     <div className="comment-one__image">
                       {" "}
-                      <img src="images/resource/testimonial-4.jpg" title="Vizox" />{" "}
+                      <img alt="img " src="images/resource/testimonial-4.jpg" title="Vizox" />{" "}
                     </div>
                     <div className="comment-one__content">
                       <h3>Kevin Martin</h3>
@@ -94,7 +94,7 @@ const BlogOne = ({ alternate }) => {
                   <div className="comment-one__single">
                     <div className="comment-one__image">
                       {" "}
-                      <img src="images/resource/testimonial-5.jpg" title="Vizox" />{" "}
+                      <img alt="img " src="images/resource/testimonial-5.jpg" title="Vizox" />{" "}
                     </div>
                     <div className="comment-one__content">
                       <h3>Sarah Albert</h3>
@@ -149,7 +149,7 @@ const BlogOne = ({ alternate }) => {
                     <li>
                       <div className="sidebar__post-image">
                         {" "}
-                        <img src="/images/resource/news-1.jpg" title="Vizox" />{" "}
+                        <img alt="img " src="/images/resource/news-1.jpg" title="Vizox" />{" "}
                       </div>
                       <div className="sidebar__post-content">
                         <h3>
@@ -164,7 +164,7 @@ const BlogOne = ({ alternate }) => {
                     <li>
                       <div className="sidebar__post-image">
                         {" "}
-                        <img src="/images/resource/news-2.jpg" title="Vizox" />{" "}
+                        <img alt="img " src="/images/resource/news-2.jpg" title="Vizox" />{" "}
                       </div>
                       <div className="sidebar__post-content">
                         <h3>
@@ -179,7 +179,7 @@ const BlogOne = ({ alternate }) => {
                     <li>
                       <div className="sidebar__post-image">
                         {" "}
-                        <img src="/images/resource/news-3.jpg" title="Vizox" />{" "}
+                        <img alt="img " src="/images/resource/news-3.jpg" title="Vizox" />{" "}
                       </div>
                       <div className="sidebar__post-content">
                         <h3>
