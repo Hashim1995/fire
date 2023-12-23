@@ -13,6 +13,7 @@ import Ru from "../../../../public/images/russia.png";
 import { Button, DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
 import LoginForm from "../auth/login";
 import { signOut, useSession } from 'next-auth/react'
+import { useTranslations } from "next-intl";
 
 const locales = ["az", "en"];
 const Header = () => {
@@ -51,6 +52,7 @@ const Header = () => {
   const toggleLoginFormModal = () => setModal(!modal);
 
   const session = useSession()
+  const t = useTranslations();
   console.log(session, 'ramiz');
   return (
     <>
@@ -83,22 +85,25 @@ const Header = () => {
                 <BiWorld className="" size={24} />
 
               </DropdownToggle>
-              <DropdownMenu >
+              <DropdownMenu className="p-1" >
                 <div>
                   <Link href="/" locale="az">
-                    <Image alt="test" width={24}
+                    <Image className=" me-1" alt="test" width={24}
                       height={24} src={Az} title="Az" />
+                    Azərbaycan dili
                   </Link>
                 </div>
                 <div>
                   <Link href="/" locale="en">
-                    <Image alt="test" width={24}
+                    <Image className=" me-1" alt="test" width={24}
                       height={24} src={En} title="En" />
+                    İngilis dili
                   </Link>
                 </div>   <div>
                   <Link href="/" locale="ru">
-                    <Image alt="test" width={24}
+                    <Image className=" me-1" alt="test" width={24}
                       height={24} src={Ru} title="Ru" />
+                    Rus dili
                   </Link>
                 </div>
 
@@ -106,21 +111,19 @@ const Header = () => {
             </UncontrolledDropdown>
 
 
-            <Link href="tel:+92(8800)9806" className="info-btn">
+            <Link href="tel:+92(8800)9806" className="info-btn me-2">
               <i className="icon fa fa-phone" />
               <small>Call Anytime</small>
               <br /> + 88 ( 9800 ) 6802
             </Link>
-            {session?.data && <Link className="text-danger" href="/dashboard">dashboard</Link>}
-            {session?.data ? (
-              <Button className="text-danger" onClick={() => signOut()}>
+            <div className="flex align-items-center  justify-content-end" style={{ width: 'max-content' }}>
+              {!session?.data && <Link className="text-white" href="/api/auth/signin">{t('login')}</Link>}
+              {session?.data && <Button><Link className="text-white" href="/dashboard">Profil</Link></Button>}
+              {session?.data && <Button className="text-danger" onClick={() => signOut()}>
                 Sign Out
-              </Button>
+              </Button>}
+            </div>
 
-            ) : (
-              <Link className="text-danger" href="/api/auth/signin">SignIn</Link>
-
-            )}
 
 
 

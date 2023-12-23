@@ -76,16 +76,26 @@ export const options = {
     }),
 
   ],
-  secret: process.env.JWT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/auth/signin',
+
   },
   callbacks: {
-    async jwt({ token, user }) {
-      return { ...token, ...user };
+    jwt: async ({ token, user }) => {
+      // user is only available the first time a user signs in authorized
+      if (user) {
+        return {
+          ...token,
+          jwt: user.jwt,
+        };
+      }
+      return token;
     },
-    async session({ session, token, user }) {
-      session.user = token;
+    session: async ({ session, token }) => {
+      if (token) {
+        session.jwt = token.jwt;
+      }
       return session;
     },
 

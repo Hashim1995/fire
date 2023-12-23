@@ -6,5 +6,8 @@
   "services": "Xidmətlərimiz",
   "about": "Haqqımızda",
   "blog": "Bloq",
-  "news": "Xəbərlər"
+  "news": "Xəbərlər",
+  "login": "Daxil ol",
+  "email": "Email",
+  "password": "Şifrə"
 }

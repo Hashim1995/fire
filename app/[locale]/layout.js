@@ -24,21 +24,22 @@ export const metadata = {
 };
 const locales = ["az", "en", "ru"];
 
-export default function LocaleLayout({ children, params: { locale } }) {
+export default async function LocaleLayout({ children, params: { locale } }) {
   if (!locales.includes(locale)) notFound();
 
-  // let messages;
-  // try {
-  //   messages = (await import(`../../messages/${locale}.json`)).default;
-  // } catch (error) {
-  //   notFound();
-  // }
-  const messages = useMessages()
+  let messages;
+  try {
+    messages = (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
 
+
+  console.log(`MENIM KODUM BUDU: b5e088a07dd048dcea76ae0c4dd73694`);
 
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
-  const session = getServerSession(options)
+  const session = await getServerSession()
 
   return (
     <html lang={locale}>
@@ -46,7 +47,7 @@ export default function LocaleLayout({ children, params: { locale } }) {
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className={inter.className}>
 
-          <Providers  >
+          <Providers session={session} >
             <Layout HeaderStyle="three">
               {children}
             </Layout>
