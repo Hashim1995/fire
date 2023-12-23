@@ -19,27 +19,33 @@ export default function FormComponent() {
 
     const onSubmit = async (data) => {
         setLoading(true)
+        const result = await signIn('credentials', {
+            email: data.email,
+            password: data.password,
+            redirect: false,
+            callbackUrl: "/",
+        });
+        setLoading(false);
+        // try {
+        //     const result = await signIn('credentials', {
+        //         email: data.email,
+        //         password: data.password,
+        //         redirect: false,
+        //         callbackUrl: "/",
+        //     });
+        //     setLoading(false);
+        //     console.log(result, 'bilal');
 
-        try {
-            const result = await signIn('credentials', {
-                email: data.email,
-                password: data.password,
-                redirect: false,
-                callbackUrl: "/",
-            });
-            setLoading(false);
-            console.log(result, 'bilal');
-
-            if (result?.error) {
-                // Check if error is a string and parse it
-                const errorObj = typeof result.error === 'string' ? JSON.parse(result.error) : result.error;
-                console.log(errorObj, ' bilal parsed error');
-                const messages = errorObj.messages || ['Xəta baş verdi'];
-                toast(messages.join(', '), { hideProgressBar: true, autoClose: 1000, type: 'error', position: 'top-right' });
-            }
-        } catch (err) {
-            console.log(err);
-        }
+        //     if (result?.error) {
+        //         // Check if error is a string and parse it
+        //         const errorObj = typeof result.error === 'string' ? JSON.parse(result.error) : result.error;
+        //         console.log(errorObj, ' bilal parsed error');
+        //         const messages = errorObj.messages || ['Xəta baş verdi'];
+        //         toast(messages.join(', '), { hideProgressBar: true, autoClose: 1000, type: 'error', position: 'top-right' });
+        //     }
+        // } catch (err) {
+        //     console.log(err);
+        // }
 
 
 

@@ -69,7 +69,7 @@ export const options = {
           }
         } catch (e) {
           // Redirecting to the login page with error messsage in the URL
-          throw new Error(JSON.stringify(e.response.data))
+          //  throw new Error(JSON.stringify(e.response.data))
         }
       }
     }),
