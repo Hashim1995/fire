@@ -79,23 +79,13 @@ export const options = {
   secret: process.env.JWT_SECRET,
   pages: {
     signIn: '/auth/signin',
-
   },
   callbacks: {
-    jwt: async ({ token, user }) => {
-      // user is only available the first time a user signs in authorized
-      if (user) {
-        return {
-          ...token,
-          jwt: user.jwt,
-        };
-      }
-      return token;
+    async jwt({ token, user }) {
+      return { ...token, ...user };
     },
-    session: async ({ session, token }) => {
-      if (token) {
-        session.jwt = token.jwt;
-      }
+    async session({ session, token, user }) {
+      session.user = token;
       return session;
     },
 

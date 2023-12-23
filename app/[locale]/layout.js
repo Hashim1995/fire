@@ -13,6 +13,8 @@ import {
 } from "next-intl";
 import { notFound } from "next/navigation";
 import Providers from "./components/Providers";
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/options";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +26,19 @@ const locales = ["az", "en", "ru"];
 
 export default function LocaleLayout({ children, params: { locale } }) {
   if (!locales.includes(locale)) notFound();
-  const messages = useMessages();
+
+  // let messages;
+  // try {
+  //   messages = (await import(`../../messages/${locale}.json`)).default;
+  // } catch (error) {
+  //   notFound();
+  // }
+  const messages = useMessages()
+
+
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
-
+  const session = getServerSession(options)
 
   return (
     <html lang={locale}>
@@ -35,7 +46,7 @@ export default function LocaleLayout({ children, params: { locale } }) {
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className={inter.className}>
 
-          <Providers >
+          <Providers  >
             <Layout HeaderStyle="three">
               {children}
             </Layout>
