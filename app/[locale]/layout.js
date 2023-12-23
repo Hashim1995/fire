@@ -35,11 +35,11 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   }
 
 
-  console.log(`MENIM KODUM BUDU: b5e088a07dd048dcea76ae0c4dd73694`);
 
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
-  const session = await getServerSession()
+  const session = await getServerSession(options)
+  console.log(session, 'faffff3333333333333333333333333332333333333333333333333333333333333333');
 
   return (
     <html lang={locale}>
