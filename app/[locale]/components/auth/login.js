@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react"
 import { Label, Spinner, Form, FormGroup, Input, Button } from "reactstrap"
 import './login.scss'
 import { useTranslations } from "next-intl";
+import { toast } from "react-toastify"
 
 export default function FormComponent() {
     const [loading, setLoading] = useState(false);
@@ -18,13 +19,29 @@ export default function FormComponent() {
 
     const onSubmit = async (data) => {
         setLoading(true)
-        const result = await signIn('credentials', {
-            email: data.email,
-            password: data.password,
-            redirect: true,
-            callbackUrl: "/",
-        })
-        setLoading(false)
+
+        try {
+            const result = await signIn('credentials', {
+                email: data.email,
+                password: data.password,
+                redirect: false,
+                callbackUrl: "/",
+            });
+            setLoading(false);
+            console.log(result, 'bilal');
+
+            if (result?.error) {
+                // Check if error is a string and parse it
+                const errorObj = typeof result.error === 'string' ? JSON.parse(result.error) : result.error;
+                console.log(errorObj, ' bilal parsed error');
+                const messages = errorObj.messages || ['Xəta baş verdi'];
+                toast(messages.join(', '), { hideProgressBar: true, autoClose: 1000, type: 'error', position: 'top-right' });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+
+
 
     }
     const t = useTranslations();

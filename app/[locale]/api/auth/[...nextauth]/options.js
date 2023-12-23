@@ -36,6 +36,7 @@
 //   },
 // }
 
+import axios from 'axios';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const options = {
@@ -56,23 +57,21 @@ export const options = {
           password: credentials.password,
         };
 
-        const res = await fetch('https://ivisaapp.azurewebsites.net/api/v1/auth/login', {
-          method: 'POST',
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        try {
+          const userJson = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/auth/login', payload);
+          const user = userJson.data;
+          const jwt = user?.token; // Ensure this matches the structure returned by your API
 
-        const userJson = await res.json();
-        const user = userJson.data
-        const jwt = userJson?.data?.token
-        return {
-          ...user,
-          jwt,
-        };
-
-      },
+          if (jwt) {
+            return { ...user, jwt };
+          } else {
+            return null
+          }
+        } catch (e) {
+          // Redirecting to the login page with error messsage in the URL
+          throw new Error(JSON.stringify(e.response.data))
+        }
+      }
     }),
 
   ],
@@ -83,7 +82,7 @@ export const options = {
   },
   callbacks: {
     async jwt({ token, user }) {
-      return { ...token, ...user };
+      return user;
     },
     async session({ session, token, user }) {
       session.user = token;

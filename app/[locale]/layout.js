@@ -15,7 +15,7 @@ import { notFound } from "next/navigation";
 import Providers from "./components/Providers";
 import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
-
+import ToastContainerWrapper from './components/toasProvider'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -34,12 +34,9 @@ export default async function LocaleLayout({ children, params: { locale } }) {
     notFound();
   }
 
-
-
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
   const session = await getServerSession(options)
-  console.log(session, 'faffff3333333333333333333333333332333333333333333333333333333333333333');
 
   return (
     <html lang={locale}>
@@ -48,10 +45,14 @@ export default async function LocaleLayout({ children, params: { locale } }) {
         <body className={inter.className}>
 
           <Providers session={session} >
+
             <Layout HeaderStyle="three">
               {children}
+              <ToastContainerWrapper />
+
             </Layout>
           </Providers>
+
         </body>
       </NextIntlClientProvider>
     </html>
