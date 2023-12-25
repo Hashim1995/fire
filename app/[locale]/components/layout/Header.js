@@ -13,12 +13,16 @@ import Ru from "../../../../public/images/russia.png";
 import { Button, DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
 import LoginForm from "../auth/login";
 import { signOut, useSession } from 'next-auth/react'
+import { usePathname, useRouter } from "next/navigation"
 import { useTranslations } from "next-intl";
 
 const locales = ["az", "en"];
 const Header = () => {
   const [searchToggle, setSearchToggled] = useState(false);
   const [scroll, setScroll] = useState(0);
+  const router = useRouter();
+  const pathname = usePathname();
+
   const handleToggle = () => setSearchToggled(!searchToggle);
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -45,7 +49,7 @@ const Header = () => {
     window.wow.init();
 
   }, []);
-  const { Link, redirect, usePathname, useRouter } =
+  const { Link, redirect, } =
     createSharedPathnamesNavigation({ locales });
 
   const [modal, setModal] = useState(false);
@@ -111,17 +115,23 @@ const Header = () => {
             </UncontrolledDropdown>
 
 
-            <Link href="tel:+92(8800)9806" className="info-btn me-2">
+            {/* <Link href="tel:+92(8800)9806" className="info-btn me-2">
               <i className="icon fa fa-phone" />
               <small>Call Anytime</small>
               <br /> + 88 ( 9800 ) 6802
-            </Link>
-            <div className="flex align-items-center  justify-content-end" style={{ width: 'max-content' }}>
+            </Link> */}
+            <div className="d-flex align-items-center  justify-content-end gap-2" style={{ width: 'max-content' }}>
               {!session?.data && <Link className="text-white" href="/api/auth/signin">{t('login')}</Link>}
-              {session?.data && <Button><Link className="text-white" href="/dashboard">Profil</Link></Button>}
-              {session?.data && <Button className="text-danger" onClick={() => signOut()}>
-                Sign Out
-              </Button>}
+              {session?.data && <Link className={pathname?.includes('page-about') ? 'current text-white' : 'text-white'} href="/dashboard">Profil</Link>}
+              {session?.data && <p role="button" className="text-white ms-1 mb-0" onClick={() => {
+                signOut({ redirect: false }).then(() => {
+                  router.push("/"); // Redirect to the dashboard page after signing out
+                });
+              }}>
+                {t('logout')}
+              </p>}
+              {session?.data && <p className="text-white ms-1 mb-0">{session?.data?.user?.data?.firstname} {session?.data?.user?.data?.lastname}</p>}
+
             </div>
 
 
@@ -154,15 +164,13 @@ const Header = () => {
             <MobileMenu />
             <ul className="contact-list-one">
               <li>
-                {/* Contact Info Box */}
                 <div className="contact-info-box">
                   <i className="icon lnr-icon-phone-handset" />
                   <span className="title">Call Now</span>
                   <Link href="/tel:+92880098670">+92 (8800) - 98670</Link>
                 </div>
               </li>
-              <li>
-                {/* Contact Info Box */}
+              {/* <li>
                 <div className="contact-info-box">
                   <span className="icon lnr-icon-envelope1" />
                   <span className="title">Send Email</span>
@@ -170,13 +178,12 @@ const Header = () => {
                 </div>
               </li>
               <li>
-                {/* Contact Info Box */}
                 <div className="contact-info-box">
                   <span className="icon lnr-icon-clock" />
                   <span className="title">Send Email</span>
                   Mon - Sat 8:00 - 6:30, Sunday - CLOSED
                 </div>
-              </li>
+              </li> */}
             </ul>
             <ul className="social-links">
               <li>

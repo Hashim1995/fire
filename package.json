@@ -24,6 +24,7 @@
     "next": "13.4.3",
     "next-auth": "^4.24.5",
     "next-intl": "^3.3.2",
+    "nextjs-toploader": "^1.6.4",
     "react": "18.2.0",
     "react-animated-slider": "^1.1.4",
     "react-countup": "^6.4.1",

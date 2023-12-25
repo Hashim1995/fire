@@ -9,5 +9,6 @@
   "news": "News",
   "login": "Login",
   "email": "Email",
-  "password": "Password"
+  "password": "Password",
+  "logout": "Log out"
 }

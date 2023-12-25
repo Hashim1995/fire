@@ -23,7 +23,7 @@ const ServiceTwo = () => {
                 <div className="image-box">
                   <figure className="image">
                     <Link href="page-visa-details">
-                      <img alt="img " src="images/resource/service-4.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/service-4.jpg" title="Vixoz" />
                     </Link>
                   </figure>
                   <div className="icon-box">
@@ -44,7 +44,7 @@ const ServiceTwo = () => {
                 <div className="image-box">
                   <figure className="image">
                     <Link href="page-visa-details">
-                      <img alt="img " src="images/resource/service-5.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/service-5.jpg" title="Vixoz" />
                     </Link>
                   </figure>
                   <div className="icon-box">
@@ -65,7 +65,7 @@ const ServiceTwo = () => {
                 <div className="image-box">
                   <figure className="image">
                     <Link href="page-visa-details">
-                      <img alt="img " src="images/resource/service-6.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/service-6.jpg" title="Vixoz" />
                     </Link>
                   </figure>
                   <div className="icon-box">
@@ -86,7 +86,7 @@ const ServiceTwo = () => {
                 <div className="image-box">
                   <figure className="image">
                     <Link href="page-visa-details">
-                      <img alt="img " src="images/resource/service-7.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/service-7.jpg" title="Vixoz" />
                     </Link>
                   </figure>
                   <div className="icon-box">

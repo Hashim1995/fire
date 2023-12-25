@@ -47,7 +47,7 @@ const AboutFour = () => {
             <div className="image-column col-xl-6 col-lg-12">
               <div className="inner-column wow fadeInLeft">
                 <figure className="image overlay-anim wow fadeInUp">
-                  <img alt="img " src="images/resource/about-6.jpg" title="Vixoz" />
+                  <img alt="img " src="/images/resource/about-6.jpg" title="Vixoz" />
                 </figure>
                 <div className="experience bounce-y">
                   <div className="inner">

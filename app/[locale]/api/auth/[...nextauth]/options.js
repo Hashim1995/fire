@@ -1,40 +1,4 @@
-// import CredentialsProvider from "next-auth/providers/credentials"
 
-// export const options = {
-//   providers: [
-
-//     CredentialsProvider({
-//       credentials: {
-//         email: { label: "email", type: "email", placeholder: "your best email" },
-//         password: { label: "password", type: "password" }
-//       },
-//       async authorize(credentials) {
-//         const payload = {
-//           email: credentials.email,
-//           password: credentials.password,
-//         };
-
-//         const res = await fetch('https://ivisaapp.azurewebsites.net/api/v1/auth/login', {
-//           method: 'POST',
-//           body: JSON.stringify(payload),
-//           headers: {
-//             'Content-Type': 'application/json',
-//           },
-//         });
-//         const userJson = await res.json();
-//         const user = userJson.data
-//         return user
-//       }
-//     })
-//   ],
-//   pages: {
-//     signIn: '/auth/signin',
-//     // signOut: '/auth/signout',
-//     // error: '/auth/error',
-//     // verifyRequest: '/auth/verify-request',
-//     // newUser: '/auth/new-user'
-//   },
-// }
 
 import axios from 'axios';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -62,14 +26,14 @@ export const options = {
           const user = userJson.data;
           const jwt = user?.token; // Ensure this matches the structure returned by your API
 
-          if (jwt) {
-            return { ...user, jwt };
+          if (user) {
+            return Promise.resolve({ ...user, jwt });
           } else {
             return null
           }
         } catch (e) {
           // Redirecting to the login page with error messsage in the URL
-          //  throw new Error(JSON.stringify(e.response.data))
+          throw new Error(JSON.stringify(e.response.data))
         }
       }
     }),
@@ -81,11 +45,15 @@ export const options = {
 
   },
   callbacks: {
+
     async jwt({ token, user }) {
-      return user;
+      if (user) {
+        token.user = user; // Assign the user data to the token
+      }
+      return token; // Return the token object, not the user object
     },
-    async session({ session, token, user }) {
-      session.user = token;
+    async session({ session, token }) {
+      session.user = token.user; // Make sure this correctly assigns the user data
       return session;
     },
 

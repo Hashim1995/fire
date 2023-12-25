@@ -7,6 +7,8 @@ import Layout from "./components/layout/Layout";
 import "../../public/css/responsive.css";
 import { Inter } from "next/font/google";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import NextTopLoader from 'nextjs-toploader';
+
 import {
   NextIntlClientProvider,
   useMessages,
@@ -45,6 +47,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
         <body className={inter.className}>
 
           <Providers session={session} >
+            <NextTopLoader />
 
             <Layout HeaderStyle="three">
               {children}

@@ -81,7 +81,7 @@ const BlogOne = ({ alternate }) => {
                   <div className="comment-one__single">
                     <div className="comment-one__image">
                       {" "}
-                      <img alt="img " src="images/resource/testimonial-4.jpg" title="Vizox" />{" "}
+                      <img alt="img " src="/images/resource/testimonial-4.jpg" title="Vizox" />{" "}
                     </div>
                     <div className="comment-one__content">
                       <h3>Kevin Martin</h3>
@@ -94,7 +94,7 @@ const BlogOne = ({ alternate }) => {
                   <div className="comment-one__single">
                     <div className="comment-one__image">
                       {" "}
-                      <img alt="img " src="images/resource/testimonial-5.jpg" title="Vizox" />{" "}
+                      <img alt="img " src="/images/resource/testimonial-5.jpg" title="Vizox" />{" "}
                     </div>
                     <div className="comment-one__content">
                       <h3>Sarah Albert</h3>

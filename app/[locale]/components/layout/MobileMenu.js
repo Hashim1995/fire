@@ -1,6 +1,7 @@
 'us client'
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const MobileMenu = () => {
@@ -8,6 +9,7 @@ const MobileMenu = () => {
     status: false,
     key: "",
   });
+  const pathname = usePathname();
 
   const handleClick = (key) => {
     if (isActive.key === key) {
@@ -45,21 +47,21 @@ const MobileMenu = () => {
   return (
     <>
       <ul className="navigation clearfix">
-        <li className="current ">
+        <li className={['page-about', 'news-grid', 'page-contact', 'dashboard'].some(term => pathname.includes(term)) ? '' : 'current'}>
           <Link href="/">{t("homePage")}</Link>
         </li>
-        <li>
-          <Link href="/page-contact">{t("services")}</Link>
-        </li>
-        <li>
+        <li className={pathname?.includes('page-about') ? 'current' : ''}>
           <Link href="/page-about">{t("about")}</Link>
         </li>
-        <li>
-          <Link href="/page-contact">{t("blog")}</Link>
+        <li className={pathname?.includes('news-grid') ? 'current' : ''}>
+          <Link href="/news-grid">{t("blog")}</Link>
         </li>
-        <li>
-          <Link href="/page-contact">{t("news")}</Link>
+        <li className={pathname?.includes('page-contact') ? 'current' : ''}>
+          <Link href="/page-contact">{t("contact")}</Link>
         </li>
+
+
+
       </ul>
     </>
   );
