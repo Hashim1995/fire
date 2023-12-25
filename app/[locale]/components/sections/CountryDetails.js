@@ -41,7 +41,7 @@ const CountryThree = () => {
           <div className="row">
             <div className="col-lg-6 col-md-12">
               <div className="country-details__img">
-                <img alt="img " src="images/resource/country-details.jpg" title="Vixoz" />              </div>
+                <img alt="img " src="/images/resource/country-details.jpg" title="Vixoz" />              </div>
             </div>
             <div className="col-lg-6 col-md-12">
               <div className="country-content">

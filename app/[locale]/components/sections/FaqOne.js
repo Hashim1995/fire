@@ -30,7 +30,7 @@ const FaqOne = () => {
                                     <h3 className="title">Have 30+ Years Immigration Experience for Give you Visa Approval.</h3>
                                 </div>
                                 <div className="banner-box-two">
-                                    <figure className="image"><img alt="img " src="images/resource/image-4.jpg" title="Vixoz" /></figure>
+                                    <figure className="image"><img alt="img " src="/images/resource/image-4.jpg" title="Vixoz" /></figure>
                                     <h5 className="caption">Immigration Consultant Agency.</h5>
                                 </div>
                             </div>

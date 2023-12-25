@@ -8,12 +8,14 @@ import TestimonialThree from "./components/sections/TestimonialThree";
 // import FeatureFive from "./components/sections/FeatureFive";
 // import FeatureFour from "./components/sections/FeatureFour";
 import NewsThree from "./components/sections/NewsThree";
+import { getServerSession } from "next-auth";
 // import VisaTwo from "./components/sections/visaTwo";
 // import TestimonialThree from "./components/sections/TestimonialThree";
 // import TrainingThree from "./components/sections/TrainingThree";
 // import WhyChooseThree from "./components/sections/WhyChooseThree";
 
-export default function Home() {
+export default async function Home() {
+  const session = getServerSession()
   return (
 
     <div>

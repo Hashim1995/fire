@@ -7,6 +7,8 @@ import Layout from "./components/layout/Layout";
 import "../../public/css/responsive.css";
 import { Inter } from "next/font/google";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import NextTopLoader from 'nextjs-toploader';
+
 import {
   NextIntlClientProvider,
   useMessages,
@@ -15,7 +17,7 @@ import { notFound } from "next/navigation";
 import Providers from "./components/Providers";
 import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
-
+import ToastContainerWrapper from './components/toasProvider'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -24,21 +26,19 @@ export const metadata = {
 };
 const locales = ["az", "en", "ru"];
 
-export default function LocaleLayout({ children, params: { locale } }) {
+export default async function LocaleLayout({ children, params: { locale } }) {
   if (!locales.includes(locale)) notFound();
 
-  // let messages;
-  // try {
-  //   messages = (await import(`../../messages/${locale}.json`)).default;
-  // } catch (error) {
-  //   notFound();
-  // }
-  const messages = useMessages()
-
+  let messages;
+  try {
+    messages = (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
 
   const { Link, redirect, usePathname, useRouter } =
     createSharedPathnamesNavigation({ locales });
-  const session = getServerSession(options)
+  const session = await getServerSession(options)
 
   return (
     <html lang={locale}>
@@ -46,11 +46,16 @@ export default function LocaleLayout({ children, params: { locale } }) {
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className={inter.className}>
 
-          <Providers  >
+          <Providers session={session} >
+            <NextTopLoader />
+
             <Layout HeaderStyle="three">
               {children}
+              <ToastContainerWrapper />
+
             </Layout>
           </Providers>
+
         </body>
       </NextIntlClientProvider>
     </html>

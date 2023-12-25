@@ -37,7 +37,7 @@ const TrainingDetails = ({ alternate }) => {
           <div className="row flex-xl-row-reverse">
             <div className="col-xl-8 col-lg-8">
               <div className="courses-details__content">
-                <img alt="img " src="images/resource/course-details.jpg" title="Vixoz" />
+                <img alt="img " src="/images/resource/course-details.jpg" title="Vixoz" />
                 <h2 className="mt-4">Course Overview</h2>
                 <p>
                   Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus quis enim var sed efficitur
@@ -132,7 +132,7 @@ const TrainingDetails = ({ alternate }) => {
                   <h4 className="latest-course-title mb-30">New Courses</h4>
                   <div className="latest-course-item">
                     <div className="latest-course-img">
-                      <img alt="img " src="images/resource/course-1.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/course-1.jpg" title="Vixoz" />
                     </div>
                     <div className="latest-course-content">
                       <Link className="latest-course-author" href="#">
@@ -153,7 +153,7 @@ const TrainingDetails = ({ alternate }) => {
                   </div>
                   <div className="latest-course-item">
                     <div className="latest-course-img">
-                      <img alt="img " src="images/resource/course-2.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/course-2.jpg" title="Vixoz" />
                     </div>
                     <div className="latest-course-content">
                       <Link className="latest-course-author" href="#">
@@ -174,7 +174,7 @@ const TrainingDetails = ({ alternate }) => {
                   </div>
                   <div className="latest-course-item">
                     <div className="latest-course-img">
-                      <img alt="img " src="images/resource/course-3.jpg" title="Vixoz" />
+                      <img alt="img " src="/images/resource/course-3.jpg" title="Vixoz" />
                     </div>
                     <div className="latest-course-content">
                       <Link className="latest-course-author" href="#">

@@ -6,5 +6,9 @@
   "services": "Services",
   "about": "About us",
   "blog": "Blog",
-  "news": "News"
+  "news": "News",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "logout": "Log out"
 }

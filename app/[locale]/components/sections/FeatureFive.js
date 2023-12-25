@@ -10,7 +10,7 @@ const FeatureFive = () => {
                         <div className="title-column col-xl-6 col-lg-12">
                             <div className="title-box">
                                 <h4 className="title">Let’s Migrate to Your Favourite Destination</h4>
-                                <figure className="image"><img alt="img " src="images/resource/feature-2.jpg" title="Vixoz" /></figure>
+                                <figure className="image"><img alt="img " src="/images/resource/feature-2.jpg" title="Vixoz" /></figure>
                             </div>
                         </div>
                         <div className="features-column col-xl-6 col-lg-12">

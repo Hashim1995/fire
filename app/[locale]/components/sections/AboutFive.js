@@ -37,8 +37,8 @@ const AboutFive = () => {
                         {/* Image Column */}
                         <div className="image-column col-lg-6 col-md-12">
                             <div className="inner-column wow fadeInLeft">
-                                <figure className="image overlay-anim wow fadeInUp"><img alt="img " src="images/resource/about-7.jpg" title="Vixoz" /></figure>
-                                <figure className="stemp bounce-y"><img alt="img " src="images/resource/stemp-3.png" title="Vixoz" /></figure>
+                                <figure className="image overlay-anim wow fadeInUp"><img alt="img " src="/images/resource/about-7.jpg" title="Vixoz" /></figure>
+                                <figure className="stemp bounce-y"><img alt="img " src="/images/resource/stemp-3.png" title="Vixoz" /></figure>
                                 <div className="experience">
                                     <div className="inner">
                                         <i className="icon flaticon-increase" />

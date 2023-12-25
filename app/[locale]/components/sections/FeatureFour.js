@@ -19,7 +19,7 @@ const FeatureFour = () => {
                                     <div className="text">Lorem ipsum dolor sit amet, conse ctetur adipisicing elit sed do eiusm od tempor ut labore. Many desktop publishing packages and wpage editors now use Lorem Ipsum as their defamodel text.</div>
                                 </div>
                                 <div className="image-box">
-                                    <figure className="image"><img alt="img " src="images/resource/feature.jpg" title="Vixoz" /></figure>
+                                    <figure className="image"><img alt="img " src="/images/resource/feature.jpg" title="Vixoz" /></figure>
                                     <i className="icon flaticon-passport-16" />
                                 </div>
                             </div>

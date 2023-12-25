@@ -2,13 +2,20 @@
 'use client'
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation"
+import { useEffect } from "react";
 
 export default function Dashboard() {
     const session = useSession()
 
-    if (!session?.data?.user?.token) {
-        return <p>Access Denied</p>
-    }
+    const router = useRouter();
+
+    // Redirect to home if already authenticated
+    useEffect(() => {
+        if (session.status !== 'authenticated') {
+            router.push('/');
+        }
+    }, [session])
 
     return (
         <section className="flex flex-col items-center gap-4">

@@ -11,7 +11,7 @@ const Footer = () => {
             <footer className="main-footer">
                 <div className="auto-container">
                     <div className="upper-box">
-                        <div className="logo"><Link href="/"><img alt="img " src="images/logo-2.png" title="Vixoz" /></Link></div>
+                        <div className="logo"><Link href="/"><img alt="img " src="/images/logo-2.png" title="Vixoz" /></Link></div>
                         <div className="subscribe-form">
                             <h5 className="title">Subscribe to Newsletter</h5>
                             <form method="post" action="#">
@@ -83,22 +83,22 @@ const Footer = () => {
                                     <div className="widget-content">
                                         <div className="outer clearfix">
                                             <figure className="image">
-                                                <Link href="#"><img alt="img " src="images/resource/project-thumb-1.jpg" title="Vixoz" /></Link>
+                                                <Link href="#"><img alt="img " src="/images/resource/project-thumb-1.jpg" title="Vixoz" /></Link>
                                             </figure>
                                             <figure className="image">
-                                                <Link href="#"><img alt="img " src="images/resource/project-thumb-2.jpg" title="Vixoz" /></Link>
+                                                <Link href="#"><img alt="img " src="/images/resource/project-thumb-2.jpg" title="Vixoz" /></Link>
                                             </figure>
                                             <figure className="image">
-                                                <Link href="#"><img alt="img " src="images/resource/project-thumb-3.jpg" title="Vixoz" /></Link>
+                                                <Link href="#"><img alt="img " src="/images/resource/project-thumb-3.jpg" title="Vixoz" /></Link>
                                             </figure>
                                             <figure className="image">
-                                                <Link href="#"><img alt="img " src="images/resource/project-thumb-4.jpg" title="Vixoz" /></Link>
+                                                <Link href="#"><img alt="img " src="/images/resource/project-thumb-4.jpg" title="Vixoz" /></Link>
                                             </figure>
                                             <figure className="image">
-                                                <Link href="#"><img alt="img " src="images/resource/project-thumb-5.jpg" title="Vixoz" /></Link>
+                                                <Link href="#"><img alt="img " src="/images/resource/project-thumb-5.jpg" title="Vixoz" /></Link>
                                             </figure>
                                             <figure className="image">
-                                                <Link href="#"><img alt="img " src="images/resource/project-thumb-6.jpg" title="Vixoz" /></Link>
+                                                <Link href="#"><img alt="img " src="/images/resource/project-thumb-6.jpg" title="Vixoz" /></Link>
                                             </figure>
                                         </div>
                                     </div>
