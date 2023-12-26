@@ -34,7 +34,7 @@ const NewsThree = () => {
                             </div>
                         </div>
                         <div className="btn-column text-end col-lg-4">
-                            <Link href="news-details" className="theme-btn btn-style-one bg-theme-color4 mb-4"><span className="btn-title">View All news</span></Link>
+                            <Link href="news-grid" className="theme-btn btn-style-one bg-theme-color4 mb-4"><span className="btn-title">View All news</span></Link>
                         </div>
                     </div>
                     <div className="row">

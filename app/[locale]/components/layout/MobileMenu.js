@@ -47,9 +47,12 @@ const MobileMenu = () => {
   return (
     <>
       <ul className="navigation clearfix">
-        <li className={['page-about', 'news-grid', 'page-contact', 'dashboard'].some(term => pathname.includes(term)) ? '' : 'current'}>
+        <li className={['page-about', 'news-grid', 'page-contact', 'page-country', 'dashboard'].some(term => pathname.includes(term)) ? '' : 'current'}>
           <Link href="/">{t("homePage")}</Link>
         </li>
+        {/* <li className={pathname?.includes('page-country') ? 'current' : ''}>
+          <Link href="/page-country">{t("services")}</Link>
+        </li> */}
         <li className={pathname?.includes('page-about') ? 'current' : ''}>
           <Link href="/page-about">{t("about")}</Link>
         </li>

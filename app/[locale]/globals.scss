@@ -123,3 +123,18 @@ a {
   //   gap: 5px;
   // }
 }
+
+.custom-image-wrapper {
+  width: 100%;
+
+  > div {
+    position: unset !important;
+  }
+
+  .image {
+    object-fit: cover;
+    height: 400px;
+    width: 100% !important;
+    position: relative !important;
+  }
+}

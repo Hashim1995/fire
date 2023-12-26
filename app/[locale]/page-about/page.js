@@ -12,7 +12,7 @@ export default function Home() {
       <PageTitle pageName="About Us" />
       <AboutOne />
       <CountryOne />
-      <VisaOne />
+      {/* <VisaOne /> */}
     </>
   );
 }

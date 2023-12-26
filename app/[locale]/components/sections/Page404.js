@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-const AboutFive = () => {
+const Page404 = () => {
     return (
         <>
             <section>
@@ -15,13 +15,7 @@ const AboutFive = () => {
                                 </div>
                                 <p className="error-page__text">Sorry we can't find that page! The page you are looking  for
                                     was never existed.</p>
-                                <form className="error-page__form" action="#">
-                                    <div className="error-page__form-input">
-                                        <input type="search" placeholder="Search here" />
-                                        <button type="submit"><i className="lnr lnr-icon-magnifier"></i></button>
-                                    </div>
-                                </form>
-                                <Link href="/" className="theme-btn btn-style-one shop-now"><span className="btn-title">Back to Home</span></Link>
+
                             </div>
                         </div>
                     </div>
@@ -32,4 +26,4 @@ const AboutFive = () => {
     );
 };
 
-export default AboutFive;
+export default Page404;

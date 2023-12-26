@@ -57,7 +57,7 @@ const Header = () => {
 
   const session = useSession()
   const t = useTranslations();
-  console.log(session, 'ramiz');
+  console.log(session, 'login');
   return (
     <>
       <header
