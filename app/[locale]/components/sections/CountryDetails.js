@@ -94,7 +94,7 @@ const CountryThree = () => {
                   <div className="inner-box">
                     <div className="content">
                       <div className="flag">
-                        <img alt="img " src={`images/resource/${item.img}`} title="Vixoz" />
+                        <img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" />
                       </div>
                       <h5 className="title">
                         <Link href="page-country-details">{item.title}</Link>

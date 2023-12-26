@@ -30,7 +30,7 @@ const NewsOne = () => {
                   <div className="image-box">
                     <figure className="image">
                       <Link href="news-details">
-                        <img alt="img " src={`images/resource/${item.img}`} title="Vixoz" />
+                        <img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" />
                       </Link>
                     </figure>
                     <span className="date">

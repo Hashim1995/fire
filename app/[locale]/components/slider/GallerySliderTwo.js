@@ -88,7 +88,7 @@ const GallerySliderTwo = () => {
               <div className="image-box">
                 <figure className="image">
                   <Link href="page-visa-details" className="lightbox-image">
-                    <img alt="img " src={`images/resource/${item.thumb_img}`} title="Vixoz" />
+                    <img alt="img " src={`/images/resource/${item.thumb_img}`} title="Vixoz" />
                   </Link>
                 </figure>
                 <div className="caption-box">

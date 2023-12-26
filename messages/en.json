@@ -10,5 +10,6 @@
   "login": "Login",
   "email": "Email",
   "password": "Password",
-  "logout": "Log out"
+  "logout": "Log out",
+  "contact": "Contact"
 }

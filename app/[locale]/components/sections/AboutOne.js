@@ -1,7 +1,27 @@
 import Link from 'next/link';
 import React from 'react';
+import { getLocale } from "next-intl/server";
+import { returnCurrentLangId } from '../../../../utils/currentLang'
 
-const AboutOne = () => {
+async function getData() {
+    const t = await getLocale();
+
+    const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/settings?languages=${returnCurrentLangId(t)}`, {
+        method: 'GET'
+    })
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+
+    return res.text()
+}
+
+
+const AboutOne = async () => {
+    const res = await getData()
+
     return (
         <>
             <section className="about-section">
@@ -10,6 +30,7 @@ const AboutOne = () => {
                         <div className="content-column col-xl-6 col-lg-7 col-md-12 col-sm-12 order-2 wow fadeInRight" data-wow-delay="600ms">
                             <div className="inner-column">
                                 <div className="sec-title">
+                                    <h1>Salam : {res}</h1>
                                     <span className="sub-title">About our company</span>
                                     <h2>Immigration Services From Experienced Lawyers.</h2>
                                     <h4>Canada Based Immigration Consultant Agency.</h4>

@@ -52,7 +52,7 @@ const CountryThree = () => {
                                 <div className="country-block-three col-lg-4 col-md-6 col-sm-12">
                                     <div className="inner-box">
                                         <div className="content">
-                                            <div className="flag"><img alt="img " src={`images/resource/${item.img}`} title="Vixoz" /></div>
+                                            <div className="flag"><img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" /></div>
                                             <h5 className="title"><Link href="page-country-details">{item.title}</Link></h5>
                                             <div className="text">{item.sub}</div>
                                         </div>

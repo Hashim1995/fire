@@ -44,7 +44,7 @@ const TeamOne = () => {
                                     <div className="image-box">
                                         <figure className="image">
                                             <Link href="page-team-details">
-                                                <img alt="img " src={`images/resource/${item.img}`} title="Vixoz" />
+                                                <img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" />
                                             </Link>
                                         </figure>
                                         <span className="share-icon fa fa-share-alt" />

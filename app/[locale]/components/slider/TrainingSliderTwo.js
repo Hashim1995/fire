@@ -89,7 +89,7 @@ const TrainingSliderTwo = () => {
                   <figure className="image">
                     <Link href="page-training-details">
                       <img alt="img "
-                        src={`images/resource/${item.thumb_img}`}
+                        src={`/images/resource/${item.thumb_img}`}
                         title="training-img"
                       />
                     </Link>

@@ -108,7 +108,7 @@ const CountrySliderOne = () => {
                 <figure className="image">
                   <Link href="page-country-details" className="lightbox-image">
                     <img alt="img "
-                      src={`images/resource/${item.thumb_img}`}
+                      src={`/images/resource/${item.thumb_img}`}
                       title="Vixoz"
                     />{" "}
                   </Link>
@@ -117,7 +117,7 @@ const CountrySliderOne = () => {
               <div className="content-box">
                 <div className="flag">
                   <img alt="img "
-                    src={`images/resource/${item.country_img}`}
+                    src={`/images/resource/${item.country_img}`}
                     title="Vixoz"
                   />{" "}
                 </div>
