@@ -36,7 +36,7 @@ const CountrySliderOne = () => {
   return (
     <>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={3}
         spaceBetween={0}
         loop={false}
         centeredSlides
@@ -78,7 +78,9 @@ const CountrySliderOne = () => {
       >
         {data?.map((item, i) => (
           <SwiperSlide key={i} className="country-block">
-            <div className="inner-box">
+            <div style={{
+              minHeight: '395px'
+            }} className="inner-box">
               <div className="image-box">
                 <figure className="image">
                   <img alt="img " src={`https://ivisaapp.azurewebsites.net/${item?.coverUrl}`} title="Vixoz" />

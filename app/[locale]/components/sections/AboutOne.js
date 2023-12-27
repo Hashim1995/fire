@@ -6,7 +6,7 @@ import { returnCurrentLangId } from '../../../../utils/currentLang'
 async function getData() {
     const t = await getLocale();
 
-    const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/settings?languages=${returnCurrentLangId(t)}`, {
+    const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/about/contents?language=${returnCurrentLangId(t)}`, {
         method: 'GET'
     })
 
@@ -15,12 +15,12 @@ async function getData() {
     }
 
 
-    return res.text()
+    return res.json()
 }
-
 
 const AboutOne = async () => {
     const res = await getData()
+    const data = res?.data
 
     return (
         <>
@@ -31,10 +31,9 @@ const AboutOne = async () => {
                             <div className="inner-column">
                                 <div className="sec-title">
                                     <span className="sub-title">About our company</span>
-                                    <h2>Immigration Services From Experienced Lawyers.</h2>
+                                    <h2>{data?.title || '-'}</h2>
                                     {/* <h4>Canada Based Immigration Consultant Agency.</h4> */}
-                                    <div className="text">Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a
-                                        tendency to believe the idea that smart looking of any website is the first impression on visitors.</div>
+                                    <div className="text">{data?.description || '-'}</div>
                                 </div>
                                 {/* <div className="row">
                                     <div className="about-block col-lg-6 col-md-6">
@@ -58,7 +57,9 @@ const AboutOne = async () => {
                         {/* Image Column */}
                         <div className="image-column col-xl-6 col-lg-5 col-md-12 col-sm-12">
                             <div className="inner-column wow fadeInLeft">
-                                <figure className="image-1 overlay-anim wow fadeInUp"><img alt="img " src="/images/resource/about-1.jpg" title="Vixoz" /></figure>
+                                <figure className="image-1 overlay-anim wow fadeInUp">
+                                    <img alt="img" src={`https://ivisaapp.azurewebsites.net/${data?.imageUrl}`} title="Vixoz" />
+                                </figure>
                                 {/* <figure className="image-2 overlay-anim wow fadeInRight"><img alt="img " src="/images/resource/about-2.jpg" title="Vixoz" /></figure>
                                 <figure className="image-3 overlay-anim wow fadeInLeft"><img alt="img " src="/images/resource/about-3.jpg" title="Vixoz" /></figure>
                                 <figure className="stemp"><img alt="img " src="/images/resource/stemp.png" title="Vixoz" /></figure> */}

@@ -8,7 +8,10 @@ const PageTitle = ({ title, bg }) => {
             <div className="auto-container">
                 <div className="title-outer">
                     <h1 className="title">{title}</h1>
-
+                    <ul className="page-breadcrumb">
+                        <li><Link href="/">Home</Link></li>
+                        <li><Link href="/">Pages</Link></li>
+                    </ul>
                 </div>
             </div>
         </section>

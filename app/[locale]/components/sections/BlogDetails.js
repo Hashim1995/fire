@@ -32,30 +32,7 @@ const BlogOne = ({ item }) => {
                   <h3 className="blog-details__title font-weight-600">{item?.title}</h3>
                   {item?.description}
                 </div>
-                <div className="blog-details__bottom">
-                  <p className="blog-details__tags">
-                    {" "}
-                    <span>Tags</span>
 
-                    {item?.tags?.map(z => <p className="blog-details__tag" key={z} >{z}</p>)}
-
-                  </p>
-                  <div className="blog-details__social-list">
-                    {" "}
-                    <Link href="/news-details">
-                      <i className="fab fa-twitter"></i>
-                    </Link>{" "}
-                    <Link href="/news-details">
-                      <i className="fab fa-facebook"></i>
-                    </Link>{" "}
-                    <Link href="/news-details">
-                      <i className="fab fa-pinterest-p"></i>
-                    </Link>{" "}
-                    <Link href="/news-details">
-                      <i className="fab fa-instagram"></i>
-                    </Link>{" "}
-                  </div>
-                </div>
 
 
               </div>
