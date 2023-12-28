@@ -1,5 +1,4 @@
 {
-  "title": "HERKESE SALAM",
   "subtitle": "Kuis menee?",
   "alertMessage": "Jotaki meni ny pielee!",
   "homePage": "Ana səhifə",
@@ -40,6 +39,23 @@
   "Free": "Pulsuz",
   "WriteEmail": "E-poçt yazın",
   "VisitAnytime": "İstənilən vaxt ziyarət edin",
-  "test": "test",
-  "test": "test"
+  "SuccessOperation": "Əməliyyat uğurla icra olundu",
+  "ErrorOperation": "Xəta baş verdi",
+  "SendUsEmail": "Bizə e-poçt göndərin",
+  "FeelFreeToWrite": "Yazmaqdan çekinməyin",
+  "SendMessage": "Mesaj göndər",
+  "Reset": "Təmizlə",
+  "IsRequired": "field is required",
+  "Enter": "Daxil edin",
+  "InvalidEmail": "Duzgun olmayan email adresi",
+  "Name:": "Ad",
+  "EnterName": "Ad xanasini daxil edin",
+  "Email:": "Email",
+  "EnterEmail": "Email xanasini daxil edin",
+  "Title:": "Basliq",
+  "EnterTitle": "Basliq xanasini daxil edin",
+  "PhoneNumber:": "Telefon",
+  "EnterPhoneNumber": "Telefon xanasini daxil edin",
+  "Description:": "Mesaj",
+  "EnterDescription": "Mesaj xanasini daxil edin"
 }
