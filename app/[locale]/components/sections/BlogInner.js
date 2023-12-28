@@ -2,6 +2,7 @@ import { getLocale } from "next-intl/server";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 
 
@@ -9,7 +10,9 @@ import Image from "next/image";
 
 
 
-const NewsOne = async ({ data }) => {
+const NewsOne = ({ data }) => {
+
+  const t = useTranslations()
 
 
   return (
@@ -45,7 +48,7 @@ const NewsOne = async ({ data }) => {
                     </h5>
 
                     <Link href={`/news-grid/${item.slug}/${item?.id}`} className="read-more">
-                      Read More <i className="fa fa-long-arrow-alt-right" />
+                      {t("ReadMore")} <i className="fa fa-long-arrow-alt-right" />
                     </Link>
                   </div>
                 </div>

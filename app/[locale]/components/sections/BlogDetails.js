@@ -1,8 +1,28 @@
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { returnCurrentLangId } from "../../../../utils/currentLang";
 
-const BlogOne = ({ item }) => {
+
+async function getData() {
+  const t = await getLocale();
+  const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/blog/latest?Language=${returnCurrentLangId(t)}`, {
+    method: 'GET'
+  })
+  if (!res.ok) {
+    return null
+  }
+  return res.json()
+}
+
+
+const BlogOne = async ({ item }) => {
+
+  const res = await getData();
+  let data = res?.data
+
+  const t = await getTranslations()
 
   return (
     <>
@@ -41,58 +61,35 @@ const BlogOne = ({ item }) => {
               <div className="sidebar">
 
                 <div className="sidebar__single sidebar__post">
-                  <h3 className="sidebar__title">Latest Posts</h3>
+                  <h3 className="sidebar__title">{t("LatestNews")}</h3>
                   <ul className="sidebar__post-list list-unstyled">
-                    <li>
-                      <div className="sidebar__post-image">
-                        {" "}
-                        <img alt="img " src="/images/resource/news-2.jpg" title="Vizox" />{" "}
-                      </div>
-                      <div className="sidebar__post-content">
-                        <h3>
+                    {data?.map(z => {
+                      return <li key={z?.id}>
+                        <div className="sidebar__post-image">
                           {" "}
-                          <span className="sidebar__post-content-meta">
-                            <i className="fas fa-user-circle"></i>Admin
-                          </span>{" "}
-                          <Link href="/news-details">Top crypto exchange influencers</Link>
-                        </h3>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="sidebar__post-image">
-                        {" "}
-                        <img alt="img " src="/images/resource/news-2.jpg" title="Vizox" />{" "}
-                      </div>
-                      <div className="sidebar__post-content">
-                        <h3>
-                          {" "}
-                          <span className="sidebar__post-content-meta">
-                            <i className="fas fa-user-circle"></i>Admin
-                          </span>{" "}
-                          <Link href="/news-details">Necessity may give us best virtual court</Link>{" "}
-                        </h3>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="sidebar__post-image">
-                        {" "}
-                        <img alt="img " src="/images/resource/news-3.jpg" title="Vizox" />{" "}
-                      </div>
-                      <div className="sidebar__post-content">
-                        <h3>
-                          {" "}
-                          <span className="sidebar__post-content-meta">
-                            <i className="fas fa-user-circle"></i>Admin
-                          </span>{" "}
-                          <Link href="/news-details">You should know about business plan</Link>{" "}
-                        </h3>
-                      </div>
-                    </li>
+                          <img style={{
+                            height: '70px',
+                            width: '60px',
+                            objectFit: 'cover'
+                          }} alt="img " src={`https://ivisaapp.azurewebsites.net/${z?.imageUrl}`} title="Vizox" />{" "}
+                        </div>
+                        <div className="sidebar__post-content">
+                          <h3>
+                            {" "}
+                            <span className="sidebar__post-content-meta">
+                              <i className="fas fa-user-circle"></i>{z?.author}
+                            </span>{" "}
+                            <Link href={`/news-grid/${z.slug}/${z?.id}`}>{z?.title}</Link>
+                          </h3>
+                        </div>
+                      </li>
+                    })}
+
                   </ul>
                 </div>
 
                 <div className="sidebar__single sidebar__tags">
-                  <h3 className="sidebar__title">Tags</h3>
+                  <h3 className="sidebar__title">{t("Tags")}</h3>
                   <div className="sidebar__tags-list">
                     {" "}
                     {item?.tags?.map(z => <p key={z} >{z}</p>)}

@@ -24,7 +24,7 @@ export default async function Home() {
       <AboutOne />
       <CountryThree />
       <ProcessTwo />
-      <TestimonialThree />
+      {/* <TestimonialThree /> */}
       <NewsThree />
 
 

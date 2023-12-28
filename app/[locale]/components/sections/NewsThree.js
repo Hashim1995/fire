@@ -1,4 +1,4 @@
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import React from 'react';
 import { returnCurrentLangId } from '../../../../utils/currentLang';
@@ -18,6 +18,7 @@ async function getData() {
 const NewsThree = async () => {
     const res = await getData();
     let data = res?.data
+    const t = await getTranslations()
 
 
     return (
@@ -30,12 +31,12 @@ const NewsThree = async () => {
                     <div className="row align-items-center">
                         <div className="col-lg-8">
                             <div className="sec-title">
-                                <span className="sub-title">recent news feed</span>
-                                <h2>Latest News &amp; Articles <br />From the Blog.</h2>
+                                <span className="sub-title">{t("RecentNewsFeed")}</span>
+                                <h2> {t("LatestNews")} &amp; {t("Articles")} </h2>
                             </div>
                         </div>
                         <div className="btn-column text-end col-lg-4">
-                            <Link href="news-grid" className="theme-btn btn-style-one bg-theme-color4 mb-4"><span className="btn-title">View All news</span></Link>
+                            <Link href="news-grid" className="theme-btn btn-style-one bg-theme-color4 mb-4"><span className="btn-title">{t("ViewAllNews")}</span></Link>
                         </div>
                     </div>
                     <div className="row">

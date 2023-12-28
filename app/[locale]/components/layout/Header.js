@@ -100,13 +100,18 @@ const Header = () => {
                     Azərbaycan dili
                   </Link>
                 </div>
+                <DropdownItem divider />
+
                 <div>
                   <Link href="/" locale="en">
                     <Image className=" me-1" alt="test" width={24}
                       height={24} src={En} title="En" />
                     İngilis dili
                   </Link>
-                </div>   <div>
+                </div>
+                <DropdownItem divider />
+
+                <div>
                   <Link href="/" locale="ru">
                     <Image className=" me-1" alt="test" width={24}
                       height={24} src={Ru} title="Ru" />
@@ -123,7 +128,7 @@ const Header = () => {
               <small>Call Anytime</small>
               <br /> + 88 ( 9800 ) 6802
             </Link> */}
-            <div className="d-flex align-items-center  justify-content-end gap-2" style={{ width: 'max-content' }}>
+            <div className=" d-none d-lg-flex align-items-center  justify-content-end gap-2" style={{ width: 'max-content' }}>
               {!session?.data && <Link className="text-white" href="/api/auth/signin">{t('login')}</Link>}
               {session?.data && <div style={{
                 width: '235px',
@@ -205,6 +210,63 @@ const Header = () => {
               <div className="close-btn" onClick={handleRemove}>
                 <i className="icon fLink fa-times" />
               </div>
+            </div>
+            <div className={` d-flex align-items-center ${!session?.data ? 'justify-content-start' : 'justify-content-end'}   gap-2`} style={{ width: '100%', padding: '6px', }}>
+              {!session?.data && <Link style={{
+                paddingLeft: !session?.data ? '15px' : '0'
+              }} className="text-white" href="/api/auth/signin">{t('login')}</Link>}
+              {session?.data && <div style={{
+                width: '100%',
+                border: '.5px solid white',
+                borderRadius: '6px',
+                padding: '.5em'
+              }} className=" d-flex align-items-center justify-content-between">
+                <img style={{
+                  height: '40px',
+                  width: '40px',
+                  borderRadius: '50%'
+                }} src={`https://ui-avatars.com/api/?name=${session?.data?.user?.data?.firstname}+${session?.data?.user?.data?.lastname}&background=0D8ABC&color=fff`} alt="" />
+                <div className=" d-flex flex-column justify-content-center align-items-start">
+                  <p style={{
+                    lineHeight: '18px',
+                  }} className="text-white ms-1 mb-0">{session?.data?.user?.data?.firstname} {session?.data?.user?.data?.lastname}</p>
+
+                </div>
+                <UncontrolledDropdown >
+                  <DropdownToggle
+                    aria-label="Select Language"
+                    className={`bg-transparent border-0  Rounded `}
+                  >
+                    <FaChevronDown className="" size={14} />
+
+                  </DropdownToggle>
+                  <DropdownMenu className="p-1" >
+                    <div style={{
+                      cursor: 'pointer',
+                      lineHeight: '18px',
+                    }} >
+                      <Link style={{
+                        lineHeight: '18px',
+
+                      }} className={pathname?.includes('page-about') ? 'current text-black' : 'text-black'} href="/dashboard">Profil   <BiUser size={18} /> </Link>
+                    </div>
+                    <DropdownItem divider />
+                    <div style={{
+                      cursor: 'pointer',
+                      lineHeight: '18px',
+                    }} onClick={() => {
+                      signOut({ redirect: false }).then(() => {
+                        router.push("/"); // Redirect to the dashboard page after signing out
+                      });
+                    }}>
+                      {t('logout')} <BiLogOut size={18} />
+                    </div>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+
+
+              </div>}
+
             </div>
             <MobileMenu />
             <ul className="contact-list-one">

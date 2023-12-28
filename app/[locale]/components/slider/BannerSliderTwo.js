@@ -4,6 +4,8 @@ import React from "react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import bg from '../../../../public/images/main-slider/1.jpg'
+import { useTranslations } from "next-intl";
+
 
 SwiperCore.use([Autoplay, Navigation]);
 const BannerSliderTwo = () => {
@@ -24,6 +26,9 @@ const BannerSliderTwo = () => {
       comment: 10,
     },
   ];
+
+  const t = useTranslations();
+
 
   return (
     <>
@@ -72,13 +77,14 @@ const BannerSliderTwo = () => {
             />
             <div className="auto-container">
               <div className="content-box">
-                <span className="sub-title animate-1">
-                  Solutions for all type of visas
+                <span className="sub-title animate-1 mb-3">
+                  {t("homePageSliderTopText")}
                 </span>
                 <div className="inner">
-                  <h1 className="title animate-2">Trusted</h1>
+                  <h1 className="title animate-2">                  {t("homePageSliderMiddleText")}
+                  </h1>
                   <h3 className="animate-3">
-                    Visa &amp; Immigration Company
+                    {t("homePageSliderBottomText")}
                   </h3>
                   {/* <div className="btn-box animate-4">
                       <Link

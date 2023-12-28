@@ -18,6 +18,7 @@ import Providers from "./components/Providers";
 import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
 import ToastContainerWrapper from './components/toasProvider'
+import { unstable_setRequestLocale } from "next-intl/server";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

@@ -1,8 +1,10 @@
-import { getLocale } from 'next-intl/server';
+
 import Link from 'next/link';
 import React from 'react';
 import { returnCurrentLangId } from '../../../../utils/currentLang';
 import { truncate } from '../../../../utils/truncate';
+import { getLocale, getTranslations, } from "next-intl/server";
+
 async function getData() {
     const t = await getLocale();
     const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(t)}`, {
@@ -16,8 +18,9 @@ async function getData() {
 
 
 const CountryThree = async () => {
-    const res = await getData();
+    const res = await getData()
     const data = res?.data
+    const t = await getTranslations();
 
     return (
         <>
@@ -28,8 +31,8 @@ const CountryThree = async () => {
                 <div className="outer-box pt-0">
                     <div className="auto-container">
                         <div className="sec-title text-center">
-                            <span className="sub-title">Countries we offer</span>
-                            <h2>Countries We Support <br />for Immigration.</h2>
+                            <span className="sub-title">{t("CountriesWeOffer")}</span>
+                            <h2>{t("CountriesWeSupport")} <br />{t("ForImmigration")}.</h2>
                         </div>
                         {/*  Countries Carousel */}
                         <div className="row">
@@ -49,7 +52,7 @@ const CountryThree = async () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="bottom-text">Top Rated By Customers &amp; Immigration Firms With 100% Success Rate.</div>
+                        <div className="bottom-text">{t("TopRatedCustomersImmigrationRate")}.</div>
                     </div>
                 </div>
             </section>

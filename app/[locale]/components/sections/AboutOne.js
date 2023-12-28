@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations, } from "next-intl/server";
 import { returnCurrentLangId } from '../../../../utils/currentLang'
 
 async function getData() {
@@ -21,7 +21,7 @@ async function getData() {
 const AboutOne = async () => {
     const res = await getData()
     const data = res?.data
-
+    const t = await getTranslations();
     return (
         <>
             <section className="about-section">
@@ -30,7 +30,7 @@ const AboutOne = async () => {
                         <div className="content-column col-xl-6 col-lg-7 col-md-12 col-sm-12 order-2 wow fadeInRight" data-wow-delay="600ms">
                             <div className="inner-column">
                                 <div className="sec-title">
-                                    <span className="sub-title">About our company</span>
+                                    <span className="sub-title">{t("aboutOurCompany")}</span>
                                     <h2>{data?.title || '-'}</h2>
                                     {/* <h4>Canada Based Immigration Consultant Agency.</h4> */}
                                     <div className="text">{data?.description || '-'}</div>
