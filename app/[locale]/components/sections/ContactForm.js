@@ -1,7 +1,8 @@
 'use client'
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { Input, FormFeedback, Button, Spinner } from 'reactstrap';
@@ -14,6 +15,7 @@ const ContactForm = () => {
         register,
         reset,
         control,
+        setValue,
         handleSubmit,
         formState: { errors },
     } = useForm({
@@ -51,6 +53,16 @@ const ContactForm = () => {
         setLoading(false)
 
     }
+    const session = useSession()
+
+    useEffect(() => {
+        const user = session?.data?.user?.data
+        if (user) {
+            setValue('fullname', `${user?.firstname} ${user?.lastname}`)
+            setValue('email', user?.email)
+        }
+    }, [session])
+
 
     return (
         <div className="col-xl-7 col-lg-6">
