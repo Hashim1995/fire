@@ -130,6 +130,8 @@ const Header = () => {
             </Link> */}
             <div className=" d-none d-lg-flex align-items-center  justify-content-end gap-2" style={{ width: 'max-content' }}>
               {!session?.data && <Link className="text-white" href="/api/auth/signin">{t('login')}</Link>}
+              {!session?.data && '|'}
+              {!session?.data && <Link className="text-white" href="/register">{t('register')}</Link>}
               {session?.data && <div style={{
                 width: '235px',
                 border: '.5px solid white',

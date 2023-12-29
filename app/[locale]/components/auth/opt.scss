@@ -1,0 +1,19 @@
+.otpContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 5% auto;
+
+  input {
+    width: 3rem !important;
+    height: 3rem;
+    padding: 5px;
+    // margin: 0 1rem;
+    background: #1d2f41;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 4px;
+    // border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}

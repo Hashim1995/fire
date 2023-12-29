@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import { signIn, useSession } from "next-auth/react"
-import { Label, Spinner, Form, FormGroup, Input, Button } from "reactstrap"
+import { Label, Spinner, Form, FormGroup, Input, Button, FormFeedback } from "reactstrap"
 import './login.scss'
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify"
@@ -26,6 +26,7 @@ export default function FormComponent() {
     const {
         register,
         handleSubmit,
+        control,
         formState: { errors },
     } = useForm()
 
@@ -46,6 +47,7 @@ export default function FormComponent() {
                 callbackUrl: "/",
             });
             setLoading(false);
+
 
             if (result?.error) {
                 // Check if error is a string and parse it
@@ -84,11 +86,50 @@ export default function FormComponent() {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group mb-2">
                                         <label className="form-control-label">{t('email')}</label>
-                                        <input type="email" placeholder={t('email')} {...register("email", { required: true })} className="form-control" />
+
+                                        <Controller
+                                            control={control}
+                                            rules={
+                                                { required: { value: true, message: `${t("Email")} ${t("IsRequired")}` } }
+                                            }
+                                            name="email"
+                                            render={({ field: { onChange, value } }) => (
+                                                <Input
+                                                    invalid={errors?.email ? true : false}
+                                                    value={value}
+                                                    onChange={onChange}
+                                                    className="form-control"
+                                                    type="text"
+                                                    placeholder={t("EnterEmail")}
+                                                />
+                                            )}
+                                        />
+                                        {errors.email && (
+                                            <FormFeedback>{errors.email.message}</FormFeedback>
+                                        )}
                                     </div>
                                     <div className="form-group mb-2">
                                         <label className="form-control-label">{t('password')}</label>
-                                        <input type="password" placeholder={t('password')} {...register("password", { required: true })} className="form-control" i />
+                                        <Controller
+                                            control={control}
+                                            rules={
+                                                { required: { value: true, message: `${t("Password")} ${t("IsRequired")}` } }
+                                            }
+                                            name="password"
+                                            render={({ field: { onChange, value } }) => (
+                                                <Input
+                                                    invalid={errors?.password ? true : false}
+                                                    value={value}
+                                                    onChange={onChange}
+                                                    className="form-control"
+                                                    type="password"
+                                                    placeholder={t("EnterPassword")}
+                                                />
+                                            )}
+                                        />
+                                        {errors.password && (
+                                            <FormFeedback>{errors.password.message}</FormFeedback>
+                                        )}
                                     </div>
 
                                     <div className="col-lg-12 loginbttm">
