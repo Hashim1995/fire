@@ -9,10 +9,7 @@ const Layout = ({ children, HeaderStyle, }) => {
     <>
       <PageHead />
       <div className="page-wrapper" id="top">
-        {HeaderStyle === "three" && (
-          <Header
-          />
-        )}
+        <Header />
         {children}
         <Footer />
       </div>

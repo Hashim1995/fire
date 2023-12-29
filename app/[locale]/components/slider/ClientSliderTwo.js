@@ -70,7 +70,7 @@ const ClientSliderTwo = () => {
             <div className="slide-item">
               {" "}
               <a href="#">
-                <img alt="img " src={`images/resource/${item.img}`} title="Vixoz" />
+                <img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" />
               </a>{" "}
             </div>
           </SwiperSlide>

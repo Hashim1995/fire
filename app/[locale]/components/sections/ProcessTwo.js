@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslations } from "next-intl";
 
 const ProcessTwo = () => {
+
+    const t = useTranslations()
     return (
         <>
             <section className="process-section-two pt-0">
@@ -10,8 +13,8 @@ const ProcessTwo = () => {
                 </div>
                 <div className="auto-container">
                     <div className="sec-title text-center">
-                        <span className="sub-title">Our work process</span>
-                        <h2>Get your Visa Approved in <br />4 Simple Steps.</h2>
+                        <span className="sub-title">{t("OurWorkProcess")}</span>
+                        <h2>{t("GetYourVisaApproved")} <br />{t("FourStep")}.</h2>
                     </div>
                     <div className="row">
                         {/* Process block Two  */}
@@ -22,8 +25,8 @@ const ProcessTwo = () => {
                                     <span className="count">01</span>
                                 </div>
                                 <div className="info-box">
-                                    <h5 className="title">Interview</h5>
-                                    <div className="text">Lorem Ipsum is simply dummy text of the new des printng and type.</div>
+                                    <h5 className="title">{t("Interview")}</h5>
+                                    <div className="text">{t("InterviewDescription")}</div>
                                 </div>
                             </div>
                         </div>
@@ -35,8 +38,8 @@ const ProcessTwo = () => {
                                     <span className="count">02</span>
                                 </div>
                                 <div className="info-box">
-                                    <h5 className="title">Fill Form</h5>
-                                    <div className="text">Lorem Ipsum is simply dummy text of the new des printng and type.</div>
+                                    <h5 className="title">{t("FillForm")}</h5>
+                                    <div className="text">{t("FillFormDescripton")}</div>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +51,8 @@ const ProcessTwo = () => {
                                     <span className="count">03</span>
                                 </div>
                                 <div className="info-box">
-                                    <h5 className="title">Documentation</h5>
-                                    <div className="text">Lorem Ipsum is simply dummy text of the new des printng and type.</div>
+                                    <h5 className="title">{t("Documentation")}</h5>
+                                    <div className="text">{t("DocumentationDescription")}</div>
                                 </div>
                             </div>
                         </div>

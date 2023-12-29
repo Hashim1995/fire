@@ -5,10 +5,11 @@ import ProcessTwo from "./components/sections/ProcessTwo";
 import TestimonialThree from "./components/sections/TestimonialThree";
 // import ClientThree from "./components/sections/ClientThree";
 // import CtaThree from "./components/sections/CtaThree";
-// import FeatureFive from "./components/sections/FeatureFive";
+import FeatureFive from "./components/sections/FeatureFive";
 // import FeatureFour from "./components/sections/FeatureFour";
 import NewsThree from "./components/sections/NewsThree";
 import { getServerSession } from "next-auth";
+import AboutOne from "./components/sections/AboutOne";
 // import VisaTwo from "./components/sections/visaTwo";
 // import TestimonialThree from "./components/sections/TestimonialThree";
 // import TrainingThree from "./components/sections/TrainingThree";
@@ -20,10 +21,10 @@ export default async function Home() {
 
     <div>
       <BannerTwo />
-      <AboutFive />
+      <AboutOne />
       <CountryThree />
       <ProcessTwo />
-      <TestimonialThree />
+      {/* <TestimonialThree /> */}
       <NewsThree />
 
 

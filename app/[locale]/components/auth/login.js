@@ -46,7 +46,6 @@ export default function FormComponent() {
                 callbackUrl: "/",
             });
             setLoading(false);
-            console.log(result, 'bilal');
 
             if (result?.error) {
                 // Check if error is a string and parse it
