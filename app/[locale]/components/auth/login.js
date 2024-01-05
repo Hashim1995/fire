@@ -156,7 +156,9 @@ export default function FormComponent() {
                             style={{ cursor: 'pointer' }}
                             class="col-lg-3 col-md-2 mt-1 font-italic"
                         >
-                            {t("ForgetPassword")}
+                            <p style={{
+                                color: '#73787d'
+                            }}> {t("ForgetPassword")} </p>
                         </div>
                     </div>
                 </div>
