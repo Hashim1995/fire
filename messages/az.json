@@ -69,7 +69,14 @@
   "EnterLastname": "Soyad xanasini daxil edin",
   "Birthday": "Doğum tarixi",
   "EnterBirthday": "Doğum tarixi xanasini daxil edin",
-  "MustBeAtLeast9Characters": "Şifrə ən azı 8 xarakter olmalıdı",
+  "MustBeAtLeast8Characters": "Şifrə ən azı 8 xarakter olmalıdı",
   "MustIncludeUppercaseLowercaseNumber": "Şifrəd' ən azı 1 böyük və 1 kiçik xarakter olmalıdı",
-  "PasswordsDoNotMatch": "Şifrələr uyğun gəlmir"
+  "PasswordsDoNotMatch": "Şifrələr uyğun gəlmir",
+  "ForgetPassword": "Şifrəmi unutdum",
+  "EnterotpCode": "OTP xanasını daxil edin",
+  "SendOtpCode": "OTP kodu göndər",
+  "ResentSendOtpCode": "OTP kodu Yenidən göndər",
+  "ApproveOtp": "OTP kodu təsdiqlə",
+  "ResetPassword": "Şifrəni yenilə",
+  "ResentSendOtpCodeSuccess": "OTP kodu yenidən göndərildi"
 }

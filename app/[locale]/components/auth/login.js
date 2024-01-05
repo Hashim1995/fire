@@ -8,9 +8,12 @@ import './login.scss'
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
+import ForgetPassword from "./forgetPassword"
 
 export default function FormComponent() {
     const session = useSession()
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
     const router = useRouter();
 
@@ -148,10 +151,17 @@ export default function FormComponent() {
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-2"></div>
+                        <div
+                            onClick={toggle}
+                            style={{ cursor: 'pointer' }}
+                            class="col-lg-3 col-md-2 mt-1 font-italic"
+                        >
+                            {t("ForgetPassword")}
+                        </div>
                     </div>
                 </div>
             </div>
+            {modal && <ForgetPassword modal={modal} setModal={setModal} />}
         </section>
     )
 }
