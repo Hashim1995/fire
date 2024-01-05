@@ -44,7 +44,7 @@ const RegisterThird = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
             if (res?.data?.succeeded) {
                 globalSetter('mainForm', { ...globalWatch('mainForm'), ...payload })
                 toast.success(t("SuccessOperation"))
-                router.push('/');
+                router.push('/auth/signin');
             }
         }
         catch (err) {
