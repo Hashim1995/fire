@@ -41,36 +41,27 @@ const NewsThree = async () => {
                     </div>
                     <div className="row">
                         <div className="column col-xl-6 col-lg-5 col-md-12 col-sm-12 wow fadeInLeft">
-                            <div className="news-block-three">
+                            <div className="news-block-mobile news-block-three">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <figure className="image"><Link href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}><img alt="img " style={{
-                                            width: '570px',
-                                            height: '400px',
-                                            objectFit: 'cover'
-                                        }} src={`https://ivisaapp.azurewebsites.net/${data[0]?.imageUrl}`} title="Vixoz" /></Link></figure>
+                                        <figure className="image"><Link href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}><img alt="img " src={`https://ivisaapp.azurewebsites.net/${data[0]?.imageUrl}`} title="Vixoz" /></Link></figure>
                                     </div>
                                     <div className="content-box">
                                         {/* <ul className="post-info">
                                                     <li><i className="fa fa-user-circle" /> by Admin</li>
                                                     <li><i className="fa fa-comments" /> 2 Comments</li>
                                                 </ul> */}
-                                        <h4 className="title"><Link href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}>{data[0]?.title}</Link></h4>
+                                        <h5 className="title"><Link href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}>{data[0]?.title}</Link></h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="column col-xl-6 col-lg-7 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
                             {data?.slice(1).map((item,) => {
-                                return <div className="news-block-four">
+                                return <div className="news-block-mobile news-block-four">
                                     <div className="inner-box">
                                         <div className="image-box">
-                                            <figure className="image"><Link href={`/news-grid/${item.slug}/${item?.id}`}><img alt="img " style={{
-                                                width: '270px',
-                                                height: '160px',
-                                                objectFit: 'cover'
-
-                                            }} src={`https://ivisaapp.azurewebsites.net/${item?.imageUrl}`} title="Vixoz" /></Link></figure>
+                                            <figure className="image"><Link href={`/news-grid/${item.slug}/${item?.id}`}><img alt="img " src={`https://ivisaapp.azurewebsites.net/${item?.imageUrl}`} title="Vixoz" /></Link></figure>
                                         </div>
                                         <div className="content-box">
                                             {/* <ul className="post-info">

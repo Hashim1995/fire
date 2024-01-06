@@ -8522,6 +8522,9 @@ Section Title
   width: 100%;
   -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
+  width: 570px;
+  object-fit: cover;
+  height: 441px;
 }
 .news-block-three .image-box .image a:after {
   background: rgba(255, 255, 255, 0.3);
@@ -8606,8 +8609,8 @@ Section Title
 }
 .news-block-four .image-box .image img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 270px;
+  height: 160px;
   -o-object-fit: cover;
   object-fit: cover;
   -webkit-transition: all 400ms ease;

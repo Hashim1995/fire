@@ -123,6 +123,7 @@ const ForgetPassword = ({ setModal, modal }) => {
                     console.log(response);
                 }
                 setModal(false);
+                toast.success(t("SuccessOperation"))
             } catch (error) {
                 if (Array.isArray(error?.response?.data?.messages)) {
                     error?.response?.data?.messages?.map(z => {

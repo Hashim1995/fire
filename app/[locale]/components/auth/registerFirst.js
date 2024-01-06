@@ -49,8 +49,14 @@ const RegisterFirst = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
                 setActiveTab('2')
             }
         }
-        catch (err) {
-            toast.error(t("ErrorOperation"))
+        catch (error) {
+            if (Array.isArray(error?.response?.data?.messages)) {
+                error?.response?.data?.messages?.map(z => {
+                    toast.error(z);
+                })
+            } else {
+                toast.error(t("ErrorOperation"))
+            }
         }
         setLoading(false)
 
