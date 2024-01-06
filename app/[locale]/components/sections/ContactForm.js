@@ -40,7 +40,6 @@ const ContactForm = () => {
         }
         try {
             const res = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/appeal', payload);
-            console.log(res);
             if (res?.data?.succeeded) {
                 reset();
                 toast.success(t("SuccessOperation"))

@@ -37,10 +37,8 @@ const RegisterThird = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
             password: data?.password,
             confirmPassword: data?.confirmPassword
         }
-        console.log(payload);
         try {
             const res = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/auth/register', payload);
-            console.log(res);
             if (res?.data?.succeeded) {
                 globalSetter('mainForm', { ...globalWatch('mainForm'), ...payload })
                 toast.success(t("SuccessOperation"))

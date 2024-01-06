@@ -65,7 +65,6 @@ export default function FormComponent() {
                     typeof result.error === "string"
                         ? JSON.parse(result.error)
                         : result.error;
-                console.log(errorObj, " bilal parsed error");
                 const messages = errorObj.messages || ["Xəta baş verdi"];
                 toast(messages.join(", "), {
                     hideProgressBar: true,
