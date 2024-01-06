@@ -37,18 +37,22 @@ const RegisterThird = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
             password: data?.password,
             confirmPassword: data?.confirmPassword
         }
-        console.log(payload);
         try {
             const res = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/auth/register', payload);
-            console.log(res);
             if (res?.data?.succeeded) {
                 globalSetter('mainForm', { ...globalWatch('mainForm'), ...payload })
                 toast.success(t("SuccessOperation"))
                 router.push('/auth/signin');
             }
         }
-        catch (err) {
-            toast.error(t("ErrorOperation"))
+        catch (error) {
+            if (Array.isArray(error?.response?.data?.messages)) {
+                error?.response?.data?.messages?.map(z => {
+                    toast.error(z);
+                })
+            } else {
+                toast.error(t("ErrorOperation"))
+            }
         }
         setLoading(false)
     }
@@ -56,7 +60,7 @@ const RegisterThird = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
         required: { value: true, message: `${t("Password")} ${t("IsRequired")}` },
         minLength: { value: 8, message: `${t("Password")} ${t("MustBeAtLeast8Characters")}` },
         pattern: {
-            value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+            value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/,
             message: `${t("Password")} ${t("MustIncludeUppercaseLowercaseNumber")}`
         }
     };

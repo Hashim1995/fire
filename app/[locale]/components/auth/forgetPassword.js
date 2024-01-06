@@ -76,9 +76,7 @@ const ForgetPassword = ({ setModal, modal }) => {
                     "https://ivisaapp.azurewebsites.net/api/v1/auth/forget-password/otp",
                     { email: data.email }
                 );
-                if (response.status === 200) {
-                    console.log(response);
-                }
+
                 setStep(2);
             } catch (error) {
                 if (Array.isArray(error?.response?.data?.messages)) {
@@ -95,9 +93,7 @@ const ForgetPassword = ({ setModal, modal }) => {
                     "https://ivisaapp.azurewebsites.net/api/v1/auth/forget-password/otp/verify",
                     { email: data.email, otpCode: data.otpCode }
                 );
-                if (response.status === 200) {
-                    console.log(response);
-                }
+
                 setStep(3);
             } catch (error) {
                 if (Array.isArray(error?.response?.data?.messages)) {
@@ -119,10 +115,9 @@ const ForgetPassword = ({ setModal, modal }) => {
                         otpCode: data.otpCode,
                     }
                 );
-                if (response.status === 200) {
-                    console.log(response);
-                }
+
                 setModal(false);
+                toast.success(t("SuccessOperation"))
             } catch (error) {
                 if (Array.isArray(error?.response?.data?.messages)) {
                     error?.response?.data?.messages?.map(z => {

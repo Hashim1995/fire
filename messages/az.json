@@ -70,7 +70,7 @@
   "Birthday": "Doğum tarixi",
   "EnterBirthday": "Doğum tarixi xanasini daxil edin",
   "MustBeAtLeast8Characters": "Şifrə ən azı 8 xarakter olmalıdı",
-  "MustIncludeUppercaseLowercaseNumber": "Şifrəd' ən azı 1 böyük və 1 kiçik xarakter olmalıdı",
+  "MustIncludeUppercaseLowercaseNumber": "Şifrədə ən azı 1 böyük 1 kiçik və 1 xüsusi simvol xarakter olmalıdı",
   "PasswordsDoNotMatch": "Şifrələr uyğun gəlmir",
   "ForgetPassword": "Şifrəmi unutdum",
   "EnterotpCode": "OTP xanasını daxil edin",

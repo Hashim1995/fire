@@ -60,7 +60,6 @@ const Header = () => {
 
   const session = useSession()
   const t = useTranslations();
-  console.log(session, 'login');
   return (
     <>
       <header

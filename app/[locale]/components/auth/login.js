@@ -1,17 +1,25 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useForm, SubmitHandler, Controller } from "react-hook-form"
-import { signIn, useSession } from "next-auth/react"
-import { Label, Spinner, Form, FormGroup, Input, Button, FormFeedback } from "reactstrap"
-import './login.scss'
+import { useEffect, useState } from "react";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { signIn, useSession } from "next-auth/react";
+import {
+    Label,
+    Spinner,
+    Form,
+    FormGroup,
+    Input,
+    Button,
+    FormFeedback,
+} from "reactstrap";
+import "./login.scss";
 import { useTranslations } from "next-intl";
-import { toast } from "react-toastify"
-import { useRouter } from "next/navigation"
-import ForgetPassword from "./forgetPassword"
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import ForgetPassword from "./forgetPassword";
 
 export default function FormComponent() {
-    const session = useSession()
+    const session = useSession();
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
@@ -19,10 +27,10 @@ export default function FormComponent() {
 
     // Redirect to home if already authenticated
     useEffect(() => {
-        if (session.status === 'authenticated') {
-            router.push('/');
+        if (session.status === "authenticated") {
+            router.push("/");
         }
-    }, [session])
+    }, [session]);
 
     const [loading, setLoading] = useState(false);
 
@@ -31,10 +39,10 @@ export default function FormComponent() {
         handleSubmit,
         control,
         formState: { errors },
-    } = useForm()
+    } = useForm();
 
     const onSubmit = async (data) => {
-        setLoading(true)
+        setLoading(true);
         // const result = await signIn('credentials', {
         //     email: data.email,
         //     password: data.password,
@@ -43,7 +51,7 @@ export default function FormComponent() {
         // });
         // setLoading(false);
         try {
-            const result = await signIn('credentials', {
+            const result = await signIn("credentials", {
                 email: data.email,
                 password: data.password,
                 redirect: false,
@@ -51,26 +59,27 @@ export default function FormComponent() {
             });
             setLoading(false);
 
-
             if (result?.error) {
                 // Check if error is a string and parse it
-                const errorObj = typeof result.error === 'string' ? JSON.parse(result.error) : result.error;
-                console.log(errorObj, ' bilal parsed error');
-                const messages = errorObj.messages || ['Xəta baş verdi'];
-                toast(messages.join(', '), { hideProgressBar: true, autoClose: 1000, type: 'error', position: 'top-right' });
+                const errorObj =
+                    typeof result.error === "string"
+                        ? JSON.parse(result.error)
+                        : result.error;
+                const messages = errorObj.messages || ["Xəta baş verdi"];
+                toast(messages.join(", "), {
+                    hideProgressBar: true,
+                    autoClose: 1000,
+                    type: "error",
+                    position: "top-right",
+                });
             }
         } catch (err) {
             console.log(err);
         }
-
-
-
-    }
+    };
     const t = useTranslations();
     return (
         <section className="mt-10 flex flex-col items-center gap-4">
-
-
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-2"></div>
@@ -79,22 +88,23 @@ export default function FormComponent() {
                             <i className="fa fa-key" aria-hidden="true"></i>
                         </div>
                         <div className="col-lg-12 login-title">
-
                             {/* {signInCredentialsError && <p className="text-red-500">Invalid credentials</p>} */}
-
                         </div>
 
                         <div className="col-lg-12 login-form">
                             <div className="col-lg-12 gap-3 login-form">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group mb-2">
-                                        <label className="form-control-label">{t('email')}</label>
+                                        <label className="form-control-label">{t("email")}</label>
 
                                         <Controller
                                             control={control}
-                                            rules={
-                                                { required: { value: true, message: `${t("Email")} ${t("IsRequired")}` } }
-                                            }
+                                            rules={{
+                                                required: {
+                                                    value: true,
+                                                    message: `${t("Email")} ${t("IsRequired")}`,
+                                                },
+                                            }}
                                             name="email"
                                             render={({ field: { onChange, value } }) => (
                                                 <Input
@@ -112,12 +122,17 @@ export default function FormComponent() {
                                         )}
                                     </div>
                                     <div className="form-group mb-2">
-                                        <label className="form-control-label">{t('password')}</label>
+                                        <label className="form-control-label">
+                                            {t("password")}
+                                        </label>
                                         <Controller
                                             control={control}
-                                            rules={
-                                                { required: { value: true, message: `${t("Password")} ${t("IsRequired")}` } }
-                                            }
+                                            rules={{
+                                                required: {
+                                                    value: true,
+                                                    message: `${t("Password")} ${t("IsRequired")}`,
+                                                },
+                                            }}
                                             name="password"
                                             render={({ field: { onChange, value } }) => (
                                                 <Input
@@ -135,35 +150,55 @@ export default function FormComponent() {
                                         )}
                                     </div>
 
-                                    <div className="col-lg-12 loginbttm">
-                                        <div className="col-lg-6 login-btm login-text">
-                                        </div>
+                                    <div className=" row">
                                         <div className="col-lg-6 login-btm login-button">
-                                            <Button disabled={loading} type="submit" className="theme-btn border-0 rounded-0 btn-style-one"><span className="btn-title text-white">{
-                                                loading ?
-                                                    <Spinner
-                                                        style={{ width: "0.7rem", height: "0.7rem" }}
-                                                        type="grow"
-                                                        color="light"
-                                                    /> : t('login')}</span></Button>
+                                            <Button
+                                                disabled={loading}
+                                                type="submit"
+                                                className="theme-btn border-0 rounded-0 btn-style-one"
+                                            >
+                                                <span className="btn-title text-white">
+                                                    {loading ? (
+                                                        <Spinner
+                                                            style={{ width: "0.7rem", height: "0.7rem" }}
+                                                            type="grow"
+                                                            color="light"
+                                                        />
+                                                    ) : (
+                                                        t("login")
+                                                    )}
+                                                </span>
+                                            </Button>
                                         </div>
+                                        <div style={{
+                                            display: 'flex',
+                                            alignItems: 'flex-start',
+                                            justifyContent: 'flex-end'
+                                        }} className="col-lg-6 ">
+                                            <p
+                                                onClick={toggle}
+
+                                                className=" mt-1 font-italic"
+                                                style={{
+                                                    color: "#1434A4",
+                                                    margin: '0',
+                                                    cursor: "pointer"
+                                                }}
+                                            >
+                                                {" "}
+                                                {t("ForgetPassword")}{" "}
+                                            </p>
+                                        </div>
+
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div
-                            onClick={toggle}
-                            style={{ cursor: 'pointer' }}
-                            class="col-lg-3 col-md-2 mt-1 font-italic"
-                        >
-                            <p style={{
-                                color: '#73787d'
-                            }}> {t("ForgetPassword")} </p>
-                        </div>
+
                     </div>
                 </div>
             </div>
             {modal && <ForgetPassword modal={modal} setModal={setModal} />}
         </section>
-    )
+    );
 }

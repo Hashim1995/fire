@@ -21,7 +21,6 @@ const CountrySliderOne = () => {
       cache: 'no-store'
     })
     const data = await res.json()
-    console.log(data, 'akif');
     if (data?.succeeded) {
       setData(data?.data)
     }

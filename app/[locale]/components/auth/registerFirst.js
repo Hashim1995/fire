@@ -38,10 +38,8 @@ const RegisterFirst = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
             email: data?.email,
             birthday: data?.birthday,
         }
-        console.log(payload);
         try {
             const res = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/auth/register/first-step', payload);
-            console.log(res);
             if (res?.data?.succeeded) {
                 globalSetter('mainForm', { ...globalWatch('mainForm'), ...payload })
                 toast.success(t("SuccessOperation"))
@@ -49,8 +47,14 @@ const RegisterFirst = ({ setShouldOpenTab, setActiveTab, globalSetter, globalWat
                 setActiveTab('2')
             }
         }
-        catch (err) {
-            toast.error(t("ErrorOperation"))
+        catch (error) {
+            if (Array.isArray(error?.response?.data?.messages)) {
+                error?.response?.data?.messages?.map(z => {
+                    toast.error(z);
+                })
+            } else {
+                toast.error(t("ErrorOperation"))
+            }
         }
         setLoading(false)
 
