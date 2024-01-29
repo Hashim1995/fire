@@ -104,18 +104,18 @@ const Footer = async () => {
                                     <div className="row">
                                         <div className="col-md-4 col-sm-12">
                                             <h5 className="widget-title">
-                                                <Link href="#">{t("about")}</Link>
+                                                <Link href="/page-about">{t("about")}</Link>
                                             </h5>
 
                                         </div>
                                         <div className=" col-md-4 col-sm-12">
                                             <h5 className="widget-title">
-                                                <Link href="#">{t("blog")}</Link>
+                                                <Link href="/news-grid">{t("blog")}</Link>
                                             </h5>
                                         </div>
                                         <div className=" col-md-4 col-sm-12">
                                             <h5 className="widget-title">
-                                                <Link href="#">{t("contact")}</Link>
+                                                <Link href="page-contact">{t("contact")}</Link>
                                             </h5>
 
                                         </div>
