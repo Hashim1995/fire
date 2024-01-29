@@ -4,6 +4,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation"
 import { useEffect } from "react";
+import Main from "./components/main";
 
 export default function Dashboard() {
     const session = useSession()
@@ -18,8 +19,10 @@ export default function Dashboard() {
     }, [session])
 
     return (
-        <section className="flex flex-col items-center gap-4">
-            <h1 className="text-2xl text-danger">Secret page</h1>
+        <section style={{
+            minHeight: '60vh'
+        }} className="flex flex-col items-center gap-4">
+            <Main />
         </section>
     )
 }

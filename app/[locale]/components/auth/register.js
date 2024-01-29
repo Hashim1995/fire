@@ -53,17 +53,17 @@ export default function Register() {
                                 <Nav className="justify-content-center" tabs>
                                     <NavItem>
                                         <NavLink disabled={shouldOpenTab !== '1'} className={activeTab == '1' ? 'active' : ''} onClick={() => setActiveTab('1')}>
-                                            İstifadəçi məlumatları
+                                            {t('userInfo')}
                                         </NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink disabled={shouldOpenTab !== '2'} className={activeTab == '2' ? 'active' : ''} onClick={() => setActiveTab('2')}>
-                                            Email təsdiqləmə kodu
+                                            {t("emailApproveCode")}
                                         </NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink disabled={shouldOpenTab !== '3'} className={activeTab == '3' ? 'active' : ''} onClick={() => setActiveTab('3')}>
-                                            Şifrə | Qeydiyyatı tamamla
+                                            {t("finshRegister")}
                                         </NavLink>
                                     </NavItem>
                                 </Nav>

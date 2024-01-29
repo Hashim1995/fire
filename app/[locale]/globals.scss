@@ -254,3 +254,73 @@ a {
     }
   }
 }
+.react-select {
+  height: calc(2.25rem + 27px);
+  background-color: #f4f5f8;
+  border: 1px solid #f4f5f8;
+  border-radius: 0.25rem;
+  color: #686a6f;
+  font-size: 0.9rem;
+  width: 100%;
+
+  > div {
+    height: 100%;
+    border: none;
+    background-color: transparent;
+  }
+  &.danger {
+    .select__control {
+      background-color: rgba(234, 84, 85, 0.12) !important;
+      border-color: rgba(234, 84, 85, 0.12);
+    }
+
+    .select__single-value {
+      color: #ea5455;
+    }
+  }
+
+  &.warning {
+    .select__control {
+      background-color: #ff9f431a !important;
+      border-color: #ff9f431a;
+    }
+
+    .select__single-value {
+      color: #ff9f43;
+    }
+  }
+
+  &.primary {
+    .select__control {
+      background-color: rgba(115, 103, 240, 0.12) !important;
+      border-color: rgba(115, 103, 240, 0.12);
+    }
+
+    .select__single-value {
+      color: #7367f0;
+    }
+  }
+
+  &.success {
+    .select__control {
+      background-color: rgba(40, 199, 111, 0.12) !important;
+      border-color: rgba(40, 199, 111, 0.12);
+    }
+
+    .select__single-value {
+      color: #28c76f;
+    }
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+
+  background: url(https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/calendar-16.png)
+    no-repeat;
+  width: 20px;
+  margin-top: 8px;
+  height: 20px;
+  border-width: thin;
+}

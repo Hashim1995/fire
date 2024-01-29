@@ -41,7 +41,7 @@ const ContactInner = async () => {
                     <div className="text">
                       <h6>{t("HaveAnyQuestion")}</h6>
                       <Link href="tel:980089850">
-                        <span>{t("Free")}</span> {data?.phoneNumber}
+                        {data?.phoneNumber}
                       </Link>
                     </div>
                   </li>
