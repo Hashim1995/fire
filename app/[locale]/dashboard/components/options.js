@@ -1,3 +1,44 @@
+const DocumentTypes = [
+    { value: 1, label: 'İşəgötürmə Təsdiqi' },
+    { value: 2, label: 'Vergi İdentifikasiya Nömrəsi' },
+    { value: 3, label: 'Tələbə Statusunun Təsdiqi' },
+    { value: 4, label: 'Pensiyaçı Statusunun Təsdiqi' },
+    { value: 5, label: 'Bank Hesabı Və Çıxarış Məlumatları' },
+    { value: 6, label: 'Nikah Şəhadətnaməsi' },
+    { value: 7, label: 'Boşanma Şəhadətnaməsi' },
+    { value: 8, label: 'Uşaqlar Üçün Doğum Şəhadətnaməsi' },
+    { value: 9, label: 'Himayəçilik Müraciəti' },
+    { value: 10, label: 'Əmlak və ya Nəqliyyat Vasitəsinin Sənədləri' },
+    { value: 11, label: 'Şengen Viza Stikeri' },
+    { value: 12, label: 'Valideynlərdən Səyahət İcazəsi' },
+    { value: 13, label: 'Pasport' }
+];
+
+const VisaCategories = [
+    { value: 1, label: 'Turist' },
+    { value: 2, label: 'Biznes' },
+    { value: 3, label: 'Akademik' }
+];
+
+const VisaLevels = [
+    { value: 1, label: 'Yeni' },
+    { value: 2, label: 'Davam Edən' },
+    { value: 3, label: 'Sənəd Gözləyən' },
+    { value: 4, label: 'Yoxlama Prosesində' },
+    { value: 5, label: 'Sənədlər Təsdiqlənmiş' },
+    { value: 6, label: 'Ləğv Edilmiş' }
+];
+
+const VisaStatuses = [
+    { value: 1, label: 'Gözləmədə' },
+    { value: 2, label: 'Təsdiqlənmiş' },
+    { value: 3, label: 'Rədd Edilmiş' }
+];
+
+const VisaTypes = [
+    { value: 1, label: 'Tək' },
+    { value: 2, label: 'Çox' }
+];
 const countriesStatic = [
     { value: 1, label: 'Albaniya' },
     { value: 2, label: 'Andorra' },
@@ -49,6 +90,11 @@ const countriesStatic = [
     { value: 48, label: 'Vatikan' }
 ];
 
+function getEnumLabel(targetArray, id) {
+    const foundItem = targetArray?.find(item => item?.value === id);
+    return foundItem ? foundItem.label : noText;
+}
+
 function validateDates(firstDate, secondDate) {
     // Convert the date strings to Date objects
     const departureDate = new Date(firstDate);
@@ -75,4 +121,4 @@ const toBase64 = file => new Promise((resolve, reject) => {
 });
 
 
-export { countriesStatic, validateDates, toBase64 }
+export { getEnumLabel, validateDates, toBase64, countriesStatic, DocumentTypes, VisaCategories, VisaLevels, VisaStatuses, VisaTypes, }

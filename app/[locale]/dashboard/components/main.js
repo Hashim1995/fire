@@ -18,7 +18,14 @@ import Link from "next/link";
 import { BiHome, BiPencil, BiVerticalCenter } from 'react-icons/bi';
 import { FaEllipsisV } from 'react-icons/fa';
 import AddModal from './addmodal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
+import axios from 'axios';
+import { VisaLevels, VisaStatuses, getEnumLabel } from './options';
+import ProvideModal from './provideModal';
+
 
 const data = [
     {
@@ -113,7 +120,44 @@ const data = [
 
 const Main = () => {
     const [showAddModal, setShowAddModal] = useState(false);
+    const [skeleton, setSkeleton] = useState(true);
+    const [showProvideModal, setShowProvideModal] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
 
+
+
+    const [visaRequests, setVisaRequests] = useState()
+    const session = useSession()
+    const t = useTranslations();
+
+    const fetchData = async () => {
+        const token = session?.data?.user?.data?.token
+        try {
+            const response = await axios.get('https://ivisaapp.azurewebsites.net/api/v1/visa', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response?.data?.succeeded) {
+                setVisaRequests(response?.data?.data)
+            }
+            setSkeleton(false)
+
+        } catch (error) {
+            if (Array.isArray(error?.response?.data?.messages)) {
+                error?.response?.data?.messages?.map(z => {
+                    toast.error(z);
+                })
+            } else {
+                toast.error(t("ErrorOperation"))
+            }
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
     return <div className="p-5">
         <div className="col-12 mb-3">
 
@@ -145,41 +189,44 @@ const Main = () => {
                 <div className="col-12">
 
 
-                    {true ? (
+                    {!skeleton ? (
                         <div className="min-height-table">
-                            {data?.length > 0 ? (
+                            {visaRequests?.data?.length > 0 ? (
                                 <>
                                     <Table size='sm' bordered striped responsive hover>
                                         <thead>
                                             <tr>
-                                                <th className='text-start p-2'>MÜRACİƏTÇİ</th>
-                                                <th className='text-start p-2'>TARİX</th>
-                                                <th className='text-start p-2'>ÖLKƏ</th>
-                                                <th className='text-start p-2'>MƏBLƏĞ</th>
-                                                <th className='text-start p-2'>VİZA NÖVÜ</th>
-                                                <th className='text-start p-2'>STATUS</th>
+                                                <th textTransform="initial">MÜRACİƏTÇİ</th>
+
+                                                <th textTransform="initial">GEDİLƏCƏK ÖLKƏ</th>
+                                                <th textTransform="initial">GEDİŞ TARİXİ</th>
+                                                <th textTransform="initial">GERİ DÖNÜŞ TARİXİ</th>
+                                                <th textTransform="initial">VİZA STATUSU</th>
+                                                <th textTransform="initial">MƏRHƏLƏ STATUSU</th>
                                                 <th />
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {data?.map(item => (
+                                            {visaRequests?.data?.map(item => (
                                                 <tr
 
                                                     className="monitoringTableTr"
-                                                    key={item?.petitioner}
+                                                    key={item?.id}
                                                 >
-                                                    <td className='text-start p-2'>{item?.petitioner}</td>
-
-                                                    <td className='text-start p-2'>{item?.date}</td>
-                                                    <td className='text-start p-2'>{item?.country}</td>
-                                                    <td className='text-start p-2'>{item?.amount}</td>
-                                                    <td className='text-start p-2'>{item?.type}</td>
                                                     <td>
-                                                        <Badge
-                                                            pill
-                                                        >
-                                                            {item?.status}
-                                                        </Badge>
+                                                        {item?.customer?.firstname
+                                                            ? `${item?.customer?.firstname} ${item?.customer?.lastname}`
+                                                            : '-'}
+                                                    </td>
+
+                                                    <td>{item?.country?.title || '-'}</td>
+                                                    <td>{item?.departureDate || '-'}</td>
+                                                    <td>{item?.returnDate || '-'}</td>
+                                                    <td>
+                                                        {getEnumLabel(VisaStatuses, item?.visaStatus) || '-'}
+                                                    </td>
+                                                    <td>
+                                                        {getEnumLabel(VisaLevels, item?.visaLevel) || '-'}
                                                     </td>
                                                     <td className='text-center' >
                                                         <UncontrolledDropdown>
@@ -189,8 +236,11 @@ const Main = () => {
                                                                 border: 'none'
                                                             }}><FaEllipsisV /></DropdownToggle>
                                                             <DropdownMenu>
-                                                                <DropdownItem>
-                                                                    Düzəliş et
+                                                                <DropdownItem onClick={() => {
+                                                                    setSelectedItem(item)
+                                                                    setShowProvideModal(true)
+                                                                }}>
+                                                                    Sənədləri təmin et
                                                                 </DropdownItem>
                                                                 <DropdownItem>
                                                                     Nəmnəsə et
@@ -213,11 +263,27 @@ const Main = () => {
                                     /> */}
                                 </>
                             ) : (
-                                <NoResult />
+                                <Table size='sm' bordered striped responsive hover>
+                                    <thead>
+                                        <tr>
+                                            <th textTransform="initial">MÜRACİƏTÇİ</th>
+
+                                            <th textTransform="initial">GEDİLƏCƏK ÖLKƏ</th>
+                                            <th textTransform="initial">GEDİŞ TARİXİ</th>
+                                            <th textTransform="initial">GERİ DÖNÜŞ TARİXİ</th>
+                                            <th textTransform="initial">VİZA STATUSU</th>
+                                            <th textTransform="initial">MƏRHƏLƏ STATUSU</th>
+                                            <th />
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </Table>
                             )}
                         </div>
                     ) : (
-                        <div style={{ padding: '1.5rem 1.5rem' }} className="list-item">
+                        <div style={{ padding: '1.5rem 1.5rem' }} className="d-flex align-items-center justify-content-center">
                             <Spinner />
                         </div>
                     )}
@@ -226,6 +292,7 @@ const Main = () => {
 
         </div>
         {showAddModal && <AddModal modal={showAddModal} setModal={setShowAddModal} />}
+        {showProvideModal && <ProvideModal selectedItem={selectedItem} modal={showProvideModal} setModal={setShowProvideModal} />}
 
     </div>
 };

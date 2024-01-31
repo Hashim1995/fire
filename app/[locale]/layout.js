@@ -52,9 +52,10 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 
             <Layout HeaderStyle="three">
               {children}
-              <ToastContainerWrapper />
+
 
             </Layout>
+            <ToastContainerWrapper />
           </Providers>
 
         </body>

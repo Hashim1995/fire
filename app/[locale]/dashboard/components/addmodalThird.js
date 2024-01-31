@@ -51,18 +51,15 @@ const AddModalThird = ({ extractData, setModal }) => {
 
         setLoading(true)
         try {
-            const response = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/visa', JSON.stringify(transformedData), {
+            const response = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/visa', JSON.stringify(data), {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
                 }
             });
-            if (response?.data?.success) {
-                toast.success('Müraciətiniz uğurla qəbul olundu. Ən yaxın zamanda operatorumuz tərəfindən müraciətiniz icra ediləcək');
-                setModal(false)
-                setActiveTab("1")
-
-            }
+            toast.success('Müraciətiniz uğurla qəbul olundu. Ən yaxın zamanda operatorumuz tərəfindən müraciətiniz icra ediləcək');
+            setModal(false)
+            setActiveTab("1")
 
         } catch (error) {
             if (Array.isArray(error?.response?.data?.messages)) {
@@ -94,7 +91,7 @@ const AddModalThird = ({ extractData, setModal }) => {
                 nationality: formData[`nationality-${i}`],
                 dateOfBirth: formData[`dateOfBirth-${i}`],
                 personalNo: formData[`personalNo-${i}`],
-                gender: formData[`gender-${i}`],
+                gender: formData[`gender-${i}`]?.value,
                 passportNo: formData[`passportNo-${i}`],
                 passportDateOfIssue: formData[`passportDateOfIssue-${i}`],
                 passportDateOfExpiry: formData[`passportDateOfExpiry-${i}`],
@@ -112,7 +109,8 @@ const AddModalThird = ({ extractData, setModal }) => {
                     firstname: formData[`hasEuropeanFamilyMemberFirstname-${i}`],
                     lastname: formData[`hasEuropeanFamilyMemberLastName-${i}`],
                     passport: formattedFiles[i]?.data?.file,
-                    passportFilename: formattedFiles[i]?.data?.fileName
+                    passportFilename: formattedFiles[i]?.data?.fileName,
+                    passportContentType: formattedFiles[i]?.data?.type
                 }
             };
 
@@ -138,13 +136,18 @@ const AddModalThird = ({ extractData, setModal }) => {
                 value: 1,
                 label: "Yoxdur",
             },)
+            setValue(`gender-${index}`, extractedItem?.gender == 1 ? {
+                value: 1,
+                label: "Kişi",
+            } : extractedItem?.gender == 2 ? {
+                value: 2,
+                label: "Qadın",
+            } : null)
             setValue(`firstname-${index}`, extractedItem?.firstname)
             setValue(`countryCode-${index}`, extractedItem?.countryCode)
             setValue(`dateOfBirth-${index}`, format(parse(extractedItem?.dateOfBirth, "dd.MM.yyyy", new Date()), 'yyyy-MM-dd'))
             setValue(`passportDateOfExpiry-${index}`, format(parse(extractedItem?.dateOfExpiry, "dd.MM.yyyy", new Date()), 'yyyy-MM-dd'))
             setValue(`passportDateOfIssue-${index}`, format(parse(extractedItem?.dateOfIssue, "dd.MM.yyyy", new Date()), 'yyyy-MM-dd'))
-
-            setValue(`gender-${index}`, extractedItem?.gender)
             setValue(`lastname-${index}`, extractedItem?.lastname)
             setValue(`nationality-${index}`, extractedItem?.nationality)
             setValue(`passportNo-${index}`, extractedItem?.passportNo)
@@ -168,7 +171,7 @@ const AddModalThird = ({ extractData, setModal }) => {
                 const base64 = await toBase64(orginalFile);
                 setFormattedFiles(formattedFiles =>
                     formattedFiles.map(file =>
-                        file.index === index ? { ...file, data: { file: base64, fileName: orginalFile?.name } } : file
+                        file.index === index ? { ...file, data: { file: base64, fileName: orginalFile?.name, type: orginalFile?.type } } : file
                     )
                 );
             } catch (error) {
@@ -383,6 +386,7 @@ const AddModalThird = ({ extractData, setModal }) => {
                     <div className="col-sm-6">
                         <div className="mb-3">
                             <Label>{t("gender")}</Label>
+                            <br />
                             <Controller
                                 control={control}
                                 rules={{
@@ -393,18 +397,57 @@ const AddModalThird = ({ extractData, setModal }) => {
                                 }}
                                 name={`gender-${index}`}
                                 render={({ field: { onChange, value } }) => (
-                                    <Input
-                                        invalid={errors?.[`gender-${index}`] ? true : false}
+                                    <Select
+                                        className="react-select"
+                                        options={[
+                                            {
+                                                value: 1,
+                                                label: "Kişi",
+                                            },
+                                            {
+                                                value: 2,
+                                                label: "Qadın",
+                                            },
+                                        ]}
                                         value={value}
+
+                                        aria-invalid={errors?.[`gender-${index}`]}
+                                        menuPortalTarget={document.body}
+                                        menuPosition={"fixed"}
                                         onChange={onChange}
-                                        className="form-control"
-                                        placeholder={t("Enter")}
-                                        type="text"
+                                        styles={{
+                                            menuPortal: (base, state) => ({
+                                                ...base,
+                                                borderColor: state.isFocused
+                                                    ? "#ddd"
+                                                    : errors[`gender-${index}`]
+                                                        ? "#ddd"
+                                                        : "red",
+                                                // overwrittes hover style
+                                                "&:hover": {
+                                                    borderColor: state.isFocused
+                                                        ? "#ddd"
+                                                        : errors[`gender-${index}`]
+                                                            ? "#ddd"
+                                                            : "red",
+                                                },
+                                                zIndex: 9999,
+                                            }),
+                                        }}
                                     />
                                 )}
                             />
                             {errors[`gender-${index}`] && (
-                                <FormFeedback>{errors[`gender-${index}`].message}</FormFeedback>
+                                <div
+                                    style={{
+                                        width: "100%",
+                                        marginTop: " 0.25rem",
+                                        fontSize: " .875em",
+                                        color: "#dc3545",
+                                    }}
+                                >
+                                    {errors[`gender-${index}`].message}
+                                </div>
                             )}
                         </div>
                     </div>
@@ -518,6 +561,11 @@ const AddModalThird = ({ extractData, setModal }) => {
                                         value: true,
                                         message: `${t("email")} ${t("IsRequired")}`,
                                     },
+                                    validate: {
+                                        checkOnlyEnglishChars: (value) =>
+                                            /^[\w\\.-]+@[\w\\.-]+\.\w+$/.test(value) ||
+                                            'Düzgün e-poçt ünvanı daxil edin.'
+                                    }
                                 }}
                                 name={`email-${index}`}
                                 render={({ field: { onChange, value } }) => (
@@ -813,6 +861,11 @@ const AddModalThird = ({ extractData, setModal }) => {
                                                 value: true,
                                                 message: `${t("representativeEmail")} ${t("IsRequired")}`,
                                             },
+                                            validate: {
+                                                checkOnlyEnglishChars: (value) =>
+                                                    /^[\w\\.-]+@[\w\\.-]+\.\w+$/.test(value) ||
+                                                    'Düzgün e-poçt ünvanı daxil edin.'
+                                            }
                                         }}
                                         name={`representativeEmail-${index}`}
                                         render={({ field: { onChange, value } }) => (
@@ -822,7 +875,7 @@ const AddModalThird = ({ extractData, setModal }) => {
                                                 onChange={onChange}
                                                 className="form-control"
                                                 placeholder={t("Enter")}
-                                                type="text"
+                                                type="email"
                                             />
                                         )}
                                     />
