@@ -25,6 +25,7 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import { VisaLevels, VisaStatuses, getEnumLabel } from "./options";
 import ProvideModal from "./provideModal/provideModal";
+import ResendModal from "./resendModal/resendModal";
 
 const data = [
   {
@@ -121,6 +122,7 @@ const Main = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [skeleton, setSkeleton] = useState(true);
   const [showProvideModal, setShowProvideModal] = useState(false);
+  const [showResendModal, setShowResendModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [refreshComponent, setRefreshComponent] = useState(false);
 
@@ -239,7 +241,14 @@ const Main = () => {
                                   >
                                     Sənədləri təmin et
                                   </DropdownItem>
-                                  <DropdownItem>Nəmnəsə et</DropdownItem>
+                                  <DropdownItem
+                                    onClick={() => {
+                                      setSelectedItem(item);
+                                      setShowResendModal(true);
+                                    }}
+                                  >
+                                    Sənədləri yenidən yüklə
+                                  </DropdownItem>
                                 </DropdownMenu>
                               </UncontrolledDropdown>
                             </td>
@@ -294,6 +303,14 @@ const Main = () => {
           selectedItem={selectedItem}
           modal={showProvideModal}
           setModal={setShowProvideModal}
+          setRefreshComponent={setRefreshComponent}
+        />
+      )}
+      {showResendModal && (
+        <ResendModal
+          selectedItem={selectedItem}
+          modal={showResendModal}
+          setModal={setShowResendModal}
           setRefreshComponent={setRefreshComponent}
         />
       )}
