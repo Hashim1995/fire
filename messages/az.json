@@ -111,5 +111,7 @@
     "otherCountryResidenceInformation": "Avropa vətəndaşı haqqında məlumat",
     "hasEuropeanFamilyMemberFirstname": "(Avropa vətəndaşı ailə üzvü) Ad",
     "hasEuropeanFamilyMemberLastName": "(Avropa vətəndaşı ailə üzvü) Soyad",
-    "hasEuropeanFamilyMemberPassport": "(Avropa vətəndaşı ailə üzvü) Passport şəkili"
+    "hasEuropeanFamilyMemberPassport": "(Avropa vətəndaşı ailə üzvü) Passport şəkili",
+    "file": "Fayl",
+    "documentType": "Sənd növü"
 }
