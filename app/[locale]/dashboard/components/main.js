@@ -7,7 +7,6 @@ import {
   Spinner,
   Breadcrumb,
   BreadcrumbItem,
-  Pagination,
   Badge,
   UncontrolledDropdown,
   DropdownMenu,
@@ -27,97 +26,7 @@ import { VisaLevels, VisaStatuses, getEnumLabel } from "./options";
 import ProvideModal from "./provideModal/provideModal";
 import ResendModal from "./resendModal/resendModal";
 import PaymentTypeModal from "./paymentTypeModal";
-
-const data = [
-  {
-    petitioner: "Sadıqov Bilal Daşqın",
-    date: "28.01.2024",
-    country: "Kanada",
-    amount: "23.00 AZN",
-    type: "Tələbə vizası",
-    status: "pending",
-  },
-  {
-    petitioner: "Aliyeva Leyla Rüstəm",
-    date: "15.02.2024",
-    country: "Almaniya",
-    amount: "45.00 AZN",
-    type: "İş vizası",
-    status: "approved",
-  },
-  {
-    petitioner: "Hüseynov Tofiq Elşən",
-    date: "03.03.2024",
-    country: "İtaliya",
-    amount: "30.00 AZN",
-    type: "Turist vizası",
-    status: "rejected",
-  },
-  {
-    petitioner: "Məmmədov İsmayıl Faiq",
-    date: "21.04.2024",
-    country: "Fransa",
-    amount: "50.00 AZN",
-    type: "Tələbə vizası",
-    status: "pending",
-  },
-  {
-    petitioner: "Abdullayeva Sevinç Rəşad",
-    date: "05.05.2024",
-    country: "ABŞ",
-    amount: "60.00 AZN",
-    type: "İş vizası",
-    status: "approved",
-  },
-  {
-    petitioner: "Quliyev Orxan Samir",
-    date: "16.06.2024",
-    country: "Yaponiya",
-    amount: "40.00 AZN",
-    type: "Turist vizası",
-    status: "pending",
-  },
-  {
-    petitioner: "İbrahimli Ləman Fərid",
-    date: "27.07.2024",
-    country: "Güney Koreya",
-    amount: "35.00 AZN",
-    type: "Tələbə vizası",
-    status: "rejected",
-  },
-  {
-    petitioner: "Rəsulov Elçin Məhərrəm",
-    date: "08.08.2024",
-    country: "İngiltərə",
-    amount: "55.00 AZN",
-    type: "İş vizası",
-    status: "approved",
-  },
-  {
-    petitioner: "Əliyeva Zəhra Natiq",
-    date: "19.09.2024",
-    country: "Avstraliya",
-    amount: "25.00 AZN",
-    type: "Turist vizası",
-    status: "pending",
-  },
-  {
-    petitioner: "Qasımov Rüfət Tahir",
-    date: "30.10.2024",
-    country: "Norveç",
-    amount: "70.00 AZN",
-    type: "Tələbə vizası",
-    status: "approved",
-  },
-  {
-    petitioner: "Hacıyeva Günel Elmar",
-    date: "11.11.2024",
-    country: "İspaniya",
-    amount: "65.00 AZN",
-    type: "İş vizası",
-    status: "rejected",
-  },
-];
+import Pagination from "./Pagination/Pagination";
 
 const Main = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -128,6 +37,8 @@ const Main = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [refreshComponent, setRefreshComponent] = useState(false);
   const [visaAppointmentId, setVisaAppointmentId] = useState(null);
+  const [totalDataCount, setTotalDataCount] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [visaRequests, setVisaRequests] = useState();
   const session = useSession();
@@ -137,7 +48,7 @@ const Main = () => {
     const token = session?.data?.user?.data?.token;
     try {
       const response = await axios.get(
-        "https://ivisaapp.azurewebsites.net/api/v1/visa",
+        `https://ivisaapp.azurewebsites.net/api/v1/visa?page=${currentPage}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -147,6 +58,7 @@ const Main = () => {
       );
       if (response?.data?.succeeded) {
         setVisaRequests(response?.data?.data);
+        setTotalDataCount(response?.data?.data?.totalDataCount);
       }
       setSkeleton(false);
     } catch (error) {
@@ -162,7 +74,7 @@ const Main = () => {
 
   useEffect(() => {
     fetchData();
-  }, [refreshComponent]);
+  }, [refreshComponent, currentPage]);
   return (
     <div className="p-5">
       <div className="col-12 mb-3">
@@ -314,6 +226,18 @@ const Main = () => {
                 <Spinner />
               </div>
             )}
+            <Pagination
+              align="end"
+              className="pagination-bar"
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+              totalCount={totalDataCount}
+              pageSize={10}
+              onPageChange={(page) => {
+                setCurrentPage(page);
+                setSkeleton(!skeleton);
+              }}
+            />
           </div>
         </div>
       </div>
