@@ -70,8 +70,9 @@ const AddModalThird = ({
           },
         }
       );
+      console.log(response?.data?.data?.createdAppointmentId, "ferhad");
       if (response?.data) {
-        setVisaAppointmentId(response?.data?.createdAppointmentId);
+        setVisaAppointmentId(response?.data?.data?.createdAppointmentId);
       }
       toast.success(
         "Müraciətiniz uğurla qəbul olundu. Ödəniş etdiktən sonra ən yaxın zamanda operatorumuz tərəfindən müraciətiniz icra ediləcək"
