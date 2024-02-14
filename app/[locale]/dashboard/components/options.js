@@ -27,6 +27,8 @@ const VisaLevels = [
   { value: 4, label: "Yoxlama Prosesində" },
   { value: 5, label: "Sənədlər Təsdiqlənmiş" },
   { value: 6, label: "Ləğv Edilmiş" },
+  { value: 7, label: "Sənəd düzəlişi tələb olunur" },
+  { value: 8, label: "Ödəniş gözlənilir" },
 ];
 
 const VisaStatuses = [

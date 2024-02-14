@@ -7,12 +7,17 @@ import {
   AccordionHeader,
   AccordionItem,
   Button,
+  Input,
+  Label,
   Table,
 } from "reactstrap";
 import AddFileToApplicantModal from "./addFileToApplicantModal";
 import { DocumentTypes, getEnumLabel } from "../options";
 import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 import axios from "axios";
+import { useTranslations } from "next-intl";
+import { FcOk, FcHighPriority, FcQuestions } from "react-icons/fc";
 
 const ApplicantCLP = ({
   applicant,
@@ -39,22 +44,29 @@ const ApplicantCLP = ({
   });
   const session = useSession();
   const token = session?.data?.user?.data?.token;
+  const t = useTranslations();
 
   const downloadFileFromServer = async (param) => {
     try {
-      const response = await axios.post(
-        "https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents/download",
-        { documentUri: param },
+      const response = await axios.get(
+        `https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents/download/${param}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
+      const data = new Uint8Array([response?.data]);
+      const blob = new Blob([data]);
+      const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
-      a.download = param;
-      a.href = response.data;
+      a.href = url;
+      a.download = param; // Specify the filename here
+      a.style.display = "none";
+      document.body.appendChild(a);
       a.click();
+      URL.revokeObjectURL(url);
+      document.body.removeChild(a);
     } catch (error) {
       if (Array.isArray(error?.response?.data?.messages)) {
         error?.response?.data?.messages?.map((z) => {
@@ -73,8 +85,8 @@ const ApplicantCLP = ({
     } else {
       console.log(file, "hashim");
       const a = document.createElement("a");
-      a.download = file?.fileName;
       a.href = file?.file;
+      a.download = file?.fileName;
       a.click();
     }
   };
@@ -116,11 +128,24 @@ const ApplicantCLP = ({
         </div>
       </AccordionHeader>
       <AccordionBody className="p-0" accordionId={applicant?.id}>
+        <div className="">
+          <div className="col-sm-6">
+            <div className="mb-3 d-flex">
+              <Label>{t("meetDate")}</Label>
+              <Input
+                value={applicant?.meetingDate}
+                disabled
+                className="form-control"
+              />
+            </div>
+          </div>
+        </div>
         <Table size="sm" bordered striped responsive hover>
           <thead>
             <tr>
               <th textTransform="initial">SƏNƏDİN ADI</th>
               <th textTransform="initial">SƏNƏD</th>
+              <th textTransform="initial">STATUS</th>
               <th />
             </tr>
           </thead>
@@ -134,7 +159,7 @@ const ApplicantCLP = ({
                 <td
                   style={{
                     cursor: "pointer",
-                    maxWidth: "300px",
+                    maxWidth: "200px",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
@@ -143,6 +168,17 @@ const ApplicantCLP = ({
                   className=" text-primary pointer-event"
                 >
                   {z?.file?.fileName || z?.file}
+                </td>
+                <td className="text-center">
+                  {z?.isBack ? (
+                    z?.isConfirmed ? (
+                      <FcOk />
+                    ) : (
+                      <FcHighPriority />
+                    )
+                  ) : (
+                    <FcQuestions />
+                  )}
                 </td>
                 <td className="text-center">
                   <Button

@@ -18,7 +18,12 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-const AddModalThird = ({ extractData, setModal }) => {
+const AddModalThird = ({
+  extractData,
+  setModal,
+  setVisaAppointmentId,
+  setShowPaymentTypeModal,
+}) => {
   const [loading, setLoading] = useState(false);
   const [transformedData, setTransformedData] = useState(null);
   const [formattedFiles, setFormattedFiles] = useState([]);
@@ -65,9 +70,13 @@ const AddModalThird = ({ extractData, setModal }) => {
           },
         }
       );
+      if (response?.data) {
+        setVisaAppointmentId(response?.data?.createdAppointmentId);
+      }
       toast.success(
-        "Müraciətiniz uğurla qəbul olundu. Ən yaxın zamanda operatorumuz tərəfindən müraciətiniz icra ediləcək"
+        "Müraciətiniz uğurla qəbul olundu. Ödəniş etdiktən sonra ən yaxın zamanda operatorumuz tərəfindən müraciətiniz icra ediləcək"
       );
+      setShowPaymentTypeModal(true);
       setModal(false);
     } catch (error) {
       if (Array.isArray(error?.response?.data?.messages)) {

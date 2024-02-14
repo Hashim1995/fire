@@ -113,5 +113,10 @@
     "hasEuropeanFamilyMemberLastName": "(Avropa vətəndaşı ailə üzvü) Soyad",
     "hasEuropeanFamilyMemberPassport": "(Avropa vətəndaşı ailə üzvü) Passport şəkili",
     "file": "Fayl",
-    "documentType": "Sənd növü"
+    "documentType": "Sənd növü",
+    "meetDate": "Görüş tarixi",
+    "operatorNote": "Operatorun qeydi",
+    "noNote": "Qeyd yoxdur",
+    "pay": "Ödəniş et",
+    "paymentType": "Ödəniş növü"
 }

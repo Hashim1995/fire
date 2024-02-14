@@ -50,7 +50,6 @@ const AddFileToApplicantModal = ({
   };
   const handleFileChange = async (event, index) => {
     const originalFile = event.target.files[0]; // Get the first file
-    console.log(event, "xaliq");
     if (originalFile) {
       try {
         const fileName = originalFile.name;
@@ -65,7 +64,7 @@ const AddFileToApplicantModal = ({
             orjinalFile: originalFile,
           });
         };
-        fileReader.readAsBinaryString(originalFile);
+        fileReader.readAsDataURL(originalFile); // Read file as data URL (base64)
       } catch (error) {
         console.error(error);
       }
