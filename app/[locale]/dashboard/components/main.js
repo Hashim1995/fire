@@ -225,39 +225,54 @@ const Main = () => {
                               {getEnumLabel(VisaLevels, item?.visaLevel) || "-"}
                             </td>
                             <td className="text-center">
-                              <UncontrolledDropdown>
-                                <DropdownToggle
-                                  style={{
-                                    background: "transparent",
-                                    color: "black",
-                                    border: "none",
-                                  }}
-                                >
-                                  <FaEllipsisV />
-                                </DropdownToggle>
-                                <DropdownMenu>
-                                  {item?.visaLevel === 3 && (
-                                    <DropdownItem
-                                      onClick={() => {
-                                        setSelectedItem(item);
-                                        setShowProvideModal(true);
-                                      }}
-                                    >
-                                      Sənədləri təmin et
-                                    </DropdownItem>
-                                  )}
-                                  {item?.visaLevel === 7 && (
-                                    <DropdownItem
-                                      onClick={() => {
-                                        setSelectedItem(item);
-                                        setShowResendModal(true);
-                                      }}
-                                    >
-                                      Sənədləri yenidən yüklə
-                                    </DropdownItem>
-                                  )}
-                                </DropdownMenu>
-                              </UncontrolledDropdown>
+                              {item?.visaLevel === 3 ||
+                              item?.visaLevel === 7 ||
+                              item?.visaLevel === 8 ? (
+                                <UncontrolledDropdown>
+                                  <DropdownToggle
+                                    style={{
+                                      background: "transparent",
+                                      color: "black",
+                                      border: "none",
+                                    }}
+                                  >
+                                    <FaEllipsisV />
+                                  </DropdownToggle>
+                                  <DropdownMenu>
+                                    {item?.visaLevel === 3 && (
+                                      <DropdownItem
+                                        onClick={() => {
+                                          setSelectedItem(item);
+                                          setShowProvideModal(true);
+                                        }}
+                                      >
+                                        Sənədləri təmin et
+                                      </DropdownItem>
+                                    )}
+                                    {item?.visaLevel === 7 && (
+                                      <DropdownItem
+                                        onClick={() => {
+                                          setSelectedItem(item);
+                                          setShowResendModal(true);
+                                        }}
+                                      >
+                                        Sənədləri yenidən yüklə
+                                      </DropdownItem>
+                                    )}
+
+                                    {item?.visaLevel === 8 && (
+                                      <DropdownItem
+                                        onClick={() => {
+                                          setVisaAppointmentId(item?.id);
+                                          setShowPaymentTypeModal(true);
+                                        }}
+                                      >
+                                        Ödənişi təkrarla
+                                      </DropdownItem>
+                                    )}
+                                  </DropdownMenu>
+                                </UncontrolledDropdown>
+                              ) : null}
                             </td>
                           </tr>
                         ))}
@@ -330,6 +345,7 @@ const Main = () => {
       {showPaymentTypeModal && (
         <PaymentTypeModal
           showPaymentTypeModal
+          visaAppointmentId={visaAppointmentId}
           setShowPaymentTypeModal={setShowPaymentTypeModal}
         />
       )}
