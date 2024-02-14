@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import {
   Button,
+  Input,
+  Label,
   Modal,
   ModalBody,
   ModalFooter,
@@ -54,27 +56,35 @@ const ResendModal = ({
     for (const key in jsonData) {
       if (jsonData.hasOwnProperty(key)) {
         const documents = jsonData[key];
+
         documents.forEach((document) => {
-          formData.append(`RequiredDocuments[${index}].applicantId`, key);
-          formData.append(
-            `RequiredDocuments[${index}].documentType`,
-            JSON.stringify(document.documentType.value)
-          );
-          formData.append(
-            `RequiredDocuments[${index}].document`,
-            document.file.orjinalFile
-          );
-          index++;
+          if (!document?.isBack) {
+            formData.append(
+              `NewDocuments[${index}].documentType`,
+              JSON.stringify(
+                document?.documentType?.value || document?.documentType
+              )
+            );
+            formData.append(`NewDocuments[${index}].visaApplicantId`, key);
+            formData.append(
+              `NewDocuments[${index}].document`,
+              document.file.orjinalFile
+            );
+            index++;
+          }
         });
       }
     }
+    for (var i = 0; i < removedDocsFromBack.length; i++) {
+      formData.append(`DeletedDocuments[${i}]`, removedDocsFromBack[i]?.id);
+    }
+    formData.append("VisaAppointmentId", selectedItem?.id);
 
     const token = session?.data?.user?.data?.token;
-
+    console.log(formData, "akif");
     try {
-      // Replace 'your_api_endpoint' with your actual API endpoint
-      const response = await axios.post(
-        "https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents/add",
+      const response = await axios.put(
+        "https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents",
         formData,
         {
           headers: {
@@ -84,7 +94,6 @@ const ResendModal = ({
         }
       );
 
-      // Handle response here
       console.log(response.data, "nizami");
       toast.success(t("SuccessOperation"));
       setRefreshComponent((z) => !z);
@@ -115,6 +124,17 @@ const ResendModal = ({
       </ModalHeader>
       <ModalBody>
         <div className="col-lg-12 gap-3 login-form">
+          <div className="col-sm-12">
+            <div className="mb-3 ">
+              <Label>{t("operatorNote")}</Label>
+              <Input
+                value={selectedItem?.operatorsNote || t("noNote")}
+                disabled
+                className="form-control"
+                type="textarea"
+              />
+            </div>
+          </div>
           <UncontrolledAccordion>
             {selectedItem?.visaApplicants?.map((applicant) => (
               <ApplicantCLP
@@ -131,12 +151,7 @@ const ResendModal = ({
       </ModalBody>
       <ModalFooter>
         <Button
-          disabled={
-            loading ||
-            !selectedItem?.visaApplicants?.every(
-              (z) => getValues()[z?.id]?.length
-            )
-          }
+          disabled={loading}
           type="button"
           onClick={submitHandler}
           className="theme-btn border-0 rounded-0 btn-style-one"

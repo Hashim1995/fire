@@ -26,6 +26,7 @@ import axios from "axios";
 import { VisaLevels, VisaStatuses, getEnumLabel } from "./options";
 import ProvideModal from "./provideModal/provideModal";
 import ResendModal from "./resendModal/resendModal";
+import PaymentTypeModal from "./paymentTypeModal";
 
 const data = [
   {
@@ -123,8 +124,10 @@ const Main = () => {
   const [skeleton, setSkeleton] = useState(true);
   const [showProvideModal, setShowProvideModal] = useState(false);
   const [showResendModal, setShowResendModal] = useState(false);
+  const [showPaymentTypeModal, setShowPaymentTypeModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [refreshComponent, setRefreshComponent] = useState(false);
+  const [visaAppointmentId, setVisaAppointmentId] = useState(null);
 
   const [visaRequests, setVisaRequests] = useState();
   const session = useSession();
@@ -233,22 +236,26 @@ const Main = () => {
                                   <FaEllipsisV />
                                 </DropdownToggle>
                                 <DropdownMenu>
-                                  <DropdownItem
-                                    onClick={() => {
-                                      setSelectedItem(item);
-                                      setShowProvideModal(true);
-                                    }}
-                                  >
-                                    Sənədləri təmin et
-                                  </DropdownItem>
-                                  <DropdownItem
-                                    onClick={() => {
-                                      setSelectedItem(item);
-                                      setShowResendModal(true);
-                                    }}
-                                  >
-                                    Sənədləri yenidən yüklə
-                                  </DropdownItem>
+                                  {item?.visaLevel === 3 && (
+                                    <DropdownItem
+                                      onClick={() => {
+                                        setSelectedItem(item);
+                                        setShowProvideModal(true);
+                                      }}
+                                    >
+                                      Sənədləri təmin et
+                                    </DropdownItem>
+                                  )}
+                                  {item?.visaLevel === 7 && (
+                                    <DropdownItem
+                                      onClick={() => {
+                                        setSelectedItem(item);
+                                        setShowResendModal(true);
+                                      }}
+                                    >
+                                      Sənədləri yenidən yüklə
+                                    </DropdownItem>
+                                  )}
                                 </DropdownMenu>
                               </UncontrolledDropdown>
                             </td>
@@ -296,7 +303,12 @@ const Main = () => {
         </div>
       </div>
       {showAddModal && (
-        <AddModal modal={showAddModal} setModal={setShowAddModal} />
+        <AddModal
+          setShowPaymentTypeModal={setShowPaymentTypeModal}
+          setVisaAppointmentId={setVisaAppointmentId}
+          modal={showAddModal}
+          setModal={setShowAddModal}
+        />
       )}
       {showProvideModal && (
         <ProvideModal
@@ -312,6 +324,13 @@ const Main = () => {
           modal={showResendModal}
           setModal={setShowResendModal}
           setRefreshComponent={setRefreshComponent}
+        />
+      )}
+
+      {showPaymentTypeModal && (
+        <PaymentTypeModal
+          showPaymentTypeModal
+          setShowPaymentTypeModal={setShowPaymentTypeModal}
         />
       )}
     </div>
