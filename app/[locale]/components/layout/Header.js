@@ -207,6 +207,10 @@ const Header = () => {
                       >
                         <Link
                           style={{
+                            display: "block",
+                            width: " 100%",
+                            padding: "5px",
+                            fontSize: "18px",
                             lineHeight: "18px",
                           }}
                           className={
@@ -231,7 +235,20 @@ const Header = () => {
                           });
                         }}
                       >
-                        {t("logout")} <BiLogOut size={18} />
+                        <p
+                          className="text-black"
+                          style={{
+                            display: "block",
+                            width: " 100%",
+                            padding: "5px",
+                            fontSize: "18px",
+                            lineHeight: "18px",
+                            margin: "0",
+                          }}
+                        >
+                          {" "}
+                          {t("logout")} <BiLogOut size={18} />
+                        </p>
                       </div>
                     </DropdownMenu>
                   </UncontrolledDropdown>

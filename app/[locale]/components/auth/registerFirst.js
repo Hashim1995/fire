@@ -103,6 +103,35 @@ const RegisterFirst = ({
               rules={{
                 required: {
                   value: true,
+                  message: `${t("Lastname")} ${t("IsRequired")}`,
+                },
+              }}
+              name="lastname"
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  invalid={errors?.lastname ? true : false}
+                  value={value}
+                  onChange={onChange}
+                  className="form-control"
+                  type="text"
+                  placeholder={t("EnterLastname")}
+                />
+              )}
+            />
+            {errors.lastname && (
+              <FormFeedback>{errors.lastname.message}</FormFeedback>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="mb-3">
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
                   message: `${t("Email")} ${t("IsRequired")}`,
                 },
                 pattern: {
@@ -124,35 +153,6 @@ const RegisterFirst = ({
             />
             {errors.email && (
               <FormFeedback>{errors.email.message}</FormFeedback>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="mb-3">
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: `${t("Lastname")} ${t("IsRequired")}`,
-                },
-              }}
-              name="lastname"
-              render={({ field: { onChange, value } }) => (
-                <Input
-                  invalid={errors?.lastname ? true : false}
-                  value={value}
-                  onChange={onChange}
-                  className="form-control"
-                  type="text"
-                  placeholder={t("EnterLastname")}
-                />
-              )}
-            />
-            {errors.lastname && (
-              <FormFeedback>{errors.lastname.message}</FormFeedback>
             )}
           </div>
         </div>

@@ -55,10 +55,11 @@ export default function FormComponent() {
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
-        redirect: false,
-        callbackUrl: "/",
+        redirect: true,
+        callbackUrl: "/dashboard",
       });
       setLoading(false);
+      router.push("/dashboard");
 
       if (result?.error) {
         // Check if error is a string and parse it
