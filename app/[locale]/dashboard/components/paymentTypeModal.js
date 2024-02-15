@@ -52,7 +52,7 @@ const PaymentTypeModal = ({
 
     try {
       const response = await axios.post(
-        "https://ivisaapp.azurewebsites.net/api/v1/payment",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/payment",
         {
           paymentType: Number(data?.paymentType),
           visaAppointmentId: visaAppointmentId,
@@ -89,7 +89,7 @@ const PaymentTypeModal = ({
 
     try {
       const response = await axios.get(
-        "https://ivisaapp.azurewebsites.net/api/v1/payment-types",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/payment-types",
         {
           headers: {
             "Content-Type": "application/json",
@@ -99,7 +99,6 @@ const PaymentTypeModal = ({
       );
 
       if (response?.data?.succeeded) {
-        console.log(response?.data, "akif");
         setPrice(response?.data?.data);
         setLoading(false);
       }
@@ -167,7 +166,8 @@ const PaymentTypeModal = ({
                           <span
                             className={errors?.paymentType ? "text-danger" : ""}
                           >
-                            Sadə {price ? price[0]?.amount : ""} AZN
+                            {t("paymentTypeSimple")}{" "}
+                            {price ? price[0]?.amount : ""} AZN
                           </span>
                         </Label>
                         <Label
@@ -187,7 +187,8 @@ const PaymentTypeModal = ({
                           <span
                             className={errors?.paymentType ? "text-danger" : ""}
                           >
-                            Komplex {price ? price[1]?.amount : ""} AZN
+                            {t("paymentTypeComplex")}{" "}
+                            {price ? price[1]?.amount : ""} AZN
                           </span>
                         </Label>
                       </div>

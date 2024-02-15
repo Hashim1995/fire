@@ -1,19 +1,17 @@
-
-
-import axios from 'axios';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import axios from "axios";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 export const options = {
   providers: [
     CredentialsProvider({
-      name: 'my-project',
+      name: "my-project",
       credentials: {
         email: {
-          label: 'email',
-          type: 'email',
-          placeholder: 'jsmith@example.com',
+          label: "email",
+          type: "email",
+          placeholder: "jsmith@example.com",
         },
-        password: { label: 'Password', type: 'password' }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
         const payload = {
@@ -22,30 +20,30 @@ export const options = {
         };
 
         try {
-          const userJson = await axios.post('https://ivisaapp.azurewebsites.net/api/v1/auth/login', payload);
+          const userJson = await axios.post(
+            "https://ivisavmlinux.azurewebsites.net/api/v1/auth/login",
+            payload
+          );
           const user = userJson.data;
           const jwt = user?.token; // Ensure this matches the structure returned by your API
 
           if (user) {
             return Promise.resolve({ ...user, jwt });
           } else {
-            return null
+            return null;
           }
         } catch (e) {
           // Redirecting to the login page with error messsage in the URL
-          throw new Error(JSON.stringify(e.response.data))
+          throw new Error(JSON.stringify(e.response.data));
         }
-      }
+      },
     }),
-
   ],
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/auth/signin',
-
+    signIn: "/auth/signin",
   },
   callbacks: {
-
     async jwt({ token, user }) {
       if (user) {
         token.user = user; // Assign the user data to the token
@@ -56,8 +54,7 @@ export const options = {
       session.user = token.user; // Make sure this correctly assigns the user data
       return session;
     },
-
   },
 
-  debug: process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === "development",
 };

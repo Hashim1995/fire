@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 const CountryGrid = ({ data }) => {
-
   return (
     <>
       <section className="country-grid-section">
@@ -14,23 +13,34 @@ const CountryGrid = ({ data }) => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <Link href={`/page-country/${item?.id}`} className="lightbox-image">
-                        <img alt="img " src={`https://ivisaapp.azurewebsites.net/${item?.coverUrl}`} title="Vixoz" />
-
-
+                      <Link
+                        href={`/page-country/${item?.id}`}
+                        className="lightbox-image"
+                      >
+                        <img
+                          alt="img "
+                          src={`https://ivisavmlinux.azurewebsites.net/${item?.coverUrl}`}
+                          title="Vixoz"
+                        />
                       </Link>
                     </figure>
                   </div>
                   <div className="content-box">
                     <div className="flag">
-                      <img alt="img" style={{
-                        width: '53px',
-                        height: '53px',
-
-                      }} src={`https://ivisaapp.azurewebsites.net/${item?.flagUrl}`} title="Vixoz" />
+                      <img
+                        alt="img"
+                        style={{
+                          width: "53px",
+                          height: "53px",
+                        }}
+                        src={`https://ivisavmlinux.azurewebsites.net/${item?.flagUrl}`}
+                        title="Vixoz"
+                      />
                     </div>
                     <h5 className="title">
-                      <Link href={`/page-country/${item?.id}`}>{item.title}</Link>
+                      <Link href={`/page-country/${item?.id}`}>
+                        {item.title}
+                      </Link>
                     </h5>
                     <div className="text">{item?.description}</div>
                   </div>

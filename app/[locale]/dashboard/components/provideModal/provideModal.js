@@ -42,7 +42,6 @@ const ProvideModal = ({
 
   useEffect(() => {
     selectedItem?.visaApplicants?.map((z) => setValue(`${z?.id}`, []));
-    console.log(selectedItem, "test1");
   }, [selectedItem]);
 
   const submitHandler = async () => {
@@ -73,7 +72,7 @@ const ProvideModal = ({
     try {
       // Replace 'your_api_endpoint' with your actual API endpoint
       const response = await axios.post(
-        "https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents/add",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents/add",
         formData,
         {
           headers: {
@@ -84,7 +83,6 @@ const ProvideModal = ({
       );
 
       // Handle response here
-      console.log(response.data, "nizami");
       toast.success(t("SuccessOperation"));
       setRefreshComponent((z) => !z);
       setModal(false);
@@ -110,7 +108,7 @@ const ProvideModal = ({
       toggle={() => setModal((z) => !z)}
     >
       <ModalHeader toggle={() => setModal((z) => !z)}>
-        TƏLƏB OLUNAN SƏNƏDLƏRİN ƏLAVƏ EDİLMƏSİ
+        {t("addRequiredDocuments")}
       </ModalHeader>
       <ModalBody>
         <div className="col-lg-12 gap-3 login-form">

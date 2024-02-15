@@ -22,11 +22,12 @@ import { toast } from "react-toastify";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import axios from "axios";
-import { VisaLevels, VisaStatuses, getEnumLabel } from "./options";
+import { VisaLevels, getEnumLabel } from "./options";
 import ProvideModal from "./provideModal/provideModal";
 import ResendModal from "./resendModal/resendModal";
 import PaymentTypeModal from "./paymentTypeModal";
 import Pagination from "./Pagination/Pagination";
+import ViewModal from "./viewModal";
 
 const Main = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -34,6 +35,7 @@ const Main = () => {
   const [showProvideModal, setShowProvideModal] = useState(false);
   const [showResendModal, setShowResendModal] = useState(false);
   const [showPaymentTypeModal, setShowPaymentTypeModal] = useState(false);
+  const [showViewModal, setShowViewModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [refreshComponent, setRefreshComponent] = useState(false);
   const [visaAppointmentId, setVisaAppointmentId] = useState(null);
@@ -48,7 +50,7 @@ const Main = () => {
     const token = session?.data?.user?.data?.token;
     try {
       const response = await axios.get(
-        `https://ivisaapp.azurewebsites.net/api/v1/visa?page=${currentPage}`,
+        `https://ivisavmlinux.azurewebsites.net/api/v1/visa?page=${currentPage}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -86,14 +88,14 @@ const Main = () => {
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <span>Viza müraciətləri</span>
+              <span>{t("visaApplies")}</span>
             </BreadcrumbItem>
           </Breadcrumb>
           <Button
             onClick={() => setShowAddModal((z) => !z)}
             className="theme-btn border-0 rounded-0 btn-style-one"
           >
-            <span className="btn-title text-white">Əlavə et</span>
+            <span className="btn-title text-white">{t("add")}</span>
           </Button>
         </div>
       </div>
@@ -107,13 +109,14 @@ const Main = () => {
                     <Table size="sm" bordered striped responsive hover>
                       <thead>
                         <tr>
-                          <th textTransform="initial">MÜRACİƏTÇİ</th>
+                          <th textTransform="initial">{t("applicant")}</th>
 
-                          <th textTransform="initial">GEDİLƏCƏK ÖLKƏ</th>
-                          <th textTransform="initial">GEDİŞ TARİXİ</th>
-                          <th textTransform="initial">GERİ DÖNÜŞ TARİXİ</th>
-                          <th textTransform="initial">VİZA STATUSU</th>
-                          <th textTransform="initial">MƏRHƏLƏ STATUSU</th>
+                          <th textTransform="initial">{t("countryToGo")}</th>
+                          <th textTransform="initial">
+                            {t("dateOfDeparture")}
+                          </th>
+                          <th textTransform="initial">{t("dateOfArrival")}</th>
+                          <th textTransform="initial">{t("visaStatus")}</th>
                           <th />
                         </tr>
                       </thead>
@@ -129,88 +132,80 @@ const Main = () => {
                             <td>{item?.country?.title || "-"}</td>
                             <td>{item?.departureDate || "-"}</td>
                             <td>{item?.returnDate || "-"}</td>
-                            <td>
-                              {getEnumLabel(VisaStatuses, item?.visaStatus) ||
-                                "-"}
-                            </td>
+
                             <td>
                               {getEnumLabel(VisaLevels, item?.visaLevel) || "-"}
                             </td>
                             <td className="text-center">
-                              {item?.visaLevel === 3 ||
-                              item?.visaLevel === 7 ||
-                              item?.visaLevel === 8 ? (
-                                <UncontrolledDropdown>
-                                  <DropdownToggle
-                                    style={{
-                                      background: "transparent",
-                                      color: "black",
-                                      border: "none",
+                              <UncontrolledDropdown>
+                                <DropdownToggle
+                                  style={{
+                                    background: "transparent",
+                                    color: "black",
+                                    border: "none",
+                                  }}
+                                >
+                                  <FaEllipsisV />
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                  {item?.visaLevel === 3 && (
+                                    <DropdownItem
+                                      onClick={() => {
+                                        setSelectedItem(item);
+                                        setShowProvideModal(true);
+                                      }}
+                                    >
+                                      {t("provideDocs")}
+                                    </DropdownItem>
+                                  )}
+                                  {item?.visaLevel === 7 && (
+                                    <DropdownItem
+                                      onClick={() => {
+                                        setSelectedItem(item);
+                                        setShowResendModal(true);
+                                      }}
+                                    >
+                                      {t("reUploadDocs")}
+                                    </DropdownItem>
+                                  )}
+
+                                  {item?.visaLevel === 8 && (
+                                    <DropdownItem
+                                      onClick={() => {
+                                        setVisaAppointmentId(item?.id);
+                                        setShowPaymentTypeModal(true);
+                                      }}
+                                    >
+                                      {t("repeatPayment")}
+                                    </DropdownItem>
+                                  )}
+                                  <DropdownItem
+                                    onClick={() => {
+                                      setSelectedItem(item);
+                                      setShowViewModal(true);
                                     }}
                                   >
-                                    <FaEllipsisV />
-                                  </DropdownToggle>
-                                  <DropdownMenu>
-                                    {item?.visaLevel === 3 && (
-                                      <DropdownItem
-                                        onClick={() => {
-                                          setSelectedItem(item);
-                                          setShowProvideModal(true);
-                                        }}
-                                      >
-                                        Sənədləri təmin et
-                                      </DropdownItem>
-                                    )}
-                                    {item?.visaLevel === 7 && (
-                                      <DropdownItem
-                                        onClick={() => {
-                                          setSelectedItem(item);
-                                          setShowResendModal(true);
-                                        }}
-                                      >
-                                        Sənədləri yenidən yüklə
-                                      </DropdownItem>
-                                    )}
-
-                                    {item?.visaLevel === 8 && (
-                                      <DropdownItem
-                                        onClick={() => {
-                                          setVisaAppointmentId(item?.id);
-                                          setShowPaymentTypeModal(true);
-                                        }}
-                                      >
-                                        Ödənişi təkrarla
-                                      </DropdownItem>
-                                    )}
-                                  </DropdownMenu>
-                                </UncontrolledDropdown>
-                              ) : null}
+                                    {t("detailedView")}
+                                  </DropdownItem>
+                                </DropdownMenu>
+                              </UncontrolledDropdown>
                             </td>
                           </tr>
                         ))}
                       </tbody>
                     </Table>
                     <br />
-                    {/* <Pagination
-                                        align="end"
-                                        className="pagination-bar"
-                                        //   setCurrentPage={setCurrentPage}
-                                        totalCount={20}
-                                        pageSize={10}
-                                    // onPageChange={page => setCurrentPage(page)}
-                                    /> */}
                   </>
                 ) : (
                   <Table size="sm" bordered striped responsive hover>
                     <thead>
                       <tr>
-                        <th textTransform="initial">MÜRACİƏTÇİ</th>
+                        <th textTransform="initial">{t("applicant")}</th>
 
-                        <th textTransform="initial">GEDİLƏCƏK ÖLKƏ</th>
-                        <th textTransform="initial">GEDİŞ TARİXİ</th>
-                        <th textTransform="initial">GERİ DÖNÜŞ TARİXİ</th>
-                        <th textTransform="initial">VİZA STATUSU</th>
-                        <th textTransform="initial">MƏRHƏLƏ STATUSU</th>
+                        <th textTransform="initial">{t("countryToGo")}</th>
+                        <th textTransform="initial">{t("dateOfDeparture")}</th>
+                        <th textTransform="initial">{t("dateOfArrival")}</th>
+                        <th textTransform="initial">{t("visaStatus")}</th>
                         <th />
                       </tr>
                     </thead>
@@ -271,6 +266,13 @@ const Main = () => {
           showPaymentTypeModal
           visaAppointmentId={visaAppointmentId}
           setShowPaymentTypeModal={setShowPaymentTypeModal}
+        />
+      )}
+      {showViewModal && (
+        <ViewModal
+          selectedId={selectedItem}
+          showViewModal
+          setShowViewModal={setShowViewModal}
         />
       )}
     </div>
