@@ -7,8 +7,6 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-console.log(readFileSync("./localhost.key"));
-
 const httpsOptions = {
   key: readFileSync("../server.key"),
   cert: readFileSync("../server.crt"),

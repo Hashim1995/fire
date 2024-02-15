@@ -37,6 +37,7 @@ const AddModal = ({
   const [loading, setLoading] = useState(false);
   const [shouldOpenTab, setShouldOpenTab] = useState("1");
   const [extractData, setExtractData] = useState(null);
+  const t = useTranslations();
 
   const [resendOTPLoading, setResendOTPLoading] = useState(false);
   const [step, setStep] = useState(1); // New state to track the step
@@ -138,7 +139,6 @@ const AddModal = ({
 
     setLoading(false);
   };
-  const t = useTranslations();
 
   return (
     <Modal

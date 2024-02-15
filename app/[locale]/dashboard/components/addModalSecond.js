@@ -22,6 +22,8 @@ import {
 import { useDropzone } from "react-dropzone";
 
 const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
+  const t = useTranslations();
+
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => onDrop(acceptedFiles, index),
     accept: {
@@ -51,7 +53,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
                 marginBottom: "3px",
               }}
             >
-              Müraciəçi {index + 1} passport şəkil
+              {t("applicant")} {index + 1} {t("passportPhoto")}
             </p>
             <img
               style={{
@@ -79,7 +81,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
                 marginBottom: "3px",
               }}
             >
-              Müraciəçi {index + 1} passport şəkil
+              {t("applicant")} {index + 1} {t("passportPhoto")}
             </p>
             <div className="d-flex align-items-center  gap-2">
               <img
@@ -161,7 +163,7 @@ const AddModalSecond = ({
     const token = session?.data?.user?.data?.token;
     event.preventDefault();
     if (fileInputs?.some((z) => z?.files?.length === 0)) {
-      toast.error("Ən azı 1 şəkil yükləyin");
+      toast.error(t("uploadOnePhotoAtLeast"));
       return;
     }
     setLoading(true);

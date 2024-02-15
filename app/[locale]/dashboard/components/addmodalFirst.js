@@ -63,7 +63,6 @@ const AddModalFirst = ({
           router.locale
         )}`
       );
-      console.log(res, "test");
       setCountries(res?.data?.data);
     } catch (error) {
       if (Array.isArray(error?.response?.data?.messages)) {

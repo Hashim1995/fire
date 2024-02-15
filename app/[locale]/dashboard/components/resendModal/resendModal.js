@@ -80,7 +80,6 @@ const ResendModal = ({
     formData.append("VisaAppointmentId", selectedItem?.id);
 
     const token = session?.data?.user?.data?.token;
-    console.log(formData, "akif");
     try {
       const response = await axios.put(
         "https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents",
