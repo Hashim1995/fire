@@ -94,7 +94,7 @@ const Header = () => {
               >
                 <BiWorld className="" size={24} />
               </DropdownToggle>
-              <DropdownMenu className="p-1">
+              <DropdownMenu className="p-1 customDropdownOnHeaderLangSwitch">
                 <div>
                   <Link href="/" locale="az">
                     <Image
@@ -198,7 +198,7 @@ const Header = () => {
                     >
                       <FaChevronDown className="" size={14} />
                     </DropdownToggle>
-                    <DropdownMenu className="p-1">
+                    <DropdownMenu className="p-1 customDropdownOnHeader">
                       <div
                         style={{
                           cursor: "pointer",
@@ -220,7 +220,7 @@ const Header = () => {
                           }
                           href="/dashboard"
                         >
-                          Profil <BiUser size={18} />{" "}
+                          {t("visaDashboard")} <BiUser size={18} />{" "}
                         </Link>
                       </div>
                       <DropdownItem divider />
@@ -350,7 +350,7 @@ const Header = () => {
                           }
                           href="/dashboard"
                         >
-                          Profil <BiUser size={18} />{" "}
+                          {t("visaDashboard")} <BiUser size={18} />{" "}
                         </Link>
                       </div>
                       <DropdownItem divider />
