@@ -27,10 +27,29 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => onDrop(acceptedFiles, index),
     accept: {
-      "image/*": [".jpeg", ".jpg", ".png"],
+      "image/jpeg": [],
+      "image/jpg": [],
+      "image/png": [],
+      "image/webp": [],
+      "image/heic": [],
+      "image/jfif": [],
     },
     maxFiles: 1,
     multiple: false,
+    validator: (item) => {
+      const { name: fileName } = item;
+
+      // filtering out the ones from the accepted family, ex "jfif" which is in the jpeg family.
+      if (fileName) {
+        const ext = fileName.split(".").pop();
+
+        if (ext === "jfif") {
+          return { code: "file-invalid-type", message: "jfif not supported" };
+        }
+      }
+
+      return null;
+    },
     noClick: files.length > 0, // Prevent the dropzone from opening the file dialog on click if there's already a file
     noKeyboard: true, // Optional: prevent opening the file dialog with keyboard interaction
   });
