@@ -27,7 +27,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => onDrop(acceptedFiles, index),
     accept: {
-      "image/jpeg": [".jpeg", ".png", "jpg"],
+      "image/*": [".jpeg", ".jpg", ".png"],
     },
     maxFiles: 1,
     multiple: false,

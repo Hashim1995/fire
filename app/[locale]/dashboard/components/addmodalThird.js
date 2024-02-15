@@ -148,7 +148,7 @@ const AddModalThird = ({
       });
       setValue(`hasEuropeanFamilyMember-${index}`, {
         value: 1,
-        label: t("yoxdur"),
+        label: t("nope"),
       });
       setValue(
         `gender-${index}`,
@@ -764,11 +764,11 @@ const AddModalThird = ({
                     options={[
                       {
                         value: 1,
-                        label: "Yoxdur",
+                        label: t("nope"),
                       },
                       {
                         value: 2,
-                        label: "Var",
+                        label: t("have"),
                       },
                     ]}
                     value={value}
