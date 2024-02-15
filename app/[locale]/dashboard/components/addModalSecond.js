@@ -51,7 +51,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
                 marginBottom: "3px",
               }}
             >
-              Müraciəçi {index + 1} passport şəkil
+              {t("applicant")} {index + 1} {t("passportPhoto")}
             </p>
             <img
               style={{
@@ -79,7 +79,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
                 marginBottom: "3px",
               }}
             >
-              Müraciəçi {index + 1} passport şəkil
+              {t("applicant")} {index + 1} {t("passportPhoto")}
             </p>
             <div className="d-flex align-items-center  gap-2">
               <img
@@ -161,7 +161,7 @@ const AddModalSecond = ({
     const token = session?.data?.user?.data?.token;
     event.preventDefault();
     if (fileInputs?.some((z) => z?.files?.length === 0)) {
-      toast.error("Ən azı 1 şəkil yükləyin");
+      toast.error(t("uploadOnePhotoAtLeast"));
       return;
     }
     setLoading(true);

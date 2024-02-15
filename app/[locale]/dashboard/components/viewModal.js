@@ -16,6 +16,7 @@ import {
   Container,
   Row,
   Col,
+  Spinner,
 } from "reactstrap";
 import {
   VisaCategories,
@@ -226,7 +227,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Müraciət edən şəxs email
+                {t("applicantEmail")}
               </Col>
               <Col
                 xs={6}
@@ -245,7 +246,10 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 className="font-italic p-1"
                 style={{ marginTop: "1rem" }}
               >
-                <h5> Müraciətçilər - ({selectedId?.visaApplicants?.length})</h5>
+                <h5>
+                  {" "}
+                  {t("applicants")} - ({selectedId?.visaApplicants?.length})
+                </h5>
               </Col>
             </Row>
             {selectedId?.visaApplicants?.length > 0 && (
@@ -254,13 +258,13 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   <Table size="sm" responsive>
                     <thead>
                       <tr>
-                        <th>Adı</th>
-                        <th>Soyadı</th>
-                        <th>Email</th>
-                        <th>Telefon Nömrəsi</th>
-                        <th>Pasport Nömrəsi</th>
-                        <th>FİN KOD</th>
-                        <th>Doğum Tarixi</th>
+                        <th>{t("Name")}</th>
+                        <th>{t("Lastname")}</th>
+                        <th>{t("Email")}</th>
+                        <th>{t("PhoneNumber")}</th>
+                        <th>{t("passportCode")}</th>
+                        <th>{t("finCode")}</th>
+                        <th>{t("Birthday")}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -289,7 +293,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
             )}
           </Container>
         ) : (
-          <div>Loading...</div>
+          <Spinner />
         )}
       </ModalBody>
       {showViewDetailedModal && (

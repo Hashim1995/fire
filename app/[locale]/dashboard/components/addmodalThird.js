@@ -71,7 +71,6 @@ const AddModalThird = ({
           },
         }
       );
-      console.log(response?.data?.data?.createdAppointmentId, "ferhad");
       if (response?.data) {
         setVisaAppointmentId(response?.data?.data?.createdAppointmentId);
       }
@@ -683,11 +682,11 @@ const AddModalThird = ({
                     options={[
                       {
                         value: 1,
-                        label: "Bəli",
+                        label: t("yes"),
                       },
                       {
                         value: 2,
-                        label: "Xeyr",
+                        label: t("no"),
                       },
                     ]}
                     value={value}
@@ -924,7 +923,7 @@ const AddModalThird = ({
                       validate: {
                         checkOnlyEnglishChars: (value) =>
                           /^[\w\\.-]+@[\w\\.-]+\.\w+$/.test(value) ||
-                          "Düzgün e-poçt ünvanı daxil edin.",
+                          t("InvalidEmail"),
                       },
                     }}
                     name={`representativeEmail-${index}`}

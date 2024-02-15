@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
@@ -12,12 +12,17 @@ import LogoWhite from "../../../../public/images/logo-2.png";
 import Az from "../../../../public/images/azerbaijan.png";
 import En from "../../../../public/images/uk.png";
 import Ru from "../../../../public/images/russia.png";
-import { Button, DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
+import {
+  Button,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  UncontrolledDropdown,
+} from "reactstrap";
 import LoginForm from "../auth/login";
-import { signOut, useSession } from 'next-auth/react'
-import { usePathname, useRouter } from "next/navigation"
+import { signOut, useSession } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-
 
 const locales = ["az", "en"];
 const Header = () => {
@@ -50,21 +55,20 @@ const Header = () => {
       live: false,
     });
     window.wow.init();
-
   }, []);
-  const { Link, redirect, } =
-    createSharedPathnamesNavigation({ locales });
+  const { Link, redirect } = createSharedPathnamesNavigation({ locales });
 
   const [modal, setModal] = useState(false);
   const toggleLoginFormModal = () => setModal(!modal);
 
-  const session = useSession()
+  const session = useSession();
   const t = useTranslations();
   return (
     <>
       <header
-        className={`main-header header-style-three ${scroll ? "fixed-header" : ""
-          } ${searchToggle ? "moblie-search-active" : ""}`}
+        className={`main-header header-style-three ${
+          scroll ? "fixed-header" : ""
+        } ${searchToggle ? "moblie-search-active" : ""}`}
       >
         <div className="main-box">
           <div className="logo-box">
@@ -89,106 +93,151 @@ const Header = () => {
                 className={`bg-transparent border-white Rounded `}
               >
                 <BiWorld className="" size={24} />
-
               </DropdownToggle>
-              <DropdownMenu className="p-1" >
+              <DropdownMenu className="p-1">
                 <div>
                   <Link href="/" locale="az">
-                    <Image className=" me-1" alt="test" width={24}
-                      height={24} src={Az} title="Az" />
-                    Azərbaycan dili
+                    <Image
+                      className=" me-1"
+                      alt="test"
+                      width={24}
+                      height={24}
+                      src={Az}
+                      title="Az"
+                    />
+                    {t("azLang")}
                   </Link>
                 </div>
                 <DropdownItem divider />
 
                 <div>
                   <Link href="/" locale="en">
-                    <Image className=" me-1" alt="test" width={24}
-                      height={24} src={En} title="En" />
-                    İngilis dili
+                    <Image
+                      className=" me-1"
+                      alt="test"
+                      width={24}
+                      height={24}
+                      src={En}
+                      title="En"
+                    />
+                    {t("engLang")}
                   </Link>
                 </div>
                 <DropdownItem divider />
 
                 <div>
                   <Link href="/" locale="ru">
-                    <Image className=" me-1" alt="test" width={24}
-                      height={24} src={Ru} title="Ru" />
-                    Rus dili
+                    <Image
+                      className=" me-1"
+                      alt="test"
+                      width={24}
+                      height={24}
+                      src={Ru}
+                      title="Ru"
+                    />
+                    {t("ruLang")}
                   </Link>
                 </div>
-
               </DropdownMenu>
             </UncontrolledDropdown>
-
 
             {/* <Link href="tel:+92(8800)9806" className="info-btn me-2">
               <i className="icon fa fa-phone" />
               <small>Call Anytime</small>
               <br /> + 88 ( 9800 ) 6802
             </Link> */}
-            <div className=" d-none d-lg-flex align-items-center  justify-content-end gap-2" style={{ width: 'max-content' }}>
-              {!session?.data && <Link className="text-white" href="/api/auth/signin">{t('login')}</Link>}
-              {!session?.data && '|'}
-              {!session?.data && <Link className="text-white" href="/register">{t('register')}</Link>}
-              {session?.data && <div style={{
-                width: '235px',
-                border: '.5px solid white',
-                borderRadius: '6px',
-                padding: '.5em'
-              }} className=" d-flex align-items-center justify-content-between">
-                <img style={{
-                  height: '40px',
-                  width: '40px',
-                  borderRadius: '50%'
-                }} src={`https://ui-avatars.com/api/?name=${session?.data?.user?.data?.firstname}+${session?.data?.user?.data?.lastname}&background=0D8ABC&color=fff`} alt="" />
-                <div className=" d-flex flex-column justify-content-center align-items-start">
-                  <p style={{
-                    lineHeight: '18px',
-                  }} className="text-white ms-1 mb-0">{session?.data?.user?.data?.firstname} {session?.data?.user?.data?.lastname}</p>
-
+            <div
+              className=" d-none d-lg-flex align-items-center  justify-content-end gap-2"
+              style={{ width: "max-content" }}
+            >
+              {!session?.data && (
+                <Link className="text-white" href="/api/auth/signin">
+                  {t("login")}
+                </Link>
+              )}
+              {!session?.data && "|"}
+              {!session?.data && (
+                <Link className="text-white" href="/register">
+                  {t("register")}
+                </Link>
+              )}
+              {session?.data && (
+                <div
+                  style={{
+                    width: "235px",
+                    border: ".5px solid white",
+                    borderRadius: "6px",
+                    padding: ".5em",
+                  }}
+                  className=" d-flex align-items-center justify-content-between"
+                >
+                  <img
+                    style={{
+                      height: "40px",
+                      width: "40px",
+                      borderRadius: "50%",
+                    }}
+                    src={`https://ui-avatars.com/api/?name=${session?.data?.user?.data?.firstname}+${session?.data?.user?.data?.lastname}&background=0D8ABC&color=fff`}
+                    alt=""
+                  />
+                  <div className=" d-flex flex-column justify-content-center align-items-start">
+                    <p
+                      style={{
+                        lineHeight: "18px",
+                      }}
+                      className="text-white ms-1 mb-0"
+                    >
+                      {session?.data?.user?.data?.firstname}{" "}
+                      {session?.data?.user?.data?.lastname}
+                    </p>
+                  </div>
+                  <UncontrolledDropdown>
+                    <DropdownToggle
+                      aria-label="Select Language"
+                      className={`bg-transparent border-0  Rounded `}
+                    >
+                      <FaChevronDown className="" size={14} />
+                    </DropdownToggle>
+                    <DropdownMenu className="p-1">
+                      <div
+                        style={{
+                          cursor: "pointer",
+                          lineHeight: "18px",
+                        }}
+                      >
+                        <Link
+                          style={{
+                            lineHeight: "18px",
+                          }}
+                          className={
+                            pathname?.includes("page-about")
+                              ? "current text-black"
+                              : "text-black"
+                          }
+                          href="/dashboard"
+                        >
+                          Profil <BiUser size={18} />{" "}
+                        </Link>
+                      </div>
+                      <DropdownItem divider />
+                      <div
+                        style={{
+                          cursor: "pointer",
+                          lineHeight: "18px",
+                        }}
+                        onClick={() => {
+                          signOut({ redirect: false }).then(() => {
+                            router.push("/"); // Redirect to the dashboard page after signing out
+                          });
+                        }}
+                      >
+                        {t("logout")} <BiLogOut size={18} />
+                      </div>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
                 </div>
-                <UncontrolledDropdown >
-                  <DropdownToggle
-                    aria-label="Select Language"
-                    className={`bg-transparent border-0  Rounded `}
-                  >
-                    <FaChevronDown className="" size={14} />
-
-                  </DropdownToggle>
-                  <DropdownMenu className="p-1" >
-                    <div style={{
-                      cursor: 'pointer',
-                      lineHeight: '18px',
-                    }} >
-                      <Link style={{
-                        lineHeight: '18px',
-
-                      }} className={pathname?.includes('page-about') ? 'current text-black' : 'text-black'} href="/dashboard">Profil   <BiUser size={18} /> </Link>
-                    </div>
-                    <DropdownItem divider />
-                    <div style={{
-                      cursor: 'pointer',
-                      lineHeight: '18px',
-                    }} onClick={() => {
-                      signOut({ redirect: false }).then(() => {
-                        router.push("/"); // Redirect to the dashboard page after signing out
-                      });
-                    }}>
-                      {t('logout')} <BiLogOut size={18} />
-                    </div>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-
-
-              </div>}
-
+              )}
             </div>
-
-
-
-
-
 
             {/* Mobile Nav toggler */}
             <div className="mobile-nav-toggler" onClick={handleOpen}>
@@ -212,62 +261,99 @@ const Header = () => {
                 <i className="icon fLink fa-times" />
               </div>
             </div>
-            <div className={` d-flex align-items-center ${!session?.data ? 'justify-content-start' : 'justify-content-end'}   gap-2`} style={{ width: '100%', padding: '6px', }}>
-              {!session?.data && <Link style={{
-                paddingLeft: !session?.data ? '15px' : '0'
-              }} className="text-white" href="/api/auth/signin">{t('login')}</Link>}
-              {session?.data && <div style={{
-                width: '100%',
-                border: '.5px solid white',
-                borderRadius: '6px',
-                padding: '.5em'
-              }} className=" d-flex align-items-center justify-content-between">
-                <img style={{
-                  height: '40px',
-                  width: '40px',
-                  borderRadius: '50%'
-                }} src={`https://ui-avatars.com/api/?name=${session?.data?.user?.data?.firstname}+${session?.data?.user?.data?.lastname}&background=0D8ABC&color=fff`} alt="" />
-                <div className=" d-flex flex-column justify-content-center align-items-start">
-                  <p style={{
-                    lineHeight: '18px',
-                  }} className="text-white ms-1 mb-0">{session?.data?.user?.data?.firstname} {session?.data?.user?.data?.lastname}</p>
-
+            <div
+              className={` d-flex align-items-center ${
+                !session?.data ? "justify-content-start" : "justify-content-end"
+              }   gap-2`}
+              style={{ width: "100%", padding: "6px" }}
+            >
+              {!session?.data && (
+                <Link
+                  style={{
+                    paddingLeft: !session?.data ? "15px" : "0",
+                  }}
+                  className="text-white"
+                  href="/api/auth/signin"
+                >
+                  {t("login")}
+                </Link>
+              )}
+              {session?.data && (
+                <div
+                  style={{
+                    width: "100%",
+                    border: ".5px solid white",
+                    borderRadius: "6px",
+                    padding: ".5em",
+                  }}
+                  className=" d-flex align-items-center justify-content-between"
+                >
+                  <img
+                    style={{
+                      height: "40px",
+                      width: "40px",
+                      borderRadius: "50%",
+                    }}
+                    src={`https://ui-avatars.com/api/?name=${session?.data?.user?.data?.firstname}+${session?.data?.user?.data?.lastname}&background=0D8ABC&color=fff`}
+                    alt=""
+                  />
+                  <div className=" d-flex flex-column justify-content-center align-items-start">
+                    <p
+                      style={{
+                        lineHeight: "18px",
+                      }}
+                      className="text-white ms-1 mb-0"
+                    >
+                      {session?.data?.user?.data?.firstname}{" "}
+                      {session?.data?.user?.data?.lastname}
+                    </p>
+                  </div>
+                  <UncontrolledDropdown>
+                    <DropdownToggle
+                      aria-label="Select Language"
+                      className={`bg-transparent border-0  Rounded `}
+                    >
+                      <FaChevronDown className="" size={14} />
+                    </DropdownToggle>
+                    <DropdownMenu className="p-1">
+                      <div
+                        style={{
+                          cursor: "pointer",
+                          lineHeight: "18px",
+                        }}
+                      >
+                        <Link
+                          style={{
+                            lineHeight: "18px",
+                          }}
+                          className={
+                            pathname?.includes("page-about")
+                              ? "current text-black"
+                              : "text-black"
+                          }
+                          href="/dashboard"
+                        >
+                          Profil <BiUser size={18} />{" "}
+                        </Link>
+                      </div>
+                      <DropdownItem divider />
+                      <div
+                        style={{
+                          cursor: "pointer",
+                          lineHeight: "18px",
+                        }}
+                        onClick={() => {
+                          signOut({ redirect: false }).then(() => {
+                            router.push("/"); // Redirect to the dashboard page after signing out
+                          });
+                        }}
+                      >
+                        {t("logout")} <BiLogOut size={18} />
+                      </div>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
                 </div>
-                <UncontrolledDropdown >
-                  <DropdownToggle
-                    aria-label="Select Language"
-                    className={`bg-transparent border-0  Rounded `}
-                  >
-                    <FaChevronDown className="" size={14} />
-
-                  </DropdownToggle>
-                  <DropdownMenu className="p-1" >
-                    <div style={{
-                      cursor: 'pointer',
-                      lineHeight: '18px',
-                    }} >
-                      <Link style={{
-                        lineHeight: '18px',
-
-                      }} className={pathname?.includes('page-about') ? 'current text-black' : 'text-black'} href="/dashboard">Profil   <BiUser size={18} /> </Link>
-                    </div>
-                    <DropdownItem divider />
-                    <div style={{
-                      cursor: 'pointer',
-                      lineHeight: '18px',
-                    }} onClick={() => {
-                      signOut({ redirect: false }).then(() => {
-                        router.push("/"); // Redirect to the dashboard page after signing out
-                      });
-                    }}>
-                      {t('logout')} <BiLogOut size={18} />
-                    </div>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-
-
-              </div>}
-
+              )}
             </div>
             <MobileMenu />
             <ul className="contact-list-one">
@@ -343,8 +429,9 @@ const Header = () => {
         {/* End Header Search */}
         {/* Sticky Header  */}
         <div
-          className={`sticky-header ${scroll ? "fixed-header animated slideInDown" : ""
-            }`}
+          className={`sticky-header ${
+            scroll ? "fixed-header animated slideInDown" : ""
+          }`}
         >
           <div className="auto-container">
             <div className="inner-container">
@@ -372,7 +459,7 @@ const Header = () => {
           </div>
         </div>
         {/* End Sticky Menu */}
-      </header >
+      </header>
       {/* End Main Header */}
       {/* {modal && <LoginForm isOpen={modal} toggle={toggleLoginFormModal} />} */}
     </>

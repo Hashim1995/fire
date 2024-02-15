@@ -16,6 +16,7 @@ import {
   Container,
   Row,
   Col,
+  Spinner,
 } from "reactstrap";
 import {
   DocumentTypes,
@@ -97,7 +98,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Ad
+                {t("Name")}
               </Col>
               <Col
                 xs="6"
@@ -124,7 +125,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Soyad
+                {t("Lastname")}
               </Col>
               <Col
                 xs="6"
@@ -150,7 +151,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Elektron poçt ünvanı
+                {t("email")}
               </Col>
               <Col
                 xs="6"
@@ -176,7 +177,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Əlaqə nömrəsi
+                {t("contactNumber")}
               </Col>
               <Col
                 xs="6"
@@ -202,7 +203,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Passport nömrəsi
+                {t("passportCode")}
               </Col>
               <Col
                 xs="6"
@@ -228,7 +229,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                FİN
+                {t("finCode")}
               </Col>
               <Col
                 xs="6"
@@ -254,7 +255,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Doğum tarixi
+                {t("dateOfBirth")}
               </Col>
               <Col
                 xs="6"
@@ -280,7 +281,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Ölkə kodu
+                {t("countryCode")}
               </Col>
               <Col
                 xs="6"
@@ -306,7 +307,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Milliyət
+                {t("nationality")}
               </Col>
               <Col
                 xs="6"
@@ -332,7 +333,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Cinsi
+                {t("gender")}
               </Col>
               <Col
                 xs="6"
@@ -344,9 +345,9 @@ const ViewDetailedModal = ({
                 }}
               >
                 {selectedId.gender === 1
-                  ? "Kişi"
+                  ? t("male")
                   : selectedId.gender === 2
-                  ? "Qadın"
+                  ? t("female")
                   : t("noText")}
               </Col>
             </Row>
@@ -362,7 +363,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Passportun verilmə tarixi
+                {t("passportDateOfIssue")}
               </Col>
               <Col
                 xs="6"
@@ -388,7 +389,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Passportun etibarlılıq müddəti
+                {t("passportDateOfExpiry")}
               </Col>
               <Col
                 xs="6"
@@ -414,7 +415,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Müraciətçi yetkinlik yaşına çatmış şəxsdir?
+                {t("isApplicantAdult")}
               </Col>
               <Col
                 xs="6"
@@ -425,7 +426,7 @@ const ViewDetailedModal = ({
                   alignItems: "center",
                 }}
               >
-                {selectedId.isAdult ? "Bəli" : "Xeyr"}
+                {selectedId.isAdult ? t("yes") : t("no")}
               </Col>
             </Row>
 
@@ -437,7 +438,7 @@ const ViewDetailedModal = ({
                     className="font-italic p-1"
                     style={{ marginTop: "1rem" }}
                   >
-                    <h5> Nümayəndə haqqında məlumat:</h5>
+                    <h5> {t("infoAboutRepresentative")}:</h5>
                   </Col>
                 </Row>
                 <Row className="py-2">
@@ -451,7 +452,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Adı
+                    {t("Name")}
                   </Col>
                   <Col
                     style={{
@@ -475,7 +476,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Soyadı
+                    {t("Lastname")}
                   </Col>
                   <Col
                     style={{
@@ -499,7 +500,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Elektron poçt ünvanı
+                    {t("Email")}
                   </Col>
                   <Col
                     style={{
@@ -523,7 +524,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Əlaqə nömrəsi
+                    {t("contactNumber")}
                   </Col>
                   <Col
                     style={{
@@ -547,7 +548,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Ünvanı
+                    {t("address")}
                   </Col>
                   <Col
                     style={{
@@ -574,7 +575,7 @@ const ViewDetailedModal = ({
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                Avropa vətəndaşı olan qohumunuz var?
+                {t("doYouHaveEuropeanRelative")}
               </Col>
               <Col
                 xs={6}
@@ -585,7 +586,7 @@ const ViewDetailedModal = ({
                   alignItems: "center",
                 }}
               >
-                {selectedId.hasEuropeanFamilyMember ? "Bəli" : "Xeyr"}
+                {selectedId.hasEuropeanFamilyMember ? t("yes") : t("nope")}
               </Col>
             </Row>
 
@@ -597,7 +598,7 @@ const ViewDetailedModal = ({
                     className="font-italic p-1"
                     style={{ marginTop: "1rem" }}
                   >
-                    <h5>Avropa vətəndaşı olan qohum haqqında məlumat:</h5>
+                    <h5>{t("infoAboutEuropeanRelative")}:</h5>
                   </Col>
                 </Row>
 
@@ -612,7 +613,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Digər ölkə vətəşdaşlığı məlumatı
+                    {t("infoAboutOtherCountry")}
                   </Col>
                   <Col
                     xs={6}
@@ -637,7 +638,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Adı
+                    {"Name"}
                   </Col>
                   <Col
                     xs={6}
@@ -662,7 +663,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Soyadı
+                    {t("Lastname")}
                   </Col>
                   <Col
                     xs={6}
@@ -687,7 +688,7 @@ const ViewDetailedModal = ({
                       backgroundColor: "#cbcbcb99",
                     }}
                   >
-                    Passport faylı
+                    {t("passportFile")}
                   </Col>
                   <Col
                     xs={6}
@@ -715,7 +716,7 @@ const ViewDetailedModal = ({
                           alignItems: "center",
                         }}
                       >
-                        Passport faylı
+                        {t("passportFile")}
                       </Col>
                     ) : (
                       t("noText")
@@ -731,7 +732,10 @@ const ViewDetailedModal = ({
                 className="font-italic p-1"
                 style={{ marginTop: "1rem" }}
               >
-                <h5> Sənədlər - ({selectedId.visaDocuments?.length})</h5>
+                <h5>
+                  {" "}
+                  {t("Documentation")} - ({selectedId.visaDocuments?.length})
+                </h5>
               </Col>
             </Row>
 
@@ -741,9 +745,9 @@ const ViewDetailedModal = ({
                   <Table size="sm" responsive>
                     <thead>
                       <tr>
-                        <th>Sənəd növü</th>
-                        <th>Təsdiqlənmə statusu</th>
-                        <th>URL</th>
+                        <th>{t("documentType")}</th>
+                        <th>{t("approveStatus")}</th>
+                        <th>{t("url")}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -755,9 +759,9 @@ const ViewDetailedModal = ({
                           </td>
                           <td style={{ verticalAlign: "middle" }}>
                             {item.isConfirmed === true
-                              ? "Bəli"
+                              ? t("yes")
                               : item.isConfirmed === false
-                              ? "Xeyr"
+                              ? t("no")
                               : t("noText")}
                           </td>
                           <td style={{ verticalAlign: "middle" }}>
@@ -782,7 +786,7 @@ const ViewDetailedModal = ({
             )}
           </Container>
         ) : (
-          <div>Loading...</div>
+          <Spinner />
         )}
       </ModalBody>
     </Modal>

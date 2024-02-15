@@ -83,7 +83,6 @@ const ApplicantCLP = ({
       downloadFileFromServer(file);
       return;
     } else {
-      console.log(file, "hashim");
       const a = document.createElement("a");
       a.href = file?.file;
       a.download = file?.fileName;

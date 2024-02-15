@@ -292,7 +292,7 @@ const ForgetPassword = ({ setModal, modal }) => {
               ) : step === 3 ? (
                 t("ResetPassword")
               ) : (
-                "Təsdiq"
+                t("approve")
               )}
             </span>
           </Button>
