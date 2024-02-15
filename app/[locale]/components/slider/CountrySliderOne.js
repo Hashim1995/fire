@@ -7,30 +7,31 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { returnCurrentLangId } from "../../../../utils/currentLang";
 import { truncate } from "../../../../utils/truncate";
 
-
 SwiperCore.use([Autoplay, Navigation]);
-
 
 const CountrySliderOne = () => {
   const [data, setData] = useState(null);
-  const router = useParams()
+  const router = useParams();
 
   async function getData() {
-    const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(router.locale)}`, {
-      method: 'GET',
-      cache: 'no-store'
-    })
-    const data = await res.json()
+    const res = await fetch(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
+        router.locale
+      )}`,
+      {
+        method: "GET",
+        cache: "no-store",
+      }
+    );
+    const data = await res.json();
     if (data?.succeeded) {
-      setData(data?.data)
+      setData(data?.data);
     }
   }
 
   useEffect(() => {
-    getData()
-  }, [])
-
-
+    getData();
+  }, []);
 
   return (
     <>
@@ -77,30 +78,38 @@ const CountrySliderOne = () => {
       >
         {data?.map((item, i) => (
           <SwiperSlide key={i} className="country-block">
-            <div style={{
-              minHeight: '395px'
-            }} className="inner-box">
+            <div
+              style={{
+                minHeight: "395px",
+              }}
+              className="inner-box"
+            >
               <div className="image-box">
                 <figure className="image">
-                  <img alt="img " src={`https://ivisaapp.azurewebsites.net/${item?.coverUrl}`} title="Vixoz" />
+                  <img
+                    alt="img "
+                    src={`https://ivisavmlinux.azurewebsites.net/${item?.coverUrl}`}
+                    title="Vixoz"
+                  />
                 </figure>
               </div>
               <div className="content-box">
                 <div className="flag">
-                  <img alt="img " style={{
-                    width: '53px',
-                    height: '53px',
-
-                  }} src={`https://ivisaapp.azurewebsites.net/${item?.flagUrl}`} title="Vixoz" />
-
-
-
+                  <img
+                    alt="img "
+                    style={{
+                      width: "53px",
+                      height: "53px",
+                    }}
+                    src={`https://ivisavmlinux.azurewebsites.net/${item?.flagUrl}`}
+                    title="Vixoz"
+                  />
                 </div>
-                <h5 className="title">
-                  {item?.title}
-                </h5>
+                <h5 className="title">{item?.title}</h5>
                 <div className="text">
-                  <div style={{ minHeight: '80px' }} className="text">{truncate(item.description, 100, 80)}</div>
+                  <div style={{ minHeight: "80px" }} className="text">
+                    {truncate(item.description, 100, 80)}
+                  </div>
                 </div>
               </div>
             </div>

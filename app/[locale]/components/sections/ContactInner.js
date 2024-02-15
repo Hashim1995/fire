@@ -1,24 +1,28 @@
-import { getLocale, getTranslations } from 'next-intl/server';
-import { returnCurrentLangId } from '../../../../utils/currentLang';
-import ContactForm from './ContactForm'
+import { getLocale, getTranslations } from "next-intl/server";
+import { returnCurrentLangId } from "../../../../utils/currentLang";
+import ContactForm from "./ContactForm";
 import Link from "next/link";
 
 async function getData() {
   const t = await getLocale();
-  const res = await fetch(`https://ivisaapp.azurewebsites.net/api/v1/settings/contact-details?Language=${returnCurrentLangId(t)}`, {
-    method: 'GET'
-  })
+  const res = await fetch(
+    `https://ivisavmlinux.azurewebsites.net/api/v1/settings/contact-details?Language=${returnCurrentLangId(
+      t
+    )}`,
+    {
+      method: "GET",
+    }
+  );
   if (!res.ok) {
-    return null
+    return null;
   }
-  return res.json()
+  return res.json();
 }
-
 
 const ContactInner = async () => {
   const res = await getData();
-  const data = res?.data
-  const t = await getTranslations()
+  const data = res?.data;
+  const t = await getTranslations();
 
   return (
     <>
@@ -40,9 +44,7 @@ const ContactInner = async () => {
                     </div>
                     <div className="text">
                       <h6>{t("HaveAnyQuestion")}</h6>
-                      <Link href="tel:980089850">
-                        {data?.phoneNumber}
-                      </Link>
+                      <Link href="tel:980089850">{data?.phoneNumber}</Link>
                     </div>
                   </li>
                   <li>

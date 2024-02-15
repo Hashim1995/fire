@@ -82,7 +82,7 @@ const AddFileToApplicantModal = ({
       toggle={() => setModal((z) => !z)}
     >
       <ModalHeader toggle={() => setModal((z) => !z)}>
-        SƏNƏD ƏLAVƏ EDİLMƏSİ
+        {t("addDocument")}
       </ModalHeader>
       <ModalBody>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -190,7 +190,7 @@ const AddFileToApplicantModal = ({
               type="submit"
               className="theme-btn text-white me-1 border-0 rounded-0 btn-style-one"
             >
-              <span className="btn-title text-white">Əlavə et</span>
+              <span className="btn-title text-white">{t("add")}</span>
             </Button>
           </div>
         </form>

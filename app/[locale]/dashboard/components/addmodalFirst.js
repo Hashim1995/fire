@@ -59,7 +59,7 @@ const AddModalFirst = ({
   const fetchCountries = async () => {
     try {
       const res = await axios.get(
-        `https://ivisaapp.azurewebsites.net/api/v1/country/initial?Language=${returnCurrentLangId(
+        `https://ivisavmlinux.azurewebsites.net/api/v1/country/initial?Language=${returnCurrentLangId(
           router.locale
         )}`
       );
@@ -286,7 +286,7 @@ const AddModalFirst = ({
                       value={1}
                     />
                     <span className={errors?.VisaType ? "text-danger" : ""}>
-                      Tək
+                      {t("visaTypeSingle")}
                     </span>
                   </Label>
                   <Label
@@ -304,7 +304,7 @@ const AddModalFirst = ({
                       value={2}
                     />
                     <span className={errors?.VisaType ? "text-danger" : ""}>
-                      Çox
+                      {t("visaTypeMulti")}
                     </span>
                   </Label>
                 </div>
@@ -331,7 +331,7 @@ const AddModalFirst = ({
                 color="light"
               />
             ) : (
-              "Növbəti"
+              t("next")
             )}
           </span>
         </Button>

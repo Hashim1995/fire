@@ -49,7 +49,7 @@ const ApplicantCLP = ({
   const downloadFileFromServer = async (param) => {
     try {
       const response = await axios.get(
-        `https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents/download/${param}`,
+        `https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents/download/${param}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -128,12 +128,16 @@ const ApplicantCLP = ({
         </div>
       </AccordionHeader>
       <AccordionBody className="p-0" accordionId={applicant?.id}>
-        <div className="">
-          <div className="col-sm-6">
-            <div className="mb-3 d-flex">
+        <div className="row mb-2">
+          <div className="col-sm-4 ">
+            <div className=" d-flex align-items-center  h-100">
               <Label>{t("meetDate")}</Label>
+            </div>
+          </div>
+          <div className="col-sm-8">
+            <div className=" d-flex  align-items-center h-100">
               <Input
-                value={applicant?.meetingDate}
+                value={applicant?.meetingDate || t("noText")}
                 disabled
                 className="form-control"
               />
@@ -143,9 +147,9 @@ const ApplicantCLP = ({
         <Table size="sm" bordered striped responsive hover>
           <thead>
             <tr>
-              <th textTransform="initial">SƏNƏDİN ADI</th>
-              <th textTransform="initial">SƏNƏD</th>
-              <th textTransform="initial">STATUS</th>
+              <th textTransform="initial">{t("nameOfDocument")}</th>
+              <th textTransform="initial">{t("document")}</th>
+              <th textTransform="initial">{t("status")}</th>
               <th />
             </tr>
           </thead>
@@ -181,31 +185,33 @@ const ApplicantCLP = ({
                   )}
                 </td>
                 <td className="text-center">
-                  <Button
-                    disabled={z?.isConfirmed}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setValue(
-                        "list",
-                        getValues().list?.filter(
-                          (d) => z?.clientId !== d?.clientId
-                        )
-                      );
-                      rootSetValue(
-                        `${applicant?.id}`,
-                        rootgetValues()[applicant?.id]?.filter(
-                          (d) => z?.clientId !== d?.clientId
-                        )
-                      );
-                      if (z?.isBack) {
-                        setRemovedDocsFromBack((prev) => [...prev, z]);
-                      }
-                    }}
-                    outline
-                    color="danger"
-                  >
-                    <BiTrash />
-                  </Button>
+                  {!z?.isConfirmed ? (
+                    <Button
+                      disabled={z?.isConfirmed}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setValue(
+                          "list",
+                          getValues().list?.filter(
+                            (d) => z?.clientId !== d?.clientId
+                          )
+                        );
+                        rootSetValue(
+                          `${applicant?.id}`,
+                          rootgetValues()[applicant?.id]?.filter(
+                            (d) => z?.clientId !== d?.clientId
+                          )
+                        );
+                        if (z?.isBack) {
+                          setRemovedDocsFromBack((prev) => [...prev, z]);
+                        }
+                      }}
+                      outline
+                      color="danger"
+                    >
+                      <BiTrash />
+                    </Button>
+                  ) : null}
                 </td>
               </tr>
             ))}

@@ -7,9 +7,12 @@ import {
   AccordionHeader,
   AccordionItem,
   Button,
+  Input,
+  Label,
   Table,
 } from "reactstrap";
 import AddFileToApplicantModal from "./addFileToApplicantModal";
+import { useTranslations } from "next-intl";
 
 const ApplicantCLP = ({
   applicant,
@@ -18,6 +21,7 @@ const ApplicantCLP = ({
   rootgetValues,
 }) => {
   const [modal, setModal] = useState(false);
+  const t = useTranslations();
 
   const {
     register,
@@ -61,11 +65,27 @@ const ApplicantCLP = ({
         </div>
       </AccordionHeader>
       <AccordionBody className="p-0" accordionId={applicant?.id}>
+        <div className="row mb-2">
+          <div className="col-sm-4 ">
+            <div className=" d-flex align-items-center  h-100">
+              <Label>{t("meetDate")}</Label>
+            </div>
+          </div>
+          <div className="col-sm-8">
+            <div className=" d-flex  align-items-center h-100">
+              <Input
+                value={applicant?.meetingDate || t("noText")}
+                disabled
+                className="form-control"
+              />
+            </div>
+          </div>
+        </div>
         <Table size="sm" bordered striped responsive hover>
           <thead>
             <tr>
-              <th textTransform="initial">SƏNƏDİN ADI</th>
-              <th textTransform="initial">SƏNƏD</th>
+              <th textTransform="initial">{t("nameOfDocument")}</th>
+              <th textTransform="initial">{t("document")}</th>
               <th />
             </tr>
           </thead>

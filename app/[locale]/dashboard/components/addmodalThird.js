@@ -27,6 +27,7 @@ const AddModalThird = ({
   const [loading, setLoading] = useState(false);
   const [transformedData, setTransformedData] = useState(null);
   const [formattedFiles, setFormattedFiles] = useState([]);
+  const t = useTranslations();
 
   const initializeFormattedFiles = (n) => {
     const initialFiles = Array.from({ length: n }, (_, index) => ({
@@ -61,7 +62,7 @@ const AddModalThird = ({
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://ivisaapp.azurewebsites.net/api/v1/visa",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/visa",
         JSON.stringify(data),
         {
           headers: {
@@ -74,9 +75,7 @@ const AddModalThird = ({
       if (response?.data) {
         setVisaAppointmentId(response?.data?.data?.createdAppointmentId);
       }
-      toast.success(
-        "Müraciətiniz uğurla qəbul olundu. Ödəniş etdiktən sonra ən yaxın zamanda operatorumuz tərəfindən müraciətiniz icra ediləcək"
-      );
+      toast.success(t("applyApprovedPayAndWaitForOeprator"));
       setShowPaymentTypeModal(true);
       setModal(false);
     } catch (error) {
@@ -136,12 +135,9 @@ const AddModalThird = ({
       };
       visaApplicants.push(applicant);
     }
-    console.log(visaApplicants, "test12");
 
     return { visaApplicants, discriminator: extractData?.visaDiscriminator };
   };
-
-  const t = useTranslations();
 
   useEffect(() => {
     initializeFormattedFiles(extractData?.documentData?.length);
@@ -149,23 +145,23 @@ const AddModalThird = ({
     extractData?.documentData?.map((extractedItem, index) => {
       setValue(`isAdult-${index}`, {
         value: 1,
-        label: "Bəli",
+        label: t("yes"),
       });
       setValue(`hasEuropeanFamilyMember-${index}`, {
         value: 1,
-        label: "Yoxdur",
+        label: t("yoxdur"),
       });
       setValue(
         `gender-${index}`,
         extractedItem?.gender == 1
           ? {
               value: 1,
-              label: "Kişi",
+              label: t("male"),
             }
           : extractedItem?.gender == 2
           ? {
               value: 2,
-              label: "Qadın",
+              label: t("female"),
             }
           : null
       );
@@ -241,7 +237,9 @@ const AddModalThird = ({
     return (
       <div key={`form-${index}`} className="mb-4">
         <br />
-        <h4 className="text-center">Müraciətçi {index + 1}</h4>
+        <h4 className="text-center">
+          {t("applicant")} {index + 1}
+        </h4>
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
@@ -452,11 +450,11 @@ const AddModalThird = ({
                     options={[
                       {
                         value: 1,
-                        label: "Kişi",
+                        label: t("male"),
                       },
                       {
                         value: 2,
-                        label: "Qadın",
+                        label: t("female"),
                       },
                     ]}
                     value={value}
@@ -613,7 +611,7 @@ const AddModalThird = ({
                   validate: {
                     checkOnlyEnglishChars: (value) =>
                       /^[\w\\.-]+@[\w\\.-]+\.\w+$/.test(value) ||
-                      "Düzgün e-poçt ünvanı daxil edin.",
+                      t("InvalidEmail"),
                   },
                 }}
                 name={`email-${index}`}

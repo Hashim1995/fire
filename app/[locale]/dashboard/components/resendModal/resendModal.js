@@ -45,7 +45,6 @@ const ResendModal = ({
 
   useEffect(() => {
     selectedItem?.visaApplicants?.map((z) => setValue(`${z?.id}`, []));
-    console.log(selectedItem, "test1");
   }, [selectedItem]);
 
   const submitHandler = async () => {
@@ -84,7 +83,7 @@ const ResendModal = ({
     console.log(formData, "akif");
     try {
       const response = await axios.put(
-        "https://ivisaapp.azurewebsites.net/api/v1/visa/required-documents",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents",
         formData,
         {
           headers: {
@@ -94,7 +93,6 @@ const ResendModal = ({
         }
       );
 
-      console.log(response.data, "nizami");
       toast.success(t("SuccessOperation"));
       setRefreshComponent((z) => !z);
       setModal(false);
@@ -120,7 +118,7 @@ const ResendModal = ({
       toggle={() => setModal((z) => !z)}
     >
       <ModalHeader toggle={() => setModal((z) => !z)}>
-        TƏLƏB OLUNAN SƏNƏDLƏRİN YENİDƏN ƏLAVƏ EDİLMƏSİ
+        {t("reUploadRequiredDocuments")}
       </ModalHeader>
       <ModalBody>
         <div className="col-lg-12 gap-3 login-form">
