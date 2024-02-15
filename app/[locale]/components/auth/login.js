@@ -22,6 +22,7 @@ export default function FormComponent() {
   const session = useSession();
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const t = useTranslations();
 
   const router = useRouter();
 
@@ -77,7 +78,6 @@ export default function FormComponent() {
       console.log(err);
     }
   };
-  const t = useTranslations();
   return (
     <section className="mt-10 flex flex-col items-center gap-4">
       <div className="container">

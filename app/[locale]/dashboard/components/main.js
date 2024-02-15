@@ -264,6 +264,7 @@ const Main = () => {
       {showPaymentTypeModal && (
         <PaymentTypeModal
           showPaymentTypeModal
+          setRefreshComponent={setRefreshComponent}
           visaAppointmentId={visaAppointmentId}
           setShowPaymentTypeModal={setShowPaymentTypeModal}
         />

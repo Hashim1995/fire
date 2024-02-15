@@ -22,6 +22,8 @@ import {
 import { useDropzone } from "react-dropzone";
 
 const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
+  const t = useTranslations();
+
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => onDrop(acceptedFiles, index),
     accept: {

@@ -22,6 +22,7 @@ const ForgetPassword = ({ setModal, modal }) => {
   const [loading, setLoading] = useState(false);
   const [resendOTPLoading, setResendOTPLoading] = useState(false);
   const [step, setStep] = useState(1); // New state to track the step
+  const t = useTranslations();
 
   const session = useSession();
   const router = useRouter();
@@ -128,7 +129,6 @@ const ForgetPassword = ({ setModal, modal }) => {
 
     setLoading(false);
   };
-  const t = useTranslations();
 
   const passwordValidation = {
     required: { value: true, message: `${t("Password")} ${t("IsRequired")}` },

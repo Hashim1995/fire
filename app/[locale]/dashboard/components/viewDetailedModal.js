@@ -37,6 +37,7 @@ const ViewDetailedModal = ({
   const t = useTranslations();
   const session = useSession();
   const token = session?.data?.user?.data?.token;
+
   const downloadFileFromServer = async (param) => {
     try {
       const response = await axios.get(
@@ -45,11 +46,12 @@ const ViewDetailedModal = ({
           headers: {
             Authorization: `Bearer ${token}`,
           },
+          responseType: "blob", // Set responseType to 'blob' to handle binary data correctly
         }
       );
-      const data = new Uint8Array([response?.data]);
-      const blob = new Blob([data]);
-      const url = URL.createObjectURL(blob);
+
+      // Since response.data is already a blob, you don't need to convert it
+      const url = URL.createObjectURL(response.data);
       const a = document.createElement("a");
       a.href = url;
       a.download = param; // Specify the filename here
@@ -64,7 +66,7 @@ const ViewDetailedModal = ({
           toast.error(z);
         });
       } else {
-        toast.error(t("ErrorOperation"));
+        toast.error("ErrorOperation"); // Assuming t is a translation function you've defined elsewhere
       }
     }
   };

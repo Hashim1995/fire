@@ -54,11 +54,12 @@ const ApplicantCLP = ({
           headers: {
             Authorization: `Bearer ${token}`,
           },
+          responseType: "blob", // Set responseType to 'blob' to handle binary data correctly
         }
       );
-      const data = new Uint8Array([response?.data]);
-      const blob = new Blob([data]);
-      const url = URL.createObjectURL(blob);
+
+      // Since response.data is already a blob, you don't need to convert it
+      const url = URL.createObjectURL(response.data);
       const a = document.createElement("a");
       a.href = url;
       a.download = param; // Specify the filename here
@@ -73,7 +74,7 @@ const ApplicantCLP = ({
           toast.error(z);
         });
       } else {
-        toast.error(t("ErrorOperation"));
+        toast.error("ErrorOperation"); // Assuming t is a translation function you've defined elsewhere
       }
     }
   };
