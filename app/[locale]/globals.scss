@@ -292,6 +292,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-width: thin;
 }
 
+.customDropdownOnHeaderLangSwitch {
+  width: 200px !important;
+}
+
+.customDropdownOnHeader {
+  width: 235px !important;
+  top: 52px !important;
+  right: -8px !important;
+  transform: none !important;
+}
+
 .table-responsive {
   min-height: 30vh;
 }
