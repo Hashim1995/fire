@@ -117,6 +117,10 @@ const Main = () => {
                           </th>
                           <th textTransform="initial">{t("dateOfArrival")}</th>
                           <th textTransform="initial">{t("visaStatus")}</th>
+                          <th textTransform="initial">{t("operatorName")}</th>
+                          <th textTransform="initial">
+                            {t("operatorPhoneNumber")}
+                          </th>
                           <th />
                         </tr>
                       </thead>
@@ -135,6 +139,16 @@ const Main = () => {
 
                             <td>
                               {getEnumLabel(VisaLevels, item?.visaLevel) || "-"}
+                            </td>
+                            <td>
+                              {item?.operator
+                                ? `${item?.operator?.firstname} ${item?.operator?.lastname}`
+                                : "-"}
+                            </td>
+                            <td>
+                              {item?.operator?.phoneNumber
+                                ? item?.operator?.phoneNumber
+                                : "-"}
                             </td>
                             <td className="text-center">
                               <UncontrolledDropdown>

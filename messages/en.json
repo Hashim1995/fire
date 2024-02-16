@@ -175,5 +175,7 @@
   "ruLang": "Russian",
   "uploadOnePhotoAtLeast": "Upload at least 1 photo",
   "visaDashboard": "Visa applications",
-  "passportLoader": "Executing. Please wait!"
+  "passportLoader": "Executing. Please wait!",
+  "operatorName": "Operator",
+  "operatorPhoneNumber": "Operator's phone"
 }
