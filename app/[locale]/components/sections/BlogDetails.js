@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { returnCurrentLangId } from "../../../../utils/currentLang";
+import DOMPurify from "dompurify";
+import { JSDOM } from "jsdom";
 
 async function getData() {
   const t = await getLocale();
@@ -25,6 +27,7 @@ const BlogOne = async ({ item }) => {
   let data = res?.data;
 
   const t = await getTranslations();
+  // const sanitizedDescription = DOMPurify.sanitize(item?.description);
 
   return (
     <>
@@ -57,7 +60,14 @@ const BlogOne = async ({ item }) => {
                   <h3 className="blog-details__title font-weight-600">
                     {item?.title}
                   </h3>
-                  {item?.description}
+                  <div
+                    className="custom-blog-content-wrapper"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify(
+                        new JSDOM("<!DOCTYPE html>").window
+                      ).sanitize(item?.description),
+                    }}
+                  ></div>
                 </div>
               </div>
             </div>
