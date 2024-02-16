@@ -18,6 +18,7 @@ import {
   CardBody,
   CardImg,
   Badge,
+  Alert,
 } from "reactstrap";
 import { useDropzone } from "react-dropzone";
 
@@ -55,7 +56,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
   });
 
   return (
-    <div {...getRootProps()} className="dropzone">
+    <div {...getRootProps()} className="dropzone mb-2">
       <input {...getInputProps()} />
       {files.length === 0 && (
         <div>
@@ -249,6 +250,7 @@ const AddModalSecond = ({
             style={{
               fontSize: "16px",
             }}
+            disabled={loading}
             onClick={addFileInput}
             color="primary"
           >
@@ -256,6 +258,12 @@ const AddModalSecond = ({
           </Button>
         </div>
         <br />
+
+        {loading ? (
+          <Alert color="primary d-flex align-items-center gap-3">
+            <Spinner /> {t("passportLoader")}
+          </Alert>
+        ) : null}
 
         {fileInputs.map((input, index) => (
           <FileInputDropzone

@@ -174,5 +174,6 @@
   "engLang": "English",
   "ruLang": "Russian",
   "uploadOnePhotoAtLeast": "Upload at least 1 photo",
-  "visaDashboard": "Visa applications"
+  "visaDashboard": "Visa applications",
+  "passportLoader": "Executing. Please wait!"
 }
