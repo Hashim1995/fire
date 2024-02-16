@@ -261,7 +261,7 @@ const AddModalSecond = ({
 
         {loading ? (
           <Alert color="primary d-flex align-items-center gap-3">
-            <Spinner /> İcra edilir. Zəhmət olmasa gözləyin!
+            <Spinner /> {t("passportLoader")}
           </Alert>
         ) : null}
 

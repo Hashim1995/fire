@@ -174,5 +174,6 @@
   "engLang": "Английский",
   "ruLang": "Русский",
   "uploadOnePhotoAtLeast": "Загрузите хотя бы одну фотографию",
-  "visaDashboard": "Заявления на визу"
+  "visaDashboard": "Заявления на визу",
+  "passportLoader": "Выполняется. Пожалуйста, подождите!"
 }
