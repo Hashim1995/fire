@@ -175,5 +175,7 @@
   "ruLang": "Русский",
   "uploadOnePhotoAtLeast": "Загрузите хотя бы одну фотографию",
   "visaDashboard": "Заявления на визу",
-  "passportLoader": "Выполняется. Пожалуйста, подождите!"
+  "passportLoader": "Выполняется. Пожалуйста, подождите!",
+  "operatorName": "Оператор",
+  "operatorPhoneNumber": "Телефон оператора"
 }
