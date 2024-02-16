@@ -1,11 +1,20 @@
 import React from "react";
+import dynamic from "next/dynamic";
+
 import PageTitle from "../../components/sections/PageTitle";
-import BlogDetails from "../../components/sections/BlogDetails";
+
 import { getLocale, getTranslations } from "next-intl/server";
 import { returnCurrentLangId } from "../../../../utils/currentLang";
 import bg from "../../../../public/images/blog-bg.jpg";
 import Page404 from "../../components/sections/Page404";
 import Link from "next/link";
+
+const BlogDetails = dynamic(
+  () => import("../../components/sections/BlogDetails"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 export async function generateMetadata({ params }) {
   const id = params["slug]&[...id"][1];

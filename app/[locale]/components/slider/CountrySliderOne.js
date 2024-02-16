@@ -88,6 +88,9 @@ const CountrySliderOne = () => {
                 <figure className="image">
                   <img
                     alt="img "
+                    style={{
+                      height: "170px",
+                    }}
                     src={`https://ivisavmlinux.azurewebsites.net/${item?.coverUrl}`}
                     title="Vixoz"
                   />
@@ -105,9 +108,17 @@ const CountrySliderOne = () => {
                     title="Vixoz"
                   />
                 </div>
-                <h5 className="title">{item?.title}</h5>
+                <h5
+                  style={{
+                    height: "45px",
+                    marginBottom: "8px",
+                  }}
+                  className="title"
+                >
+                  {item?.title}
+                </h5>
                 <div className="text">
-                  <div style={{ minHeight: "80px" }} className="text">
+                  <div style={{ height: "130px" }} className="text">
                     {truncate(item.description, 100, 80)}
                   </div>
                 </div>

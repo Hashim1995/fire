@@ -45,9 +45,9 @@ const CountryThree = async () => {
               {data.map((item, i) => (
                 <div
                   key={i}
-                  className="country-block-three col-lg-4 col-md-6 col-sm-12"
+                  className="country-block-three col-lg-6  col-xl-4 col-md-6 col-sm-12"
                 >
-                  <div className="inner-box">
+                  <div className="inner-box p-3">
                     <div className="content">
                       <div className="flag">
                         {" "}
@@ -61,8 +61,10 @@ const CountryThree = async () => {
                           title="Vixoz"
                         />
                       </div>
-                      <h5 className="title">{item.title}</h5>
-                      <div style={{ minHeight: "72px" }} className="text">
+                      <h5 style={{ height: "30px" }} className="title">
+                        {item.title}
+                      </h5>
+                      <div style={{ height: "96px" }} className="text">
                         {truncate(item.description, 100, 80)}
                       </div>
                     </div>

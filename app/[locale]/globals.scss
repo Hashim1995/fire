@@ -306,3 +306,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .table-responsive {
   min-height: 30vh;
 }
+.custom-blog-content-wrapper {
+  strong {
+    font-weight: bold !important;
+  }
+}
