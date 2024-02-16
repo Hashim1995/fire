@@ -146,7 +146,7 @@ const Main = () => {
                                 : "-"}
                             </td>
                             <td>
-                              {item?.operator
+                              {item?.operator?.phoneNumber
                                 ? item?.operator?.phoneNumber
                                 : "-"}
                             </td>
