@@ -77,6 +77,30 @@ const Main = () => {
   useEffect(() => {
     fetchData();
   }, [refreshComponent, currentPage]);
+
+  const getBadgeColor = (statusId) => {
+    switch (statusId) {
+      case 1:
+        return "secondary";
+      case 2:
+        return "primary";
+      case 3:
+        return "info";
+      case 4:
+        return "light";
+      case 5:
+        return "success";
+      case 6:
+        return "danger";
+      case 7:
+        return "warning";
+      case 8:
+        return "dark";
+      default:
+        return "secondary"; // Default color if none matches
+    }
+  };
+
   return (
     <div className="p-5">
       <div className="col-12 mb-3">
@@ -116,11 +140,17 @@ const Main = () => {
                             {t("dateOfDeparture")}
                           </th>
                           <th textTransform="initial">{t("dateOfArrival")}</th>
-                          <th textTransform="initial">{t("visaStatus")}</th>
                           <th textTransform="initial">{t("operatorName")}</th>
                           <th textTransform="initial">
                             {t("operatorPhoneNumber")}
                           </th>
+                          <th
+                            style={{ textAlign: "center" }}
+                            textTransform="initial"
+                          >
+                            {t("visaStatus")}
+                          </th>
+
                           <th />
                         </tr>
                       </thead>
@@ -138,9 +168,6 @@ const Main = () => {
                             <td>{item?.returnDate || "-"}</td>
 
                             <td>
-                              {getEnumLabel(VisaLevels, item?.visaLevel) || "-"}
-                            </td>
-                            <td>
                               {item?.operator
                                 ? `${item?.operator?.firstname} ${item?.operator?.lastname}`
                                 : "-"}
@@ -149,6 +176,16 @@ const Main = () => {
                               {item?.operator?.phoneNumber
                                 ? item?.operator?.phoneNumber
                                 : "-"}
+                            </td>
+                            <td style={{ textAlign: "center" }}>
+                              {" "}
+                              {item?.visaLevel ? (
+                                <Badge color={getBadgeColor(item.visaLevel)}>
+                                  {getEnumLabel(VisaLevels, item.visaLevel)}
+                                </Badge>
+                              ) : (
+                                "-"
+                              )}
                             </td>
                             <td className="text-center">
                               <UncontrolledDropdown>
