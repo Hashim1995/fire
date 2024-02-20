@@ -42,6 +42,7 @@ const RegisterFirst = ({
       lastname: data?.lastname,
       email: data?.email,
       birthday: data?.birthday,
+      phoneNumber: data?.phoneNumber,
     };
     try {
       const res = await axios.post(
@@ -184,7 +185,35 @@ const RegisterFirst = ({
           </div>
         </div>
       </div>
-
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="mb-3">
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: `${t("Phonenumber")} ${t("IsRequired")}`,
+                },
+              }}
+              name="phoneNumber"
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  invalid={errors?.phoneNumber ? true : false}
+                  value={value}
+                  onChange={onChange}
+                  className="form-control"
+                  type="text"
+                  placeholder={t("EnterPhoneNumber")}
+                />
+              )}
+            />
+            {errors.firstname && (
+              <FormFeedback>{errors.phoneNumber.message}</FormFeedback>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="mb-3">
         <Button
           disabled={loading}
