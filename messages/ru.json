@@ -177,5 +177,6 @@
   "visaDashboard": "Заявления на визу",
   "passportLoader": "Выполняется. Пожалуйста, подождите!",
   "operatorName": "Оператор",
-  "operatorPhoneNumber": "Телефон оператора"
+  "operatorPhoneNumber": "Телефон оператора",
+  "additionalOptions": "Дополнительные услуги"
 }

@@ -29,6 +29,7 @@ const PaymentTypeModal = ({
   const [loading, setLoading] = useState(true);
   const [price, setPrice] = useState(null);
   const [btnLoader, setBtnLoader] = useState(false);
+  const [selectedExtras, setSelectedExtras] = useState({});
 
   const session = useSession();
   const t = useTranslations();
@@ -49,13 +50,19 @@ const PaymentTypeModal = ({
   const onSubmit = async (data) => {
     setBtnLoader(true);
     const token = session?.data?.user?.data?.token;
-
+    const options = Object.keys(selectedExtras).reduce((acc, key) => {
+      if (selectedExtras[key] === true) {
+        acc.push(Number(key));
+      }
+      return acc;
+    }, []);
     try {
       const response = await axios.post(
         "https://ivisavmlinux.azurewebsites.net/api/v1/payment",
         {
           paymentType: Number(data?.paymentType),
           visaAppointmentId: visaAppointmentId,
+          extraOptions: options,
         },
         {
           headers: {
@@ -116,7 +123,18 @@ const PaymentTypeModal = ({
   useEffect(() => {
     fetchPrice();
   }, []);
-
+  useEffect(() => {
+    const selectedId = parseInt(control.value);
+    const initialSelectedExtras = {};
+    price?.forEach((option) => {
+      if (option.id === selectedId) {
+        option?.extraOptions?.forEach((extraOption) => {
+          initialSelectedExtras[extraOption.id] = false;
+        });
+      }
+    });
+    setSelectedExtras(initialSelectedExtras);
+  }, [control.value, price]);
   return (
     <Modal
       className="modal-dialog-centered"
@@ -159,6 +177,7 @@ const PaymentTypeModal = ({
                             name="paymentType"
                             onChange={(e) => {
                               onChange(e);
+                              setSelectedExtras({});
                             }}
                             checked={value == 1}
                             value={1}
@@ -180,6 +199,7 @@ const PaymentTypeModal = ({
                             name="paymentType"
                             onChange={(e) => {
                               onChange(e);
+                              setSelectedExtras({});
                             }}
                             checked={value == 2}
                             value={2}
@@ -199,6 +219,68 @@ const PaymentTypeModal = ({
                   )}
                 </div>
               </div>
+            </div>
+            <hr />
+            <h5>{t("additionalOptions")}</h5>
+            <div>
+              <Controller
+                control={control}
+                name="paymentType"
+                rules={{
+                  required: true,
+                }}
+                render={({ field: { onChange, value } }) => (
+                  <div>
+                    {price?.map((option) => {
+                      if (option.id === parseInt(value)) {
+                        // Her iki extraOption için bir row oluştur
+                        const groupedExtraOptions = [];
+                        for (
+                          let i = 0;
+                          i < option.extraOptions.length;
+                          i += 2
+                        ) {
+                          groupedExtraOptions.push(
+                            option.extraOptions.slice(i, i + 2)
+                          );
+                        }
+
+                        return groupedExtraOptions.map((group, index) => (
+                          <div className="row" key={index}>
+                            {group.map((extraOption) => (
+                              <div className="col-6" key={extraOption.id}>
+                                <Label
+                                  className="d-flex align-items-center gap-2"
+                                  for={`extraOption-${extraOption.id}`}
+                                >
+                                  <Input
+                                    type="checkbox"
+                                    id={`extraOption-${extraOption.id}`}
+                                    name={`extraOptions[${extraOption.id}]`}
+                                    checked={selectedExtras[extraOption.id]}
+                                    onChange={(e) => {
+                                      const updatedSelectedExtras = {
+                                        ...selectedExtras,
+                                        [extraOption.id]: e.target.checked,
+                                      };
+                                      setSelectedExtras(updatedSelectedExtras);
+                                    }}
+                                  />
+                                  <span>
+                                    {extraOption.title} - {extraOption.amount}{" "}
+                                    AZN
+                                  </span>
+                                </Label>
+                              </div>
+                            ))}
+                          </div>
+                        ));
+                      }
+                      return null;
+                    })}
+                  </div>
+                )}
+              />
             </div>
 
             <div className="mb-3 d-flex justify-content-end">

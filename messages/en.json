@@ -177,5 +177,6 @@
   "visaDashboard": "Visa applications",
   "passportLoader": "Executing. Please wait!",
   "operatorName": "Operator",
-  "operatorPhoneNumber": "Operator's phone"
+  "operatorPhoneNumber": "Operator's phone",
+  "additionalOptions": "Addtional services"
 }
