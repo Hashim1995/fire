@@ -17,6 +17,7 @@ import {
   Row,
   Col,
   Spinner,
+  Badge,
 } from "reactstrap";
 import {
   VisaCategories,
@@ -190,7 +191,6 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 {getEnumLabel(VisaLevels, selectedId.visaLevel) || t("noText")}
               </Col>
             </Row>
-
             <Row className="py-2">
               <Col
                 xs={6}
@@ -239,6 +239,42 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 {selectedId.customer?.email || t("noText")}
               </Col>
             </Row>
+            {selectedId?.extraOptions?.length ? (
+              <Row className="py-2">
+                <Col
+                  xs={6}
+                  className="font-italic p-1"
+                  style={{
+                    color: "#333333",
+                    borderRadius: "4px",
+                    fontSize: "16px",
+                    backgroundColor: "#cbcbcb99",
+                  }}
+                >
+                  {t("additionalOptions")}
+                </Col>
+                <Col
+                  xs={6}
+                  style={{
+                    fontSize: "16px",
+                    color: "#333333",
+                  }}
+                >
+                  <div className=" d-inline gap-1">
+                    {selectedId?.extraOptions?.map((z) => (
+                      <Badge
+                        key={z?.id}
+                        style={{ margin: "2px" }}
+                        color="secondary"
+                      >
+                        {z?.title || t("noText")}
+                      </Badge>
+                    ))}
+                  </div>
+                </Col>
+              </Row>
+            ) : null}
+
             <br />
             <Row className="py-1">
               <Col
