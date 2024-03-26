@@ -4,19 +4,24 @@ import React from "react";
 import { returnCurrentLangId } from "../../../../utils/currentLang";
 
 async function getData() {
-  const t = await getLocale();
-  const res = await fetch(
-    `https://ivisavmlinux.azurewebsites.net/api/v1/blog/latest?Language=${returnCurrentLangId(
-      t
-    )}`,
-    {
-      method: "GET",
+  try {
+    const t = await getLocale();
+    const res = await fetch(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/blog/latest?Language=${returnCurrentLangId(
+        t
+      )}`,
+      {
+        method: "GET",
+      }
+    );
+    if (!res.ok) {
+      return null;
     }
-  );
-  if (!res.ok) {
-    return null;
+    return res?.json();
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return null; // Indicate failure
   }
-  return res.json();
 }
 
 const NewsThree = async () => {
@@ -55,15 +60,19 @@ const NewsThree = async () => {
               <div className="news-block-mobile news-block-three">
                 <div className="inner-box">
                   <div className="image-box">
-                    <figure className="image">
-                      <Link href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}>
-                        <img
-                          alt="img "
-                          src={`https://ivisavmlinux.azurewebsites.net/${data[0]?.imageUrl}`}
-                          title="Vixoz"
-                        />
-                      </Link>
-                    </figure>
+                    {data && (
+                      <figure className="image">
+                        <Link
+                          href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}
+                        >
+                          <img
+                            alt="img "
+                            src={`https://ivisavmlinux.azurewebsites.net/${data[0]?.imageUrl}`}
+                            title="Vixoz"
+                          />
+                        </Link>
+                      </figure>
+                    )}
                   </div>
                   <div className="content-box">
                     {/* <ul className="post-info">
@@ -71,9 +80,13 @@ const NewsThree = async () => {
                                                     <li><i className="fa fa-comments" /> 2 Comments</li>
                                                 </ul> */}
                     <h5 className="title">
-                      <Link href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}>
-                        {data[0]?.title}
-                      </Link>
+                      {data && (
+                        <Link
+                          href={`/news-grid/${data[0]?.slug}/${data[0]?.id}`}
+                        >
+                          {data[0]?.title}
+                        </Link>
+                      )}
                     </h5>
                   </div>
                 </div>
@@ -83,7 +96,7 @@ const NewsThree = async () => {
               className="column col-xl-6 col-lg-7 col-md-12 col-sm-12 wow fadeInUp"
               data-wow-delay="300ms"
             >
-              {data?.slice(1).map((item) => {
+              {data?.slice(1)?.map((item) => {
                 return (
                   <div className="news-block-mobile news-block-four">
                     <div className="inner-box">
@@ -118,7 +131,7 @@ const NewsThree = async () => {
         </div>
       </section>
 
-      {/* {data.map((item, i) => (
+      {/* {data?.map((item, i) => (
                 1
             ))} */}
     </>

@@ -8,7 +8,7 @@ const CountryGrid = ({ data }) => {
       <section className="country-grid-section">
         <div className="container">
           <div className="row">
-            {data.map((item, i) => (
+            {data?.map((item, i) => (
               <div className="country-block col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
                 <div className="inner-box">
                   <div className="image-box">
@@ -39,7 +39,7 @@ const CountryGrid = ({ data }) => {
                     </div>
                     <h5 className="title">
                       <Link href={`/page-country/${item?.id}`}>
-                        {item.title}
+                        {item?.title}
                       </Link>
                     </h5>
                     <div className="text">{item?.description}</div>

@@ -41,14 +41,22 @@ const CountryThree = () => {
           <div className="row">
             <div className="col-lg-6 col-md-12">
               <div className="country-details__img">
-                <img alt="img " src="/images/resource/country-details.jpg" title="Vixoz" />              </div>
+                <img
+                  alt="img "
+                  src="/images/resource/country-details.jpg"
+                  title="Vixoz"
+                />{" "}
+              </div>
             </div>
             <div className="col-lg-6 col-md-12">
               <div className="country-content">
                 <h3>Australia</h3>
                 <p>
-                  There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are gossage of Lorem
-                  Ipsum, you nee there
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in some
+                  form, by injected humour, or randomised words which don't look
+                  even slightly believable. If you are gossage of Lorem Ipsum,
+                  you nee there
                 </p>
                 <ul className="country-details-list">
                   <li>
@@ -89,23 +97,30 @@ const CountryThree = () => {
             </div>
             {/*  Countries Carousel */}
             <div className="row">
-              {data.map((item, i) => (
+              {data?.map((item, i) => (
                 <div className="country-block-three col-lg-4 col-md-6 col-sm-12">
                   <div className="inner-box">
                     <div className="content">
                       <div className="flag">
-                        <img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" />
+                        <img
+                          alt="img "
+                          src={`/images/resource/${item.img}`}
+                          title="Vixoz"
+                        />
                       </div>
                       <h5 className="title">
-                        <Link href="page-country-details">{item.title}</Link>
+                        <Link href="page-country-details">{item?.title}</Link>
                       </h5>
-                      <div className="text">{item.sub}</div>
+                      <div className="text">{item?.sub}</div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="bottom-text">Top Rated By Customers &amp; Immigration Firms With 100% Success Rate.</div>
+            <div className="bottom-text">
+              Top Rated By Customers &amp; Immigration Firms With 100% Success
+              Rate.
+            </div>
           </div>
         </div>
       </section>

@@ -245,9 +245,9 @@ const PaymentTypeModal = ({
                           );
                         }
 
-                        return groupedExtraOptions.map((group, index) => (
+                        return groupedExtraOptions?.map((group, index) => (
                           <div className="row" key={index}>
-                            {group.map((extraOption) => (
+                            {group?.map((extraOption) => (
                               <div className="col-6" key={extraOption.id}>
                                 <Label
                                   className="d-flex align-items-center gap-2"

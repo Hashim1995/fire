@@ -158,7 +158,7 @@ const AddModalSecond = ({
   const onDrop = useCallback((acceptedFiles, index) => {
     // No need to create preview URLs here. Just store the files directly.
     setFileInputs((current) =>
-      current.map((input, i) =>
+      current?.map((input, i) =>
         i === index ? { ...input, files: acceptedFiles } : input
       )
     );
@@ -169,7 +169,7 @@ const AddModalSecond = ({
   };
   const removeFile = (index) => {
     setFileInputs((current) =>
-      current.map((input, i) => {
+      current?.map((input, i) => {
         if (i === index) {
           // Remove the file from the input
           return { ...input, files: [] };
@@ -265,7 +265,7 @@ const AddModalSecond = ({
           </Alert>
         ) : null}
 
-        {fileInputs.map((input, index) => (
+        {fileInputs?.map((input, index) => (
           <FileInputDropzone
             key={index}
             index={index}

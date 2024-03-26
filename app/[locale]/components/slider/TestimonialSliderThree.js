@@ -60,12 +60,17 @@ const TestimonialSliderThree = () => {
         }}
         className=""
       >
-        {data.map((item, i) => (
+        {data?.map((item, i) => (
           <SwiperSlide className="testimonial-block-three">
             <div className="inner-box">
               <div className="image-box">
                 <figure className="image">
-                  <img alt="img " src={`/images/resource/${item.thumb_img}`} title="Vixoz" />                </figure>
+                  <img
+                    alt="img "
+                    src={`/images/resource/${item.thumb_img}`}
+                    title="Vixoz"
+                  />{" "}
+                </figure>
               </div>
               <div className="content-box">
                 <div className="text">{item.text}</div>

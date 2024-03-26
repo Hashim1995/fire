@@ -35,13 +35,21 @@ const NewsTwo = () => {
             </h2>
           </div>
           <div className="row">
-            {data.map((item, i) => (
-              <div className="news-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="600ms">
+            {data?.map((item, i) => (
+              <div
+                className="news-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp"
+                data-wow-delay="600ms"
+              >
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
                       <Link href="news-details">
-                        <img alt="img " src={`/images/resource/${item.thumb_img}`} title="Vixoz" />                      </Link>
+                        <img
+                          alt="img "
+                          src={`/images/resource/${item.thumb_img}`}
+                          title="Vixoz"
+                        />{" "}
+                      </Link>
                     </figure>
                     <span className="date">
                       <b>26</b> Nov
@@ -54,7 +62,7 @@ const NewsTwo = () => {
                       </li>
                     </ul>
                     <h4 className="title">
-                      <Link href="news-details">{item.title}</Link>
+                      <Link href="news-details">{item?.title}</Link>
                     </h4>
                   </div>
                 </div>

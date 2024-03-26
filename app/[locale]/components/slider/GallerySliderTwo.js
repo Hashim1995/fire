@@ -82,13 +82,17 @@ const GallerySliderTwo = () => {
         }}
         className="gallery-slider2"
       >
-        {data.map((item, i) => (
+        {data?.map((item, i) => (
           <SwiperSlide>
             <div className="gallery-item-two">
               <div className="image-box">
                 <figure className="image">
                   <Link href="page-visa-details" className="lightbox-image">
-                    <img alt="img " src={`/images/resource/${item.thumb_img}`} title="Vixoz" />
+                    <img
+                      alt="img "
+                      src={`/images/resource/${item.thumb_img}`}
+                      title="Vixoz"
+                    />
                   </Link>
                 </figure>
                 <div className="caption-box">

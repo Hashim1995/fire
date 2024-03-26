@@ -32,10 +32,10 @@ export async function generateMetadata({ params }) {
     return null;
   }
 
-  const data = await res.json(); // Correctly parsing the JSON data
+  const data = await res?.json(); // Correctly parsing the JSON data
   const item = data?.data; // Correctly parsing the JSON data
   const keywords = item?.tags?.join(", "); // Assuming tags is an array
-  const title = item?.title;
+  const title = item?.title || "Default title";
   const description = item?.description;
 
   return {
@@ -46,19 +46,24 @@ export async function generateMetadata({ params }) {
 }
 
 async function getData(id) {
-  const t = await getLocale();
-  const res = await fetch(
-    `https://ivisavmlinux.azurewebsites.net/api/v1/blog/details?Id=${id}&Language=${returnCurrentLangId(
-      t
-    )}`,
-    {
-      method: "GET",
+  try {
+    const t = await getLocale();
+    const res = await fetch(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/blog/details?Id=${id}&Language=${returnCurrentLangId(
+        t
+      )}`,
+      {
+        method: "GET",
+      }
+    );
+    if (!res.ok) {
+      return null;
     }
-  );
-  if (!res.ok) {
-    return null;
+    return res?.json();
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return null; // Indicate failure
   }
-  return res.json();
 }
 
 export default async function NewsDetail({ params }) {
