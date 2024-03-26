@@ -5,19 +5,24 @@ import { truncate } from "../../../../utils/truncate";
 import { getLocale, getTranslations } from "next-intl/server";
 
 async function getData() {
-  const t = await getLocale();
-  const res = await fetch(
-    `https://ivisavmlinux.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
-      t
-    )}`,
-    {
-      method: "GET",
+  try {
+    const t = await getLocale();
+    const res = await fetch(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
+        t
+      )}`,
+      {
+        method: "GET",
+      }
+    );
+    if (!res.ok) {
+      throw new Error("API request failed");
     }
-  );
-  if (!res.ok) {
-    return null;
+    return await res.json();
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return null; // Indicate failure
   }
-  return res.json();
 }
 
 const CountryThree = async () => {
@@ -42,7 +47,7 @@ const CountryThree = async () => {
             </div>
             {/*  Countries Carousel */}
             <div className="row">
-              {data.map((item, i) => (
+              {data?.map((item, i) => (
                 <div
                   key={i}
                   className="country-block-three col-lg-6  col-xl-4 col-md-6 col-sm-12"
@@ -62,10 +67,10 @@ const CountryThree = async () => {
                         />
                       </div>
                       <h5 style={{ height: "30px" }} className="title">
-                        {item.title}
+                        {item?.title}
                       </h5>
                       <div style={{ height: "96px" }} className="text">
-                        {truncate(item.description, 100, 80)}
+                        {truncate(item?.description, 100, 80)}
                       </div>
                     </div>
                   </div>

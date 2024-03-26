@@ -4,22 +4,24 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { returnCurrentLangId } from "../../../../utils/currentLang";
 
 async function getData() {
-  const t = await getLocale();
-
-  const res = await fetch(
-    `https://ivisavmlinux.azurewebsites.net/api/v1/about/contents?language=${returnCurrentLangId(
-      t
-    )}`,
-    {
-      method: "GET",
+  try {
+    const t = await getLocale();
+    const res = await fetch(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/about/contents?language=${returnCurrentLangId(
+        t
+      )}`,
+      {
+        method: "GET",
+      }
+    );
+    if (!res.ok) {
+      throw new Error("API request failed");
     }
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    return await res.json();
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return null; // Indicate failure
   }
-
-  return res.json();
 }
 
 const AboutOne = async () => {

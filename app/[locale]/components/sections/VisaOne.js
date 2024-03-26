@@ -6,18 +6,21 @@ const ServiceOne = () => {
     {
       thumb_img: "service-1.jpg",
       title: "Student Visa",
-      subTitle: "Fusce pretium sem ism the eget mattis. Nam hendrerit elit vel urna fermentum congue.",
+      subTitle:
+        "Fusce pretium sem ism the eget mattis. Nam hendrerit elit vel urna fermentum congue.",
     },
     {
       thumb_img: "service-2.jpg",
       title: "Take IELTS",
-      subTitle: "Fusce pretium sem ism the eget mattis. Nam hendrerit elit vel urna fermentum congue.",
+      subTitle:
+        "Fusce pretium sem ism the eget mattis. Nam hendrerit elit vel urna fermentum congue.",
     },
     {
       thumb_img: "service-3.jpg",
       title: "PTE Coaching",
-      subTitle: "Fusce pretium sem ism the eget mattis. Nam hendrerit elit vel urna fermentum congue.",
-    }
+      subTitle:
+        "Fusce pretium sem ism the eget mattis. Nam hendrerit elit vel urna fermentum congue.",
+    },
   ];
   return (
     <>
@@ -37,18 +40,25 @@ const ServiceOne = () => {
                 </h2>
               </div>
               <div className="col-lg-5">
-                <div className="text">Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem is simply free text quis bibendum.</div>
+                <div className="text">
+                  Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                  Aenean sollicitudin, lorem is simply free text quis bibendum.
+                </div>
               </div>
             </div>
           </div>
           <div className="row">
-            {data.map((item, i) => (
+            {data?.map((item, i) => (
               <div className="service-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
                       <Link href="page-visa-details">
-                        <img alt="img " src={`/images/resource/${item.thumb_img}`} title="Vixoz" />
+                        <img
+                          alt="img "
+                          src={`/images/resource/${item.thumb_img}`}
+                          title="Vixoz"
+                        />
                       </Link>
                     </figure>
                     <div className="icon-box">

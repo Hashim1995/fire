@@ -23,7 +23,7 @@ const CountrySliderOne = () => {
         cache: "no-store",
       }
     );
-    const data = await res.json();
+    const data = await res?.json();
     if (data?.succeeded) {
       setData(data?.data);
     }
@@ -119,7 +119,7 @@ const CountrySliderOne = () => {
                 </h5>
                 <div className="text">
                   <div style={{ height: "130px" }} className="text">
-                    {truncate(item.description, 100, 80)}
+                    {truncate(item?.description, 100, 80)}
                   </div>
                 </div>
               </div>

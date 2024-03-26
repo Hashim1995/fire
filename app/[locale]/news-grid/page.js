@@ -8,19 +8,24 @@ import Page404 from "../components/sections/Page404";
 import Link from "next/link";
 
 async function getData() {
-  const t = await getLocale();
-  const res = await fetch(
-    `https://ivisavmlinux.azurewebsites.net/api/v1/blog?Language=${returnCurrentLangId(
-      t
-    )}`,
-    {
-      method: "GET",
+  try {
+    const t = await getLocale();
+    const res = await fetch(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/blog?Language=${returnCurrentLangId(
+        t
+      )}`,
+      {
+        method: "GET",
+      }
+    );
+    if (!res.ok) {
+      return null;
     }
-  );
-  if (!res.ok) {
-    return null;
+    return res?.json();
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return null; // Indicate failure
   }
-  return res.json();
 }
 
 export default async function Home() {

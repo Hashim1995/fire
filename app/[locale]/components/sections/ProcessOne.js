@@ -28,19 +28,26 @@ const ProcessOne = () => {
             </h2>
           </div>
           <div className="row">
-            {data.map((item, i) => (
+            {data?.map((item, i) => (
               <div className="process-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <img alt="img " src={`/images/resource/${item.thumb_img}`} title="Vixoz" />                    </figure>
+                      <img
+                        alt="img "
+                        src={`/images/resource/${item.thumb_img}`}
+                        title="Vixoz"
+                      />{" "}
+                    </figure>
                     <span className="count">01</span>
                   </div>
                   <div className="info-box">
                     <h6 className="title">
                       <Link href="page-visa-details">Complete Online Form</Link>
                     </h6>
-                    <div className="text">Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</div>
+                    <div className="text">
+                      Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
                   </div>
                 </div>
               </div>

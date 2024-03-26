@@ -208,7 +208,7 @@ const AddModalThird = ({
       try {
         const base64 = await toBase64(orginalFile);
         setFormattedFiles((formattedFiles) =>
-          formattedFiles.map((file) =>
+          formattedFiles?.map((file) =>
             file.index === index
               ? {
                   ...file,

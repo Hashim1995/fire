@@ -71,10 +71,10 @@ const Header = () => {
         } ${searchToggle ? "moblie-search-active" : ""}`}
       >
         <div className="main-box">
-          <div className="logo-box">
+          <div className="logo-box me-4">
             <div className="logo">
               <Link href="/">
-                <Image alt="test" src={LogoWhite} title="Vixoz" />
+                <Image height={80} alt="test" src={LogoWhite} title="Vixoz" />
               </Link>
             </div>
           </div>
@@ -271,7 +271,7 @@ const Header = () => {
             <div className="upper-box">
               <div className="nav-logo">
                 <Link href="/">
-                  <Image alt="test" src={LogoDark} title="Vixoz" />
+                  <Image alt="test" height={100} src={LogoDark} title="Vixoz" />
                 </Link>
               </div>
               <div className="close-btn" onClick={handleRemove}>
@@ -454,8 +454,8 @@ const Header = () => {
             <div className="inner-container">
               {/* Logo */}
               <div className="logo">
-                <Link href="/" title>
-                  <Image alt="test" src={LogoDark} title="Vixoz" />
+                <Link href="/">
+                  <Image height={60} alt="test" src={LogoDark} title="Vixoz" />
                 </Link>
               </div>
               {/* Right Col */}

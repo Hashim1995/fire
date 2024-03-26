@@ -152,8 +152,8 @@ const ContactForm = () => {
                   />
                 )}
               />
-              {errors.title && (
-                <FormFeedback>{errors.title.message}</FormFeedback>
+              {errors?.title && (
+                <FormFeedback>{errors?.title?.message}</FormFeedback>
               )}
             </div>
           </div>

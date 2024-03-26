@@ -81,14 +81,15 @@ const TrainingSliderTwo = () => {
         }}
         className="training-slider2"
       >
-        {data.map((item, i) => (
+        {data?.map((item, i) => (
           <SwiperSlide>
             <div className="training-block-three">
               <div className="inner-box">
                 <div className="image-box">
                   <figure className="image">
                     <Link href="page-training-details">
-                      <img alt="img "
+                      <img
+                        alt="img "
                         src={`/images/resource/${item.thumb_img}`}
                         title="training-img"
                       />

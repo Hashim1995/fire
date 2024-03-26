@@ -39,14 +39,17 @@ const TrainingGrid = () => {
       <section className="training-grid-section">
         <div className="container">
           <div className="row">
-            {data.map((item, i) => (
+            {data?.map((item, i) => (
               <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
                 <div className="training-block-three overflow-hidden mb-4">
                   <div className="inner-box">
                     <div className="image-box">
                       <div className="image">
                         <Link href="page-training-details">
-                          <img alt="img " src={`/images/resource/${item.thumb_img}`} />
+                          <img
+                            alt="img "
+                            src={`/images/resource/${item?.thumb_img}`}
+                          />
                         </Link>
                       </div>
                       <Link href="page-training-details" className="read-more">
@@ -54,16 +57,20 @@ const TrainingGrid = () => {
                       </Link>
                       <div className="info-box">
                         <h4 className="title">
-                          <Link href="page-training-details">{item.title}</Link>
+                          <Link href="page-training-details">
+                            {item?.title}
+                          </Link>
                         </h4>
                       </div>
                     </div>
                     <div className="overlay-content">
                       <div className="info-box">
                         <h4 className="title">
-                          <Link href="page-training-details">{item.title}</Link>
+                          <Link href="page-training-details">
+                            {item?.title}
+                          </Link>
                         </h4>
-                        <div className="text">{item.subTitle}</div>
+                        <div className="text">{item?.subTitle}</div>
                       </div>
                     </div>
                   </div>

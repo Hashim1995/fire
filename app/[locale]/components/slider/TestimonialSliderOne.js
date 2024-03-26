@@ -57,17 +57,26 @@ const TestimonialSliderOne = () => {
         }}
         className=""
       >
-        {data.map((item, i) => (
+        {data?.map((item, i) => (
           <SwiperSlide className="testimonial-block">
             <div className="inner-box">
               <div className="image-box">
                 <figure className="image">
-                  <img alt="img " src={`/images/resource/${item.img}`} title="Vixoz" />
+                  <img
+                    alt="img "
+                    src={`/images/resource/${item.img}`}
+                    title="Vixoz"
+                  />
                 </figure>
                 <span className="icon icon-quote" />
               </div>
               <div className="content-box">
-                <div className="text">This is due to their best service, pricing and customer support. It’s throughly refresing to get such a personal touch. Duis aute irure lupsum istect simply free reprehenderit.</div>
+                <div className="text">
+                  This is due to their best service, pricing and customer
+                  support. It’s throughly refresing to get such a personal
+                  touch. Duis aute irure lupsum istect simply free
+                  reprehenderit.
+                </div>
                 <div className="info-box">
                   <h5 className="name">Aleesha Brown</h5>
                   <span className="designation">Customers</span>
