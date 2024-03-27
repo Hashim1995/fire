@@ -46,7 +46,7 @@ const RegisterFirst = ({
     };
     try {
       const res = await axios.post(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/auth/register/first-step",
+        "https://visa-server.azurewebsites.net/api/v1/auth/register/first-step",
         payload
       );
       if (res?.data?.succeeded) {

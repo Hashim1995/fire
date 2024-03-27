@@ -50,7 +50,7 @@ const Main = () => {
     const token = session?.data?.user?.data?.token;
     try {
       const response = await axios.get(
-        `https://ivisavmlinux.azurewebsites.net/api/v1/visa?page=${currentPage}`,
+        `https://visa-server.azurewebsites.net/api/v1/visa?page=${currentPage}`,
         {
           headers: {
             "Content-Type": "application/json",

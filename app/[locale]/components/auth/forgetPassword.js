@@ -47,7 +47,7 @@ const ForgetPassword = ({ setModal, modal }) => {
     setResendOTPLoading(true);
     try {
       const response = await axios.post(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/auth/forget-password/otp",
+        "https://visa-server.azurewebsites.net/api/v1/auth/forget-password/otp",
         { email: watch("email") }
       );
       if (response.status === 200) {
@@ -71,7 +71,7 @@ const ForgetPassword = ({ setModal, modal }) => {
     if (step === 1) {
       try {
         const response = await axios.post(
-          "https://ivisavmlinux.azurewebsites.net/api/v1/auth/forget-password/otp",
+          "https://visa-server.azurewebsites.net/api/v1/auth/forget-password/otp",
           { email: data.email }
         );
 
@@ -88,7 +88,7 @@ const ForgetPassword = ({ setModal, modal }) => {
     } else if (step === 2) {
       try {
         const response = await axios.post(
-          "https://ivisavmlinux.azurewebsites.net/api/v1/auth/forget-password/otp/verify",
+          "https://visa-server.azurewebsites.net/api/v1/auth/forget-password/otp/verify",
           { email: data.email, otpCode: data.otpCode }
         );
 
@@ -105,7 +105,7 @@ const ForgetPassword = ({ setModal, modal }) => {
     } else if (step === 3) {
       try {
         const response = await axios.post(
-          "https://ivisavmlinux.azurewebsites.net/api/v1/auth/reset-password",
+          "https://visa-server.azurewebsites.net/api/v1/auth/reset-password",
           {
             email: data.email,
             password: data.password,

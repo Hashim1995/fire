@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
   const id = params["slug]&[...id"][1];
   const t = await getLocale();
   const res = await fetch(
-    `https://ivisavmlinux.azurewebsites.net/api/v1/blog/details?Id=${id}&Language=${returnCurrentLangId(
+    `https://visa-server.azurewebsites.net/api/v1/blog/details?Id=${id}&Language=${returnCurrentLangId(
       t
     )}`,
     {
@@ -49,7 +49,7 @@ async function getData(id) {
   try {
     const t = await getLocale();
     const res = await fetch(
-      `https://ivisavmlinux.azurewebsites.net/api/v1/blog/details?Id=${id}&Language=${returnCurrentLangId(
+      `https://visa-server.azurewebsites.net/api/v1/blog/details?Id=${id}&Language=${returnCurrentLangId(
         t
       )}`,
       {

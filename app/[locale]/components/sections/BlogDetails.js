@@ -10,7 +10,7 @@ async function getData() {
   try {
     const t = await getLocale();
     const res = await fetch(
-      `https://ivisavmlinux.azurewebsites.net/api/v1/blog/latest?Language=${returnCurrentLangId(
+      `https://visa-server.azurewebsites.net/api/v1/blog/latest?Language=${returnCurrentLangId(
         t
       )}`,
       {
@@ -48,7 +48,7 @@ const BlogOne = async ({ item }) => {
                       objectFit: "cover",
                     }}
                     height={500}
-                    src={`https://ivisavmlinux.azurewebsites.net/${item?.imageUrl}`}
+                    src={`https://visa-server.azurewebsites.net/${item?.imageUrl}`}
                     title="Vixoz"
                   />
 
@@ -93,7 +93,7 @@ const BlogOne = async ({ item }) => {
                                 objectFit: "cover",
                               }}
                               alt="img "
-                              src={`https://ivisavmlinux.azurewebsites.net/${z?.imageUrl}`}
+                              src={`https://visa-server.azurewebsites.net/${z?.imageUrl}`}
                               title="Vizox"
                             />{" "}
                           </div>

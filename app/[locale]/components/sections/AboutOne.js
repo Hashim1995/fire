@@ -7,7 +7,7 @@ async function getData() {
   try {
     const t = await getLocale();
     const res = await fetch(
-      `https://ivisavmlinux.azurewebsites.net/api/v1/about/contents?language=${returnCurrentLangId(
+      `https://visa-server.azurewebsites.net/api/v1/about/contents?language=${returnCurrentLangId(
         t
       )}`,
       {
@@ -69,7 +69,7 @@ const AboutOne = async () => {
                 <figure className="image-1 overlay-anim wow fadeInUp">
                   <img
                     alt="img"
-                    src={`https://ivisavmlinux.azurewebsites.net/${data?.imageUrl}`}
+                    src={`https://visa-server.azurewebsites.net/${data?.imageUrl}`}
                     title="Vixoz"
                   />
                 </figure>

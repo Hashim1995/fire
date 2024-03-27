@@ -28,7 +28,7 @@ const NewsOne = ({ data }) => {
                             alt="img "
                             height={400}
                             width={375}
-                            src={`https://ivisavmlinux.azurewebsites.net/${item?.imageUrl}`}
+                            src={`https://visa-server.azurewebsites.net/${item?.imageUrl}`}
                             title="Vixoz"
                           />
                         </div>

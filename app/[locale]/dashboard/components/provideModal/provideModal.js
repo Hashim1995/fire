@@ -72,7 +72,7 @@ const ProvideModal = ({
     try {
       // Replace 'your_api_endpoint' with your actual API endpoint
       const response = await axios.post(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents/add",
+        "https://visa-server.azurewebsites.net/api/v1/visa/required-documents/add",
         formData,
         {
           headers: {

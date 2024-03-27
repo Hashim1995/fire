@@ -26,7 +26,7 @@ function ReegisterSecond({
     };
     try {
       const res = await axios.post(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/auth/register/second-step",
+        "https://visa-server.azurewebsites.net/api/v1/auth/register/second-step",
         payload
       );
       if (res?.data?.succeeded) {
