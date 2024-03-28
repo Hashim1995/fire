@@ -49,7 +49,7 @@ const ApplicantCLP = ({
   const downloadFileFromServer = async (param) => {
     try {
       const response = await axios.get(
-        `https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents/download/${param}`,
+        `https://visa-server.azurewebsites.net/api/v1/visa/required-documents/download/${param}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -58,7 +58,7 @@ const PaymentTypeModal = ({
     }, []);
     try {
       const response = await axios.post(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/payment",
+        "https://visa-server.azurewebsites.net/api/v1/payment",
         {
           paymentType: Number(data?.paymentType),
           visaAppointmentId: visaAppointmentId,
@@ -96,7 +96,7 @@ const PaymentTypeModal = ({
 
     try {
       const response = await axios.get(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/payment-types",
+        "https://visa-server.azurewebsites.net/api/v1/payment-types",
         {
           headers: {
             "Content-Type": "application/json",

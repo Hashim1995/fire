@@ -62,7 +62,7 @@ const AddModalThird = ({
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://ivisavmlinux.azurewebsites.net/api/v1/visa",
+        "https://visa-server.azurewebsites.net/api/v1/visa",
         JSON.stringify(data),
         {
           headers: {
