@@ -178,5 +178,6 @@
     "passportLoader": "İcra edilir. Zəhmət olmasa gözləyin!",
     "operatorName": "Operator",
     "operatorPhoneNumber": "Operatorun telefonu",
-    "additionalOptions": "Əlavə xidmətlər"
+    "additionalOptions": "Əlavə xidmətlər",
+    "delete": "Sil"
 }
