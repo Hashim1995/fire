@@ -92,8 +92,8 @@ const ContactForm = () => {
                   />
                 )}
               />
-              {errors.fullname && (
-                <FormFeedback>{errors.fullname.message}</FormFeedback>
+              {errors?.fullname && (
+                <FormFeedback>{errors?.fullname?.message}</FormFeedback>
               )}
             </div>
           </div>
@@ -123,8 +123,8 @@ const ContactForm = () => {
                   />
                 )}
               />
-              {errors.email && (
-                <FormFeedback>{errors.email.message}</FormFeedback>
+              {errors?.email && (
+                <FormFeedback>{errors?.email?.message}</FormFeedback>
               )}
             </div>
           </div>
@@ -197,8 +197,8 @@ const ContactForm = () => {
               />
             )}
           />
-          {errors.description && (
-            <FormFeedback>{errors.description.message}</FormFeedback>
+          {errors?.description && (
+            <FormFeedback>{errors?.description?.message}</FormFeedback>
           )}
         </div>
         <div className="mb-3">

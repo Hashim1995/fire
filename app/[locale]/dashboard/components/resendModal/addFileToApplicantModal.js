@@ -113,7 +113,7 @@ const AddFileToApplicantModal = ({
                       value={value}
                       menuPortalTarget={document.body}
                       menuPosition={"fixed"}
-                      aria-invalid={errors.documentType}
+                      aria-invalid={errors?.documentType}
                       onChange={onChange}
                       styles={{
                         menuPortal: (base, state) => ({
@@ -121,14 +121,14 @@ const AddFileToApplicantModal = ({
                           zIndex: 9999,
                           borderColor: state.isFocused
                             ? "#ddd"
-                            : errors.documentType
+                            : errors?.documentType
                             ? "#ddd"
                             : "red",
                           // overwrittes hover style
                           "&:hover": {
                             borderColor: state.isFocused
                               ? "#ddd"
-                              : errors.documentType
+                              : errors?.documentType
                               ? "#ddd"
                               : "red",
                           },
@@ -137,7 +137,7 @@ const AddFileToApplicantModal = ({
                     />
                   )}
                 />
-                {errors.documentType && (
+                {errors?.documentType && (
                   <div
                     style={{
                       width: "100%",
@@ -146,7 +146,7 @@ const AddFileToApplicantModal = ({
                       color: "#dc3545",
                     }}
                   >
-                    {errors.documentType.message}
+                    {errors?.documentType?.message}
                   </div>
                 )}
               </div>
@@ -178,8 +178,8 @@ const AddFileToApplicantModal = ({
                     />
                   )}
                 />
-                {errors.file && (
-                  <FormFeedback>{errors.file.message}</FormFeedback>
+                {errors?.file && (
+                  <FormFeedback>{errors?.file?.message}</FormFeedback>
                 )}
               </div>
             </div>

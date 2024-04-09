@@ -104,8 +104,8 @@ const AddModalFirst = ({
                 />
               )}
             />
-            {errors.DepartureDate && (
-              <FormFeedback>{errors.DepartureDate.message}</FormFeedback>
+            {errors?.DepartureDate && (
+              <FormFeedback>{errors?.DepartureDate?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -132,8 +132,8 @@ const AddModalFirst = ({
                 />
               )}
             />
-            {errors.ReturnDate && (
-              <FormFeedback>{errors.ReturnDate.message}</FormFeedback>
+            {errors?.ReturnDate && (
+              <FormFeedback>{errors?.ReturnDate?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -159,7 +159,7 @@ const AddModalFirst = ({
                   value={value}
                   menuPortalTarget={document.body}
                   menuPosition={"fixed"}
-                  aria-invalid={errors.EntryCountry}
+                  aria-invalid={errors?.EntryCountry}
                   onChange={onChange}
                   styles={{
                     menuPortal: (base, state) => ({
@@ -167,14 +167,14 @@ const AddModalFirst = ({
                       zIndex: 9999,
                       borderColor: state.isFocused
                         ? "#ddd"
-                        : errors.DestinationCountryId
+                        : errors?.DestinationCountryId
                         ? "#ddd"
                         : "red",
                       // overwrittes hover style
                       "&:hover": {
                         borderColor: state.isFocused
                           ? "#ddd"
-                          : errors.DestinationCountryId
+                          : errors?.DestinationCountryId
                           ? "#ddd"
                           : "red",
                       },
@@ -183,7 +183,7 @@ const AddModalFirst = ({
                 />
               )}
             />
-            {errors.DestinationCountryId && (
+            {errors?.DestinationCountryId && (
               <div
                 style={{
                   width: "100%",
@@ -192,7 +192,7 @@ const AddModalFirst = ({
                   color: "#dc3545",
                 }}
               >
-                {errors.DestinationCountryId.message}
+                {errors?.DestinationCountryId?.message}
               </div>
             )}
           </div>
@@ -215,7 +215,7 @@ const AddModalFirst = ({
                   className="react-select"
                   options={countriesStatic}
                   value={value}
-                  aria-invalid={errors.EntryCountry}
+                  aria-invalid={errors?.EntryCountry}
                   menuPortalTarget={document.body}
                   menuPosition={"fixed"}
                   onChange={onChange}
@@ -224,14 +224,14 @@ const AddModalFirst = ({
                       ...base,
                       borderColor: state.isFocused
                         ? "#ddd"
-                        : errors.EntryCountry
+                        : errors?.EntryCountry
                         ? "#ddd"
                         : "red",
                       // overwrittes hover style
                       "&:hover": {
                         borderColor: state.isFocused
                           ? "#ddd"
-                          : errors.EntryCountry
+                          : errors?.EntryCountry
                           ? "#ddd"
                           : "red",
                       },
@@ -241,7 +241,7 @@ const AddModalFirst = ({
                 />
               )}
             />
-            {errors.EntryCountry && (
+            {errors?.EntryCountry && (
               <div
                 style={{
                   width: "100%",
@@ -250,7 +250,7 @@ const AddModalFirst = ({
                   color: "#dc3545",
                 }}
               >
-                {errors.EntryCountry.message}
+                {errors?.EntryCountry?.message}
               </div>
             )}
           </div>
@@ -309,8 +309,8 @@ const AddModalFirst = ({
                 </div>
               )}
             />
-            {errors.VisaType && (
-              <FormFeedback>{errors.VisaType.message}</FormFeedback>
+            {errors?.VisaType && (
+              <FormFeedback>{errors?.VisaType?.message}</FormFeedback>
             )}
           </div>
         </div>

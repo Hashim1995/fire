@@ -214,8 +214,8 @@ const PaymentTypeModal = ({
                       </div>
                     )}
                   />
-                  {errors.paymentType && (
-                    <FormFeedback>{errors.paymentType.message}</FormFeedback>
+                  {errors?.paymentType && (
+                    <FormFeedback>{errors?.paymentType?.message}</FormFeedback>
                   )}
                 </div>
               </div>

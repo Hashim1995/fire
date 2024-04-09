@@ -92,8 +92,8 @@ const RegisterFirst = ({
                 />
               )}
             />
-            {errors.firstname && (
-              <FormFeedback>{errors.firstname.message}</FormFeedback>
+            {errors?.firstname && (
+              <FormFeedback>{errors?.firstname?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -119,8 +119,8 @@ const RegisterFirst = ({
                 />
               )}
             />
-            {errors.lastname && (
-              <FormFeedback>{errors.lastname.message}</FormFeedback>
+            {errors?.lastname && (
+              <FormFeedback>{errors?.lastname?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -152,8 +152,8 @@ const RegisterFirst = ({
                 />
               )}
             />
-            {errors.email && (
-              <FormFeedback>{errors.email.message}</FormFeedback>
+            {errors?.email && (
+              <FormFeedback>{errors?.email?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -179,8 +179,8 @@ const RegisterFirst = ({
                 />
               )}
             />
-            {errors.birthday && (
-              <FormFeedback>{errors.birthday.message}</FormFeedback>
+            {errors?.birthday && (
+              <FormFeedback>{errors?.birthday?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -193,7 +193,7 @@ const RegisterFirst = ({
               rules={{
                 required: {
                   value: true,
-                  message: `${t("Phonenumber")} ${t("IsRequired")}`,
+                  message: `${t("PhoneNumber")} ${t("IsRequired")}`,
                 },
               }}
               name="phoneNumber"
@@ -208,8 +208,8 @@ const RegisterFirst = ({
                 />
               )}
             />
-            {errors.firstname && (
-              <FormFeedback>{errors.phoneNumber.message}</FormFeedback>
+            {errors?.firstname && (
+              <FormFeedback>{errors?.phoneNumber?.message}</FormFeedback>
             )}
           </div>
         </div>
