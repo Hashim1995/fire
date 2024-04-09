@@ -67,7 +67,7 @@ export default function FormComponent() {
           typeof result.error === "string"
             ? JSON.parse(result.error)
             : result.error;
-        const messages = errorObj.messages || [t("ErrorOperation")];
+        const messages = errorObj?.messages || [t("ErrorOperation")];
         toast(messages.join(", "), {
           hideProgressBar: true,
           autoClose: 1000,
@@ -118,8 +118,8 @@ export default function FormComponent() {
                         />
                       )}
                     />
-                    {errors.email && (
-                      <FormFeedback>{errors.email.message}</FormFeedback>
+                    {errors?.email && (
+                      <FormFeedback>{errors?.email?.message}</FormFeedback>
                     )}
                   </div>
                   <div className="form-group mb-2">
@@ -146,8 +146,8 @@ export default function FormComponent() {
                         />
                       )}
                     />
-                    {errors.password && (
-                      <FormFeedback>{errors.password.message}</FormFeedback>
+                    {errors?.password && (
+                      <FormFeedback>{errors?.password?.message}</FormFeedback>
                     )}
                   </div>
 

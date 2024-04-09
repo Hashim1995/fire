@@ -190,8 +190,8 @@ const ForgetPassword = ({ setModal, modal }) => {
                     />
                   )}
                 />
-                {errors.email && (
-                  <FormFeedback>{errors.email.message}</FormFeedback>
+                {errors?.email && (
+                  <FormFeedback>{errors?.email?.message}</FormFeedback>
                 )}
               </div>
             )}
@@ -214,8 +214,8 @@ const ForgetPassword = ({ setModal, modal }) => {
                     />
                   )}
                 />
-                {errors.otpCode && (
-                  <FormFeedback>{errors.otpCode.message}</FormFeedback>
+                {errors?.otpCode && (
+                  <FormFeedback>{errors?.otpCode?.message}</FormFeedback>
                 )}
               </div>
             )}
@@ -239,8 +239,8 @@ const ForgetPassword = ({ setModal, modal }) => {
                       />
                     )}
                   />
-                  {errors.password && (
-                    <FormFeedback>{errors.password.message}</FormFeedback>
+                  {errors?.password && (
+                    <FormFeedback>{errors?.password?.message}</FormFeedback>
                   )}
                 </div>
                 <div className="form-group mb-2">
@@ -262,9 +262,9 @@ const ForgetPassword = ({ setModal, modal }) => {
                       />
                     )}
                   />
-                  {errors.confirmPassword && (
+                  {errors?.confirmPassword && (
                     <FormFeedback>
-                      {errors.confirmPassword.message}
+                      {errors?.confirmPassword?.message}
                     </FormFeedback>
                   )}
                 </div>

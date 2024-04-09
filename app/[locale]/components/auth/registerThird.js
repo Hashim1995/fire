@@ -104,8 +104,8 @@ const RegisterThird = ({
                 />
               )}
             />
-            {errors.password && (
-              <FormFeedback>{errors.password.message}</FormFeedback>
+            {errors?.password && (
+              <FormFeedback>{errors?.password?.message}</FormFeedback>
             )}
           </div>
         </div>
@@ -126,8 +126,8 @@ const RegisterThird = ({
                 />
               )}
             />
-            {errors.confirmPassword && (
-              <FormFeedback>{errors.confirmPassword.message}</FormFeedback>
+            {errors?.confirmPassword && (
+              <FormFeedback>{errors?.confirmPassword?.message}</FormFeedback>
             )}
           </div>
         </div>
