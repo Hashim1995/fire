@@ -22,7 +22,14 @@ import {
 } from "reactstrap";
 import { useDropzone } from "react-dropzone";
 
-const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
+const FileInputDropzone = ({
+  index,
+  files,
+  onDrop,
+  removeFile,
+  removeField,
+  showRemoveFieldButton,
+}) => {
   const t = useTranslations();
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -56,7 +63,7 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
   });
 
   return (
-    <div {...getRootProps()} className="dropzone mb-2">
+    <div {...getRootProps()} className="dropzone position-relative mb-3">
       <input {...getInputProps()} />
       {files.length === 0 && (
         <div>
@@ -122,19 +129,35 @@ const FileInputDropzone = ({ index, files, onDrop, removeFile }) => {
                 size=""
                 style={{
                   height: "45px",
-                  width: "45px",
                 }}
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent the dropzone from triggering
                   removeFile(index);
                 }}
               >
-                Sil
+                {t("delete")}
               </Button>
             </div>
           </div>
         ))}
       </aside>
+      {showRemoveFieldButton && (
+        <Button
+          style={{
+            position: "absolute",
+            top: "-10px",
+            right: "-10px",
+          }}
+          type="button"
+          color="danger"
+          onClick={(e) => {
+            e.stopPropagation();
+            removeField();
+          }}
+        >
+          -
+        </Button>
+      )}
     </div>
   );
 };
@@ -177,6 +200,10 @@ const AddModalSecond = ({
         return input;
       })
     );
+  };
+
+  const removeFileInput = (index) => {
+    setFileInputs((current) => current.filter((_, i) => i !== index));
   };
 
   const onSubmit = async (event) => {
@@ -268,10 +295,12 @@ const AddModalSecond = ({
         {fileInputs?.map((input, index) => (
           <FileInputDropzone
             key={index}
+            showRemoveFieldButton={fileInputs.length > 1} // Pass a prop to indicate whether to show the delete field button
             index={index}
             files={input.files}
             onDrop={onDrop}
             removeFile={() => removeFile(index)} // Pass the removeFile function to the child component
+            removeField={() => removeFileInput(index)} // New function to remove field
           />
         ))}
       </Card>

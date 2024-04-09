@@ -178,5 +178,6 @@
   "passportLoader": "Выполняется. Пожалуйста, подождите!",
   "operatorName": "Оператор",
   "operatorPhoneNumber": "Телефон оператора",
-  "additionalOptions": "Дополнительные услуги"
+  "additionalOptions": "Дополнительные услуги",
+  "delete": "Удалить"
 }

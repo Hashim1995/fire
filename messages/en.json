@@ -178,5 +178,6 @@
   "passportLoader": "Executing. Please wait!",
   "operatorName": "Operator",
   "operatorPhoneNumber": "Operator's phone",
-  "additionalOptions": "Addtional services"
+  "additionalOptions": "Addtional services",
+  "delete": "Delete"
 }
