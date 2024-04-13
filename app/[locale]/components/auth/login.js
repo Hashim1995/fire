@@ -44,25 +44,20 @@ export default function FormComponent() {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    // const result = await signIn('credentials', {
-    //     email: data.email,
-    //     password: data.password,
-    //     redirect: false,
-    //     callbackUrl: "/",
-    // });
-    // setLoading(false);
+
     try {
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
-        redirect: true,
-        callbackUrl: "/dashboard",
+        redirect: false, // Set redirect to false
       });
-      setLoading(false);
-      router.push("/dashboard");
 
+      setLoading(false);
+      if (result?.ok) {
+        router.push("/dashboard");
+      }
       if (result?.error) {
-        // Check if error is a string and parse it
+        // Display error message using toast
         const errorObj =
           typeof result.error === "string"
             ? JSON.parse(result.error)
@@ -77,8 +72,17 @@ export default function FormComponent() {
       }
     } catch (err) {
       console.log(err);
+      // Handle any unexpected errors
+      toast("An unexpected error occurred. Please try again later.", {
+        hideProgressBar: true,
+        autoClose: 1000,
+        type: "error",
+        position: "top-right",
+      });
+      setLoading(false);
     }
   };
+
   return (
     <section className="mt-10 flex flex-col items-center gap-4">
       <div className="container">

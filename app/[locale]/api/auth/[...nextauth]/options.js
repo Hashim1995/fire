@@ -55,6 +55,6 @@ export const options = {
       return session;
     },
   },
-
+  redirect: false,
   debug: process.env.NODE_ENV === "development",
 };
