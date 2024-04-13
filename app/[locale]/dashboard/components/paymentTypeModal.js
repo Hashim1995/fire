@@ -15,6 +15,8 @@ import {
   Label,
   Modal,
   ModalHeader,
+  ListGroupItem,
+  ListGroup,
   ModalBody,
 } from "reactstrap";
 import { countriesStatic, validateDates } from "./options";
@@ -36,6 +38,7 @@ const PaymentTypeModal = ({
   const {
     register,
     reset,
+    watch,
     control,
     setValue,
     handleSubmit,
@@ -154,7 +157,9 @@ const PaymentTypeModal = ({
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("paymentType")}</Label>
+                  <Label>
+                    {t("paymentType")} <span style={{ color: "red" }}>*</span>
+                  </Label>
                   <br />
                   <Controller
                     control={control}
@@ -221,6 +226,33 @@ const PaymentTypeModal = ({
               </div>
             </div>
             <hr />
+
+            <div>
+              <h5>{t("servicesIncludedPackage")}</h5>
+              {watch("paymentType") === "1" && (
+                <div className="row">
+                  {t("servicesIncludedPackageListStandart")
+                    ?.split(",")
+                    ?.map((z, index) => (
+                      <p className="col-6 mb-0" key={index}>
+                        {z}
+                      </p>
+                    ))}
+                </div>
+              )}
+              {watch("paymentType") === "2" && (
+                <div className="row">
+                  {t("servicesIncludedPackageListVip")
+                    ?.split(",")
+                    ?.map((z, index) => (
+                      <p className="col-6 mb-0" key={index}>
+                        {z}
+                      </p>
+                    ))}
+                </div>
+              )}
+            </div>
+            <hr />
             <h5>{t("additionalOptions")}</h5>
             <div>
               <Controller
@@ -282,7 +314,6 @@ const PaymentTypeModal = ({
                 )}
               />
             </div>
-
             <div className="mb-3 d-flex justify-content-end">
               <Button
                 disabled={btnLoader}

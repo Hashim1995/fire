@@ -55,8 +55,8 @@ const VisaStatuses = [
 ];
 
 const VisaTypes = [
-  { value: 1, label: "Təkli viza" },
-  { value: 2, label: "Çoxlu viza" },
+  { value: 1, label: "Tək girişli" },
+  { value: 2, label: "Çox girişli" },
 ];
 const countriesStatic = [
   { value: 1, label: "Albaniya" },

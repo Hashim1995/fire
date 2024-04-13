@@ -96,7 +96,9 @@ export default function FormComponent() {
               <div className="col-lg-12 gap-3 login-form">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group mb-2">
-                    <label className="form-control-label">{t("email")}</label>
+                    <label className="form-control-label">
+                      {t("email")} <span style={{ color: "red" }}>*</span>
+                    </label>
 
                     <Controller
                       control={control}
@@ -124,7 +126,7 @@ export default function FormComponent() {
                   </div>
                   <div className="form-group mb-2">
                     <label className="form-control-label">
-                      {t("password")}
+                      {t("password")} <span style={{ color: "red" }}>*</span>
                     </label>
                     <Controller
                       control={control}

@@ -346,7 +346,9 @@ const ViewDetailedModal = ({
                   alignItems: "center",
                 }}
               >
-                {selectedId.gender === 1
+                {selectedId.gender
+                  ? selectedId.gender
+                  : selectedId.gender === 1
                   ? t("male")
                   : selectedId.gender === 2
                   ? t("female")

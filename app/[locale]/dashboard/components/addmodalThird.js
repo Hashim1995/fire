@@ -242,7 +242,9 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("firstname")}</Label>
+              <Label>
+                {t("firstname")} <span style={{ color: "red" }}>*</span>
+              </Label>
               <Controller
                 control={control}
                 rules={{
@@ -272,7 +274,9 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("lastname")}</Label>
+              <Label>
+                {t("lastname")} <span style={{ color: "red" }}>*</span>
+              </Label>
               <Controller
                 control={control}
                 rules={{
@@ -305,7 +309,9 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("countryCode")}</Label>
+              <Label>
+                {t("countryCode")} <span style={{ color: "red" }}>*</span>
+              </Label>
 
               <Controller
                 control={control}
@@ -336,7 +342,9 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("nationality")}</Label>
+              <Label>
+                {t("nationality")} <span style={{ color: "red" }}>*</span>
+              </Label>
 
               <Controller
                 control={control}
@@ -369,7 +377,9 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("dateOfBirth")}</Label>
+              <Label>
+                {t("dateOfBirth")} <span style={{ color: "red" }}>*</span>
+              </Label>
               <Controller
                 control={control}
                 rules={{
@@ -399,7 +409,9 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("personalNo")}</Label>
+              <Label>
+                {t("personalNo")} <span style={{ color: "red" }}>*</span>
+              </Label>
 
               <Controller
                 control={control}
@@ -432,7 +444,9 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("gender")}</Label>
+              <Label>
+                {t("gender")} <span style={{ color: "red" }}>*</span>
+              </Label>
               <br />
               <Controller
                 control={control}
@@ -499,7 +513,9 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("passportNo")}</Label>
+              <Label>
+                {t("passportNo")} <span style={{ color: "red" }}>*</span>
+              </Label>
 
               <Controller
                 control={control}
@@ -532,7 +548,10 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("passportDateOfIssue")}</Label>
+              <Label>
+                {t("passportDateOfIssue")}{" "}
+                <span style={{ color: "red" }}>*</span>
+              </Label>
               <Controller
                 control={control}
                 rules={{
@@ -564,7 +583,10 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("passportDateOfExpiry")}</Label>
+              <Label>
+                {t("passportDateOfExpiry")}{" "}
+                <span style={{ color: "red" }}>*</span>
+              </Label>
               <Controller
                 control={control}
                 rules={{
@@ -598,7 +620,9 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("email")}</Label>
+              <Label>
+                {t("email")} <span style={{ color: "red" }}>*</span>
+              </Label>
 
               <Controller
                 control={control}
@@ -632,7 +656,9 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("phoneNumber")}</Label>
+              <Label>
+                {t("phoneNumber")} <span style={{ color: "red" }}>*</span>
+              </Label>
 
               <Controller
                 control={control}
@@ -665,7 +691,9 @@ const AddModalThird = ({
         <div className="row">
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("isAdult")}</Label>
+              <Label>
+                {t("isAdult")} <span style={{ color: "red" }}>*</span>
+              </Label>
               <br />
               <Controller
                 control={control}
@@ -745,7 +773,10 @@ const AddModalThird = ({
           </div>
           <div className="col-sm-6">
             <div className="mb-3">
-              <Label>{t("hasEuropeanFamilyMember")}</Label>
+              <Label>
+                {t("hasEuropeanFamilyMember")}{" "}
+                <span style={{ color: "red" }}>*</span>
+              </Label>
               <br />
               <Controller
                 control={control}
@@ -833,7 +864,10 @@ const AddModalThird = ({
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("representativeFirstname")}</Label>
+                  <Label>
+                    {t("representativeFirstname")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -870,7 +904,10 @@ const AddModalThird = ({
               </div>
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("representativeLastName")}</Label>
+                  <Label>
+                    {t("representativeLastName")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -909,7 +946,10 @@ const AddModalThird = ({
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("representativeEmail")}</Label>
+                  <Label>
+                    {t("representativeEmail")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -951,7 +991,10 @@ const AddModalThird = ({
               </div>
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("representativePhoneNumber")}</Label>
+                  <Label>
+                    {t("representativePhoneNumber")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
                   <Controller
                     control={control}
                     rules={{
@@ -989,7 +1032,10 @@ const AddModalThird = ({
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("representativeAddress")}</Label>
+                  <Label>
+                    {t("representativeAddress")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -1034,7 +1080,10 @@ const AddModalThird = ({
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("hasEuropeanFamilyMemberFirstname")}</Label>
+                  <Label>
+                    {t("hasEuropeanFamilyMemberFirstname")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -1074,7 +1123,10 @@ const AddModalThird = ({
               </div>
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("hasEuropeanFamilyMemberLastName")}</Label>
+                  <Label>
+                    {t("hasEuropeanFamilyMemberLastName")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -1116,7 +1168,10 @@ const AddModalThird = ({
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("hasEuropeanFamilyMemberPassport")}</Label>
+                  <Label>
+                    {t("hasEuropeanFamilyMemberPassport")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
 
                   <Controller
                     control={control}
@@ -1159,7 +1214,10 @@ const AddModalThird = ({
               </div>
               <div className="col-sm-6">
                 <div className="mb-3">
-                  <Label>{t("otherCountryResidenceInformation")}</Label>
+                  <Label>
+                    {t("otherCountryResidenceInformation")}{" "}
+                    <span style={{ color: "red" }}>*</span>
+                  </Label>
                   <Controller
                     control={control}
                     rules={{
