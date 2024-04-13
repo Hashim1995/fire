@@ -89,7 +89,9 @@ const AddFileToApplicantModal = ({
           <div className="row">
             <div className="col-sm-12">
               <div className="mb-3">
-                <Label>{t("documentType")}</Label>
+                <Label>
+                  {t("documentType")} <span style={{ color: "red" }}>*</span>
+                </Label>
 
                 <Controller
                   control={control}
@@ -153,7 +155,9 @@ const AddFileToApplicantModal = ({
             </div>
             <div className="col-sm-12">
               <div className="mb-3">
-                <Label>{t("file")}</Label>
+                <Label>
+                  {t("file")} <span style={{ color: "red" }}>*</span>
+                </Label>
 
                 <Controller
                   control={control}

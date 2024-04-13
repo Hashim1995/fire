@@ -169,7 +169,9 @@ const ForgetPassword = ({ setModal, modal }) => {
           <div className="col-lg-12 gap-3 login-form">
             {step == 1 && (
               <div className="form-group mb-2">
-                <label className="form-control-label">{t("email")}</label>
+                <label className="form-control-label">
+                  {t("email")} <span style={{ color: "red" }}>*</span>
+                </label>
                 <Controller
                   control={control}
                   rules={{
@@ -198,7 +200,9 @@ const ForgetPassword = ({ setModal, modal }) => {
 
             {step == 2 && (
               <div className="form-group mb-2">
-                <label className="form-control-label">Otp</label>
+                <label className="form-control-label">
+                  OTP <span style={{ color: "red" }}>*</span>
+                </label>
 
                 <Controller
                   control={control}
@@ -223,7 +227,9 @@ const ForgetPassword = ({ setModal, modal }) => {
             {step == 3 && (
               <>
                 <div className="form-group mb-2">
-                  <label className="form-control-label">{t("password")}</label>
+                  <label className="form-control-label">
+                    {t("password")} <span style={{ color: "red" }}>*</span>
+                  </label>
                   <Controller
                     control={control}
                     rules={passwordValidation}
@@ -245,7 +251,8 @@ const ForgetPassword = ({ setModal, modal }) => {
                 </div>
                 <div className="form-group mb-2">
                   <label className="form-control-label">
-                    {t("confirmPassword")}
+                    {t("confirmPassword")}{" "}
+                    <span style={{ color: "red" }}>*</span>
                   </label>
                   <Controller
                     control={control}

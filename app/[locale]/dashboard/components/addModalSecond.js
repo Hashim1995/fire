@@ -29,6 +29,7 @@ const FileInputDropzone = ({
   removeFile,
   removeField,
   showRemoveFieldButton,
+  loading,
 }) => {
   const t = useTranslations();
 
@@ -125,6 +126,7 @@ const FileInputDropzone = ({
               />
               <Button
                 type="button"
+                disabled={loading}
                 color="danger"
                 size=""
                 style={{
@@ -149,6 +151,7 @@ const FileInputDropzone = ({
             right: "-10px",
           }}
           type="button"
+          disabled={loading}
           color="danger"
           onClick={(e) => {
             e.stopPropagation();
@@ -298,6 +301,7 @@ const AddModalSecond = ({
             showRemoveFieldButton={fileInputs.length > 1} // Pass a prop to indicate whether to show the delete field button
             index={index}
             files={input.files}
+            loading={loading}
             onDrop={onDrop}
             removeFile={() => removeFile(index)} // Pass the removeFile function to the child component
             removeField={() => removeFileInput(index)} // New function to remove field

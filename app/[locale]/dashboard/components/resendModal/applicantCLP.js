@@ -181,7 +181,7 @@ const ApplicantCLP = ({
                       <FcHighPriority />
                     )
                   ) : (
-                    <FcQuestions />
+                    "-"
                   )}
                 </td>
                 <td className="text-center">

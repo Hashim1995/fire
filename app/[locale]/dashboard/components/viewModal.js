@@ -72,7 +72,57 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   color: "#333333",
                 }}
               >
-                {getEnumLabel(VisaCategories, 3) || t("noText")}
+                {getEnumLabel(VisaCategories, 1) || t("noText")}
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("VisaType")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId?.visaType === 1
+                  ? t("visaTypeSingle")
+                  : selectedId?.visaType === 2
+                  ? t("visaTypeMulti")
+                  : t("noText")}
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("DestinationCountryId")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId.country?.title || t("noText")}
               </Col>
             </Row>
             <Row className="py-2">
@@ -99,29 +149,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
-              <Col
-                xs={6}
-                className="font-italic p-1"
-                style={{
-                  color: "#333333",
-                  borderRadius: "4px",
-                  fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
-                }}
-              >
-                {t("DestinationCountryId")}
-              </Col>
-              <Col
-                xs={6}
-                style={{
-                  fontSize: "16px",
-                  color: "#333333",
-                }}
-              >
-                {selectedId.country?.title || t("noText")}
-              </Col>
-            </Row>
+
             <Row className="py-2">
               <Col
                 xs={6}
@@ -179,29 +207,6 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                {t("visaStatus")}
-              </Col>
-              <Col
-                xs={6}
-                style={{
-                  fontSize: "16px",
-                  color: "#333333",
-                }}
-              >
-                {getEnumLabel(VisaLevels, selectedId.visaLevel) || t("noText")}
-              </Col>
-            </Row>
-            <Row className="py-2">
-              <Col
-                xs={6}
-                className="font-italic p-1"
-                style={{
-                  color: "#333333",
-                  borderRadius: "4px",
-                  fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
-                }}
-              >
                 {t("applicant")}
               </Col>
               <Col
@@ -227,7 +232,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   backgroundColor: "#cbcbcb99",
                 }}
               >
-                {t("applicantEmail")}
+                {t("email")}
               </Col>
               <Col
                 xs={6}
@@ -239,6 +244,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 {selectedId.customer?.email || t("noText")}
               </Col>
             </Row>
+
             {selectedId?.extraOptions?.length ? (
               <Row className="py-2">
                 <Col
@@ -274,6 +280,29 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 </Col>
               </Row>
             ) : null}
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("visaStatus")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {getEnumLabel(VisaLevels, selectedId.visaLevel) || t("noText")}
+              </Col>
+            </Row>
 
             <br />
             <Row className="py-1">

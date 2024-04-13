@@ -84,7 +84,9 @@ const AddModalFirst = ({
       <div className="row">
         <div className="col-sm-6">
           <div className="mb-3">
-            <Label>{t("DepartureDate")}</Label>
+            <Label>
+              {t("DepartureDate")} <span style={{ color: "red" }}>*</span>
+            </Label>
             <Controller
               control={control}
               rules={{
@@ -111,7 +113,9 @@ const AddModalFirst = ({
         </div>
         <div className="col-sm-6">
           <div className="mb-3">
-            <Label>{t("ReturnDate")}</Label>
+            <Label>
+              {t("ReturnDate")} <span style={{ color: "red" }}>*</span>
+            </Label>
 
             <Controller
               control={control}
@@ -141,7 +145,10 @@ const AddModalFirst = ({
       <div className="row">
         <div className="col-sm-6">
           <div className="mb-3">
-            <Label>{t("DestinationCountryId")}</Label>
+            <Label>
+              {t("DestinationCountryId")}{" "}
+              <span style={{ color: "red" }}>*</span>
+            </Label>
 
             <Controller
               control={control}
@@ -199,7 +206,9 @@ const AddModalFirst = ({
         </div>
         <div className="col-sm-6">
           <div className="mb-3">
-            <Label>{t("EntryCountry")}</Label>
+            <Label>
+              {t("EntryCountry")} <span style={{ color: "red" }}>*</span>
+            </Label>
 
             <Controller
               control={control}
@@ -257,7 +266,9 @@ const AddModalFirst = ({
         </div>
         <div className="col-sm-6">
           <div className="mb-3">
-            <Label>{t("VisaType")}</Label>
+            <Label>
+              {t("VisaType")} <span style={{ color: "red" }}>*</span>
+            </Label>
             <br />
             <Controller
               control={control}

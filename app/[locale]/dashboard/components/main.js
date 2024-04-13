@@ -28,6 +28,7 @@ import ResendModal from "./resendModal/resendModal";
 import PaymentTypeModal from "./paymentTypeModal";
 import Pagination from "./Pagination/Pagination";
 import ViewModal from "./viewModal";
+import { MdRefresh } from "react-icons/md";
 
 const Main = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -47,6 +48,8 @@ const Main = () => {
   const t = useTranslations();
 
   const fetchData = async () => {
+    setSkeleton(true);
+
     const token = session?.data?.user?.data?.token;
     try {
       const response = await axios.get(
@@ -115,12 +118,17 @@ const Main = () => {
               <span>{t("visaApplies")}</span>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Button
-            onClick={() => setShowAddModal((z) => !z)}
-            className="theme-btn border-0 rounded-0 btn-style-one"
-          >
-            <span className="btn-title text-white">{t("add")}</span>
-          </Button>
+          <div className="d-flex gap-2 items-center">
+            <Button outline onClick={() => setRefreshComponent((z) => !z)}>
+              <MdRefresh size={20} />
+            </Button>
+            <Button
+              onClick={() => setShowAddModal((z) => !z)}
+              className="theme-btn border-0 rounded-0 btn-style-one"
+            >
+              <span className="btn-title text-white">{t("add")}</span>
+            </Button>
+          </div>
         </div>
       </div>
       <div className="col-12">
@@ -180,7 +188,12 @@ const Main = () => {
                             <td style={{ textAlign: "center" }}>
                               {" "}
                               {item?.visaLevel ? (
-                                <Badge color={getBadgeColor(item.visaLevel)}>
+                                <Badge
+                                  className={`${
+                                    item.visaLevel == 4 ? "text-dark" : ""
+                                  }`}
+                                  color={getBadgeColor(item.visaLevel)}
+                                >
                                   {getEnumLabel(VisaLevels, item.visaLevel)}
                                 </Badge>
                               ) : (
