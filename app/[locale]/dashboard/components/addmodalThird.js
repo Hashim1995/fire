@@ -166,27 +166,36 @@ const AddModalThird = ({
       );
       setValue(`firstname-${index}`, extractedItem?.firstname);
       setValue(`countryCode-${index}`, extractedItem?.countryCode);
-      setValue(
-        `dateOfBirth-${index}`,
-        format(
-          parse(extractedItem?.dateOfBirth, "dd.MM.yyyy", new Date()),
-          "yyyy-MM-dd"
-        )
-      );
-      setValue(
-        `passportDateOfExpiry-${index}`,
-        format(
-          parse(extractedItem?.dateOfExpiry, "dd.MM.yyyy", new Date()),
-          "yyyy-MM-dd"
-        )
-      );
-      setValue(
-        `passportDateOfIssue-${index}`,
-        format(
-          parse(extractedItem?.dateOfIssue, "dd.MM.yyyy", new Date()),
-          "yyyy-MM-dd"
-        )
-      );
+      if (extractedItem?.dateOfBirth) {
+        setValue(
+          `dateOfBirth-${index}`,
+          format(
+            parse(extractedItem?.dateOfBirth, "dd.MM.yyyy", new Date()),
+            "yyyy-MM-dd"
+          )
+        );
+      }
+
+      if (extractedItem?.dateOfExpiry) {
+        setValue(
+          `passportDateOfExpiry-${index}`,
+          format(
+            parse(extractedItem?.dateOfExpiry, "dd.MM.yyyy", new Date()),
+            "yyyy-MM-dd"
+          )
+        );
+      }
+
+      if (extractedItem?.dateOfIssue) {
+        setValue(
+          `passportDateOfIssue-${index}`,
+          format(
+            parse(extractedItem?.dateOfIssue, "dd.MM.yyyy", new Date()),
+            "yyyy-MM-dd"
+          )
+        );
+      }
+
       setValue(`lastname-${index}`, extractedItem?.lastname);
       setValue(`nationality-${index}`, extractedItem?.nationality);
       setValue(`passportNo-${index}`, extractedItem?.passportNo);

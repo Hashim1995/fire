@@ -407,6 +407,31 @@ const ViewDetailedModal = ({
                 {selectedId.passportDateOfExpiry || t("noText")}
               </Col>
             </Row>
+            <Row className="mb-2">
+              <Col
+                xs="6"
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("meetDate")}
+              </Col>
+              <Col
+                xs="6"
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {selectedId.meetingDate || t("noText")}
+              </Col>
+            </Row>
 
             <Row className="mb-2">
               <Col
@@ -431,6 +456,31 @@ const ViewDetailedModal = ({
                 }}
               >
                 {selectedId.isAdult ? t("yes") : t("no")}
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col
+                xs="6"
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("doYouHaveEuropeanRelative")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {selectedId.hasEuropeanFamilyMember ? t("yes") : t("nope")}
               </Col>
             </Row>
 
@@ -567,32 +617,6 @@ const ViewDetailedModal = ({
                 </Row>
               </div>
             )}
-
-            <Row className="py-2">
-              <Col
-                xs="6"
-                className="font-italic p-1"
-                style={{
-                  color: "#333333",
-                  borderRadius: "4px",
-                  fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
-                }}
-              >
-                {t("doYouHaveEuropeanRelative")}
-              </Col>
-              <Col
-                xs={6}
-                style={{
-                  fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                {selectedId.hasEuropeanFamilyMember ? t("yes") : t("nope")}
-              </Col>
-            </Row>
 
             {selectedId.hasEuropeanFamilyMember && (
               <div>

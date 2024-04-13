@@ -111,6 +111,7 @@ const ResendModal = ({
       className="modal-dialog-centered"
       size="lg"
       centered
+      style={{ maxWidth: "1000px", width: "100%" }}
       backdrop="static"
       scrollable={true}
       isOpen={modal}
