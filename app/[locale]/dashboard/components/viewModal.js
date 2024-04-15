@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
+import { format, parseISO, parse } from "date-fns";
 
 import { toast } from "react-toastify";
 import {
@@ -348,7 +349,11 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                           <td>{item.phoneNumber}</td>
                           <td>{item.passportNo}</td>
                           <td>{item.personalNo}</td>
-                          <td>{item.dateOfBirth}</td>
+                          <td>
+                            {item.dateOfBirth
+                              ? format(parseISO(item.dateOfBirth), "dd.MM.yyyy")
+                              : ""}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
