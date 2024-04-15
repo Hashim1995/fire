@@ -182,5 +182,6 @@
   "delete": "Delete",
   "servicesIncludedPackage": "Services included in the package",
   "servicesIncludedPackageListStandart": "Consultation,Appointment,Application form,Checking documents,Travel planning,Hotel Reservation,Ticket Booking",
-  "servicesIncludedPackageListVip": "Consultation,Appointment,Application form,Checking documents,Travel planning,Hotel Reservation,Ticket Booking,Travel insurance,Notarial translation and confirmation works,Delivery of documents"
+  "servicesIncludedPackageListVip": "Consultation,Appointment,Application form,Checking documents,Travel planning,Hotel Reservation,Ticket Booking,Travel insurance,Notarial translation and confirmation works,Delivery of documents",
+  "totalPrice": "Total price"
 }
