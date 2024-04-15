@@ -104,58 +104,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   : t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
-              <Col
-                xs={6}
-                className="font-italic p-1"
-                style={{
-                  color: "#333333",
-                  borderRadius: "4px",
-                  fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
-                }}
-              >
-                {t("paymentType")}
-              </Col>
-              <Col
-                xs={6}
-                style={{
-                  fontSize: "16px",
-                  color: "#333333",
-                }}
-              >
-                {selectedId?.paymentType === 1
-                  ? t("paymentTypeSimple")
-                  : selectedId?.paymentType === 2
-                  ? t("paymentTypeComplex")
-                  : t("noText")}
-              </Col>
-            </Row>
-            <Row className="py-2">
-              <Col
-                xs={6}
-                className="font-italic p-1"
-                style={{
-                  color: "#333333",
-                  borderRadius: "4px",
-                  fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
-                }}
-              >
-                {t("totalPrice")}
-              </Col>
-              <Col
-                xs={6}
-                style={{
-                  fontSize: "16px",
-                  color: "#333333",
-                }}
-              >
-                {selectedId.totalPrice
-                  ? `${selectedId.totalPrice} AZN`
-                  : t("noText")}
-              </Col>
-            </Row>
+
             <Row className="py-2">
               <Col
                 xs={6}
@@ -298,6 +247,33 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 {selectedId.customer?.email || t("noText")}
               </Col>
             </Row>
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("paymentType")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId?.paymentType === 1
+                  ? t("paymentTypeSimple")
+                  : selectedId?.paymentType === 2
+                  ? t("paymentTypeComplex")
+                  : t("noText")}
+              </Col>
+            </Row>
 
             {selectedId?.extraOptions?.length ? (
               <Row className="py-2">
@@ -334,6 +310,31 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 </Col>
               </Row>
             ) : null}
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("totalPrice")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId.totalPrice
+                  ? `${selectedId.totalPrice} AZN`
+                  : t("noText")}
+              </Col>
+            </Row>
             <Row className="py-2">
               <Col
                 xs={6}
