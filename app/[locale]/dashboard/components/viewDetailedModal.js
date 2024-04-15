@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
+import { format, parseISO, parse } from "date-fns";
 
 import { toast } from "react-toastify";
 import {
@@ -268,7 +269,9 @@ const ViewDetailedModal = ({
                   alignItems: "center",
                 }}
               >
-                {selectedId.dateOfBirth || t("noText")}
+                {selectedId.dateOfBirth
+                  ? format(parseISO(selectedId.dateOfBirth), "dd.MM.yyyy")
+                  : t("noText")}
               </Col>
             </Row>
 
@@ -355,7 +358,37 @@ const ViewDetailedModal = ({
                   : t("noText")}
               </Col>
             </Row>
-
+            <Row className="mb-2">
+              <Col
+                xs="6"
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("passportFile")}
+              </Col>
+              <Col
+                xs="6"
+                onClick={() =>
+                  selectedId.passportUri &&
+                  downloadFileFromServer(selectedId.passportUri)
+                }
+                style={{
+                  color: selectedId.passportUri ? "blue" : "#333333",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                  maxWidth: "200px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {selectedId.passportUri || t("noText")}
+              </Col>
+            </Row>
             <Row className="mb-2">
               <Col
                 xs="6"
@@ -378,7 +411,12 @@ const ViewDetailedModal = ({
                   alignItems: "center",
                 }}
               >
-                {selectedId.passportDateOfIssue || t("noText")}
+                {selectedId.passportDateOfIssue
+                  ? format(
+                      parseISO(selectedId.passportDateOfIssue),
+                      "dd.MM.yyyy"
+                    )
+                  : t("noText")}
               </Col>
             </Row>
 
@@ -404,7 +442,12 @@ const ViewDetailedModal = ({
                   alignItems: "center",
                 }}
               >
-                {selectedId.passportDateOfExpiry || t("noText")}
+                {selectedId.passportDateOfExpiry
+                  ? format(
+                      parseISO(selectedId.passportDateOfExpiry),
+                      "dd.MM.yyyy"
+                    )
+                  : t("noText")}
               </Col>
             </Row>
             <Row className="mb-2">
