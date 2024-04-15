@@ -76,6 +76,7 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 {getEnumLabel(VisaCategories, 1) || t("noText")}
               </Col>
             </Row>
+
             <Row className="py-2">
               <Col
                 xs={6}
@@ -100,6 +101,58 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   ? t("visaTypeSingle")
                   : selectedId?.visaType === 2
                   ? t("visaTypeMulti")
+                  : t("noText")}
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("paymentType")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId?.paymentType === 1
+                  ? t("paymentTypeSimple")
+                  : selectedId?.paymentType === 2
+                  ? t("paymentTypeComplex")
+                  : t("noText")}
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
+                {t("totalPrice")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId.totalPrice
+                  ? `${selectedId.totalPrice} AZN`
                   : t("noText")}
               </Col>
             </Row>

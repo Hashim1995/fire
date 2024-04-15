@@ -182,5 +182,6 @@
     "delete": "Sil",
     "servicesIncludedPackage": "Dəstəyə daxil olan xidmətlər",
     "servicesIncludedPackageListStandart": "Konsultasiya,Appointment,Müraciət form hazırlanması,Sənədlərin düzgünlüyünün yoxlanılması,Səyahət planının hazırlanması,Otel Bronu,Bilet Bronu",
-    "servicesIncludedPackageListVip": "Konsultasiya,Appointment,Müraciət form hazırlanması,Sənədlərin düzgünlüyünün yoxlanılması,Səyahət planının hazırlanması,Otel Bronu,Bilet Bronu,Səyahət sığortası,Notarial tərcümə və təsdiq işləri,Kuryer vasitəsi ilə sənədlərin təhvil alınması və çatdırılması"
+    "servicesIncludedPackageListVip": "Konsultasiya,Appointment,Müraciət form hazırlanması,Sənədlərin düzgünlüyünün yoxlanılması,Səyahət planının hazırlanması,Otel Bronu,Bilet Bronu,Səyahət sığortası,Notarial tərcümə və təsdiq işləri,Kuryer vasitəsi ilə sənədlərin təhvil alınması və çatdırılması",
+    "totalPrice": "Ümumi ödəniləcək məbləğ"
 }
