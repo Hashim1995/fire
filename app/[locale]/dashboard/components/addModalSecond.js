@@ -235,7 +235,7 @@ const AddModalSecond = ({
     try {
       // Replace 'your_api_endpoint' with your actual API endpoint
       const response = await axios.post(
-        "https://visa-server.azurewebsites.net/api/v1/visa/document/extract",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/visa/document/extract",
         formData,
         {
           headers: {

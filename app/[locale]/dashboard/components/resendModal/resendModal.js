@@ -82,7 +82,7 @@ const ResendModal = ({
     const token = session?.data?.user?.data?.token;
     try {
       const response = await axios.put(
-        "https://visa-server.azurewebsites.net/api/v1/visa/required-documents",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/visa/required-documents",
         formData,
         {
           headers: {

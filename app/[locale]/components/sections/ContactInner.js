@@ -7,7 +7,7 @@ async function getData() {
   try {
     const t = await getLocale();
     const res = await fetch(
-      `https://visa-server.azurewebsites.net/api/v1/settings/contact-details?Language=${returnCurrentLangId(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/settings/contact-details?Language=${returnCurrentLangId(
         t
       )}`,
       {

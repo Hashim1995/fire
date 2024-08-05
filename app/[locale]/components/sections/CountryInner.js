@@ -19,7 +19,7 @@ const CountryGrid = ({ data }) => {
                       >
                         <img
                           alt="img "
-                          src={`https://visa-server.azurewebsites.net/${item?.coverUrl}`}
+                          src={`https://ivisavmlinux.azurewebsites.net/${item?.coverUrl}`}
                           title="Vixoz"
                         />
                       </Link>
@@ -33,7 +33,7 @@ const CountryGrid = ({ data }) => {
                           width: "53px",
                           height: "53px",
                         }}
-                        src={`https://visa-server.azurewebsites.net/${item?.flagUrl}`}
+                        src={`https://ivisavmlinux.azurewebsites.net/${item?.flagUrl}`}
                         title="Vixoz"
                       />
                     </div>
