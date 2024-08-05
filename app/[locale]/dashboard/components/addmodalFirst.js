@@ -59,7 +59,7 @@ const AddModalFirst = ({
   const fetchCountries = async () => {
     try {
       const res = await axios.get(
-        `https://visa-server.azurewebsites.net/api/v1/country/initial?Language=${returnCurrentLangId(
+        `https://ivisavmlinux.azurewebsites.net/api/v1/country/initial?Language=${returnCurrentLangId(
           router.locale
         )}`
       );

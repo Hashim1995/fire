@@ -44,7 +44,7 @@ const RegisterThird = ({
     };
     try {
       const res = await axios.post(
-        "https://visa-server.azurewebsites.net/api/v1/auth/register",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/auth/register",
         payload
       );
       if (res?.data?.succeeded) {

@@ -15,7 +15,7 @@ const CountrySliderOne = () => {
 
   async function getData() {
     const res = await fetch(
-      `https://visa-server.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
         router.locale
       )}`,
       {
@@ -91,7 +91,7 @@ const CountrySliderOne = () => {
                     style={{
                       height: "170px",
                     }}
-                    src={`https://visa-server.azurewebsites.net/${item?.coverUrl}`}
+                    src={`https://ivisavmlinux.azurewebsites.net/${item?.coverUrl}`}
                     title="Vixoz"
                   />
                 </figure>
@@ -104,7 +104,7 @@ const CountrySliderOne = () => {
                       width: "53px",
                       height: "53px",
                     }}
-                    src={`https://visa-server.azurewebsites.net/${item?.flagUrl}`}
+                    src={`https://ivisavmlinux.azurewebsites.net/${item?.flagUrl}`}
                     title="Vixoz"
                   />
                 </div>

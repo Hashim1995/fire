@@ -21,7 +21,7 @@ export const options = {
 
         try {
           const userJson = await axios.post(
-            "https://visa-server.azurewebsites.net/api/v1/auth/login",
+            "https://ivisavmlinux.azurewebsites.net/api/v1/auth/login",
             payload
           );
           const user = userJson.data;

@@ -8,7 +8,7 @@ async function getData() {
   try {
     const t = await getLocale();
     const res = await fetch(
-      `https://visa-server.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
+      `https://ivisavmlinux.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
         t
       )}`,
       {
@@ -62,7 +62,7 @@ const CountryThree = async () => {
                             width: "53px",
                             height: "53px",
                           }}
-                          src={`https://visa-server.azurewebsites.net/${item?.flagUrl}`}
+                          src={`https://ivisavmlinux.azurewebsites.net/${item?.flagUrl}`}
                           title="Vixoz"
                         />
                       </div>

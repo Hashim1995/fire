@@ -40,7 +40,7 @@ const ContactForm = () => {
     };
     try {
       const res = await axios.post(
-        "https://visa-server.azurewebsites.net/api/v1/appeal",
+        "https://ivisavmlinux.azurewebsites.net/api/v1/appeal",
         payload
       );
       if (res?.data?.succeeded) {
