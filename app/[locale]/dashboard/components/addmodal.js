@@ -33,6 +33,7 @@ const AddModal = ({
   modal,
   setVisaAppointmentId,
   setShowPaymentTypeModal,
+  setRefreshComponent,
 }) => {
   const [loading, setLoading] = useState(false);
   const [shouldOpenTab, setShouldOpenTab] = useState("1");
@@ -143,7 +144,8 @@ const AddModal = ({
   return (
     <Modal
       className="modal-dialog-centered"
-      size="lg"
+      // style={{ maxWidth: "1200px", width: "100%" }}
+      size="xl"
       centered
       backdrop="static"
       scrollable={true}
@@ -212,6 +214,7 @@ const AddModal = ({
                 globalWatch={watch}
                 setActiveTab={setActiveTab}
                 setShouldOpenTab={setShouldOpenTab}
+                setRefreshComponent={setRefreshComponent}
               />
             </TabPane>
           </TabContent>

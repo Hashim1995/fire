@@ -15,19 +15,25 @@ import Select from "react-select";
 import { format, parseISO, parse } from "date-fns";
 import { toBase64 } from "./options";
 import { toast } from "react-toastify";
+import { returnCurrentLangId } from "@/utils/currentLang";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { convertArray } from "@/utils/toLabelValue";
+import { useParams } from "next/navigation";
 
 const AddModalThird = ({
   extractData,
   setModal,
   setVisaAppointmentId,
   setShowPaymentTypeModal,
+  setRefreshComponent,
 }) => {
   const [loading, setLoading] = useState(false);
   const [transformedData, setTransformedData] = useState(null);
+  const [nationalities, setNationalities] = useState(null);
   const [formattedFiles, setFormattedFiles] = useState([]);
   const t = useTranslations();
+  const router = useParams();
 
   const initializeFormattedFiles = (n) => {
     const initialFiles = Array.from({ length: n }, (_, index) => ({
@@ -56,6 +62,26 @@ const AddModalThird = ({
     setTransformedData(data);
   };
 
+  const fetchNationalities = async () => {
+    try {
+      const res = await axios.get(
+        `https://ivisavmlinux.azurewebsites.net/api/v1/nationality?Language=${returnCurrentLangId(
+          router.locale
+        )}`
+      );
+
+      setNationalities(res?.data?.data);
+    } catch (error) {
+      if (Array.isArray(error?.response?.data?.messages)) {
+        error?.response?.data?.messages?.map((z) => {
+          toast.error(z);
+        });
+      } else {
+        toast.error(t("ErrorOperation"));
+      }
+    }
+  };
+
   const sendToBack = async (data) => {
     const token = session?.data?.user?.data?.token;
 
@@ -76,6 +102,7 @@ const AddModalThird = ({
       }
       toast.success(t("applyApprovedPayAndWaitForOeprator"));
       setShowPaymentTypeModal(true);
+      setRefreshComponent((z) => !z);
       setModal(false);
     } catch (error) {
       if (Array.isArray(error?.response?.data?.messages)) {
@@ -99,7 +126,7 @@ const AddModalThird = ({
         email: formData[`email-${i}`],
         phoneNumber: formData[`phoneNumber-${i}`],
         countryCode: formData[`countryCode-${i}`],
-        nationality: formData[`nationality-${i}`],
+        nationalityId: formData[`nationality-${i}`]?.value,
         dateOfBirth: formData[`dateOfBirth-${i}`],
         personalNo: formData[`personalNo-${i}`],
         gender: formData[`gender-${i}`]?.value,
@@ -139,6 +166,7 @@ const AddModalThird = ({
   };
 
   useEffect(() => {
+    fetchNationalities();
     initializeFormattedFiles(extractData?.documentData?.length);
 
     extractData?.documentData?.map((extractedItem, index) => {
@@ -202,6 +230,10 @@ const AddModalThird = ({
       setValue(`personalNo-${index}`, extractedItem?.personalNo);
     });
   }, [extractData]);
+
+  useEffect(() => {
+    fetchNationalities();
+  }, []);
 
   const toBase64 = (file) =>
     new Promise((resolve, reject) => {
@@ -354,7 +386,7 @@ const AddModalThird = ({
               <Label>
                 {t("nationality")} <span style={{ color: "red" }}>*</span>
               </Label>
-
+              {/* 
               <Controller
                 control={control}
                 rules={{
@@ -374,11 +406,67 @@ const AddModalThird = ({
                     type="text"
                   />
                 )}
+              /> */}
+
+              <Controller
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: `${t("nationality")} ${t("IsRequired")}`,
+                  },
+                }}
+                name={`nationality-${index}`}
+                render={({ field: { onChange, value } }) => (
+                  <Select
+                    className="react-select"
+                    options={convertArray(nationalities)}
+                    value={value}
+                    aria-invalid={errors?.[`nationality-${index}`]}
+                    menuPortalTarget={document.body}
+                    menuPosition={"fixed"}
+                    onChange={onChange}
+                    placeholder={t("select")}
+                    styles={{
+                      control: (baseStyles, state) => ({
+                        ...baseStyles,
+                        borderColor: errors?.[`nationality-${index}`]
+                          ? "red !important"
+                          : state.isFocused
+                          ? "#86b7fe"
+                          : baseStyles.borderColor,
+                        boxShadow: errors?.[`nationality-${index}`]
+                          ? "0 0 0 1px red !important"
+                          : state.isFocused
+                          ? "0 0 0 1px #86b7fe"
+                          : baseStyles.boxShadow,
+                        "&:hover": {
+                          borderColor: errors?.[`nationality-${index}`]
+                            ? "red !important"
+                            : state.isFocused
+                            ? "#86b7fe"
+                            : baseStyles.borderColor,
+                        },
+                      }),
+                      menuPortal: (base) => ({
+                        ...base,
+                        zIndex: 9999,
+                      }),
+                    }}
+                  />
+                )}
               />
-              {errors[`nationality-${index}`] && (
-                <FormFeedback>
-                  {errors[`nationality-${index}`].message}
-                </FormFeedback>
+              {errors?.[`nationality-${index}`] && (
+                <div
+                  style={{
+                    width: "100%",
+                    marginTop: " 0.25rem",
+                    fontSize: " .875em",
+                    color: "#dc3545",
+                  }}
+                >
+                  {errors?.[`nationality-${index}`]?.message}
+                </div>
               )}
             </div>
           </div>
