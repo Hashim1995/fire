@@ -210,6 +210,29 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   backgroundColor: "#cbcbcb99",
                 }}
               >
+                {t("passportType")}
+              </Col>
+              <Col
+                xs={6}
+                style={{
+                  fontSize: "16px",
+                  color: "#333333",
+                }}
+              >
+                {selectedId?.travelDocumentType || t("noText")}
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col
+                xs={6}
+                className="font-italic p-1"
+                style={{
+                  color: "#333333",
+                  borderRadius: "4px",
+                  fontSize: "16px",
+                  backgroundColor: "#cbcbcb99",
+                }}
+              >
                 {t("applicant")}
               </Col>
               <Col
