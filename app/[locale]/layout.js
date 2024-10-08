@@ -16,6 +16,8 @@ import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
 import ToastContainerWrapper from "./components/toasProvider";
 import { unstable_setRequestLocale } from "next-intl/server";
+import Script from "next/script";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -48,6 +50,24 @@ export default async function LocaleLayout({ children, params: { locale } }) {
             <Layout HeaderStyle="three">{children}</Layout>
             <ToastContainerWrapper />
           </Providers>
+
+          <Script
+            id="tawk-to"
+            strategy="afterInteractive" // Loads script after page is interactive
+            dangerouslySetInnerHTML={{
+              __html: `
+                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                (function(){
+                  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                  s1.async=true;
+                  s1.src='https://embed.tawk.to/66f25d67e5982d6c7bb368b0/1i8hbpnur';
+                  s1.charset='UTF-8';
+                  s1.setAttribute('crossorigin','*');
+                  s0.parentNode.insertBefore(s1,s0);
+                })();
+              `,
+            }}
+          />
         </body>
       </NextIntlClientProvider>
     </html>
