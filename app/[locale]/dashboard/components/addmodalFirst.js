@@ -11,6 +11,7 @@ import { Input, FormFeedback, Button, Spinner, Label } from "reactstrap";
 import { countriesStatic, validateDates } from "./options";
 import { returnCurrentLangId } from "@/utils/currentLang";
 import { useParams } from "next/navigation";
+import { convertArray } from "@/utils/toLabelValue";
 
 const AddModalFirst = ({
   setShouldOpenTab,
@@ -21,6 +22,8 @@ const AddModalFirst = ({
   const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState([]);
   const [countries, setCountries] = useState([]);
+  const [enteredCountries, setenteredCountries] = useState([]);
+  const [passportTypes, setPassportTypes] = useState([]);
 
   const handleChange = (newFiles) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
@@ -33,6 +36,7 @@ const AddModalFirst = ({
     control,
     setValue,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     mode: "onChange",
@@ -52,14 +56,53 @@ const AddModalFirst = ({
     globalSetter("ReturnDate", data?.ReturnDate);
     globalSetter("VisaType", data?.VisaType);
     globalSetter("EntryCountry", data?.EntryCountry);
+    globalSetter("passportType", data?.passportType);
     globalSetter("DestinationCountryId", data?.DestinationCountryId);
     setActiveTab("2");
+  };
+
+  // const fetchCountries = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       `https://ivisavmlinux.azurewebsites.net/api/v1/country/initial?Language=${returnCurrentLangId(
+  //         router.locale
+  //       )}`
+  //     );
+  //     setCountries(res?.data?.data);
+  //   } catch (error) {
+  //     if (Array.isArray(error?.response?.data?.messages)) {
+  //       error?.response?.data?.messages?.map((z) => {
+  //         toast.error(z);
+  //       });
+  //     } else {
+  //       toast.error(t("ErrorOperation"));
+  //     }
+  //   }
+  // };
+
+  const fetchPassportTypes = async () => {
+    try {
+      const res = await axios.get(
+        `https://ivisavmlinux.azurewebsites.net/api/v1/passport?language=${returnCurrentLangId(
+          router.locale
+        )}`
+      );
+      setPassportTypes(res?.data);
+    } catch (error) {
+      if (Array.isArray(error?.response?.data?.messages)) {
+        error?.response?.data?.messages?.map((z) => {
+          toast.error(z);
+        });
+      } else {
+        toast.error(t("ErrorOperation"));
+      }
+    }
   };
 
   const fetchCountries = async () => {
     try {
       const res = await axios.get(
-        `https://ivisavmlinux.azurewebsites.net/api/v1/country/initial?Language=${returnCurrentLangId(
+        `https://ivisavmlinux.azurewebsites.net/api/v1/country?Language=${returnCurrentLangId(
           router.locale
         )}`
       );
@@ -75,9 +118,42 @@ const AddModalFirst = ({
     }
   };
 
+  const fetchEnteredCountries = async () => {
+    try {
+      const res = await axios.get(
+        `https://ivisavmlinux.azurewebsites.net/api/v1/country/entered?Language=${returnCurrentLangId(
+          router.locale
+        )}&InEuropeanUnion=${watch("DestinationCountryId")?.europeanUnion}`
+      );
+      setenteredCountries(res?.data?.data);
+    } catch (error) {
+      if (Array.isArray(error?.response?.data?.messages)) {
+        error?.response?.data?.messages?.map((z) => {
+          toast.error(z);
+        });
+      } else {
+        toast.error(t("ErrorOperation"));
+      }
+    }
+  };
+
+  //burani deyish
+
+  useEffect(() => {
+    if (watch("DestinationCountryId")) {
+      fetchEnteredCountries();
+    }
+  }, [watch("DestinationCountryId")]);
+
   useEffect(() => {
     fetchCountries();
+  }, [watch("DestinationCountryId")?.europeanUnion]);
+
+  useEffect(() => {
+    fetchPassportTypes();
   }, []);
+
+  console.log(!watch("DestinationCountryId"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -162,29 +238,40 @@ const AddModalFirst = ({
               render={({ field: { onChange, value } }) => (
                 <Select
                   className="react-select"
-                  options={countries}
+                  options={convertArray(countries)}
                   value={value}
                   menuPortalTarget={document.body}
                   menuPosition={"fixed"}
-                  aria-invalid={errors?.EntryCountry}
-                  onChange={onChange}
+                  placeholder={t("select")}
+                  aria-invalid={errors?.DestinationCountryId}
+                  onChange={(val) => {
+                    setValue("EntryCountry", null);
+                    onChange(val);
+                  }}
                   styles={{
-                    menuPortal: (base, state) => ({
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      borderColor: errors?.DestinationCountryId
+                        ? "red !important"
+                        : state.isFocused
+                        ? "#86b7fe"
+                        : baseStyles.borderColor,
+                      boxShadow: errors?.DestinationCountryId
+                        ? "0 0 0 1px red !important"
+                        : state.isFocused
+                        ? "0 0 0 1px #86b7fe"
+                        : baseStyles.boxShadow,
+                      "&:hover": {
+                        borderColor: errors?.DestinationCountryId
+                          ? "red !important"
+                          : state.isFocused
+                          ? "#86b7fe"
+                          : baseStyles.borderColor,
+                      },
+                    }),
+                    menuPortal: (base) => ({
                       ...base,
                       zIndex: 9999,
-                      borderColor: state.isFocused
-                        ? "#ddd"
-                        : errors?.DestinationCountryId
-                        ? "#ddd"
-                        : "red",
-                      // overwrittes hover style
-                      "&:hover": {
-                        borderColor: state.isFocused
-                          ? "#ddd"
-                          : errors?.DestinationCountryId
-                          ? "#ddd"
-                          : "red",
-                      },
                     }),
                   }}
                 />
@@ -222,28 +309,40 @@ const AddModalFirst = ({
               render={({ field: { onChange, value } }) => (
                 <Select
                   className="react-select"
-                  options={countriesStatic}
+                  isDisabled={!watch("DestinationCountryId")}
+                  options={convertArray(enteredCountries)}
                   value={value}
-                  aria-invalid={errors?.EntryCountry}
                   menuPortalTarget={document.body}
                   menuPosition={"fixed"}
-                  onChange={onChange}
+                  placeholder={t("select")}
+                  aria-invalid={!!errors?.EntryCountry}
+                  onChange={(val) => {
+                    setValue("EntryCountry", null);
+                    onChange(val);
+                  }}
                   styles={{
-                    menuPortal: (base, state) => ({
-                      ...base,
-                      borderColor: state.isFocused
-                        ? "#ddd"
-                        : errors?.EntryCountry
-                        ? "#ddd"
-                        : "red",
-                      // overwrittes hover style
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      borderColor: errors?.EntryCountry
+                        ? "red !important"
+                        : state.isFocused
+                        ? "#86b7fe"
+                        : baseStyles.borderColor,
+                      boxShadow: errors?.EntryCountry
+                        ? "0 0 0 1px red !important"
+                        : state.isFocused
+                        ? "0 0 0 1px #86b7fe"
+                        : baseStyles.boxShadow,
                       "&:hover": {
-                        borderColor: state.isFocused
-                          ? "#ddd"
-                          : errors?.EntryCountry
-                          ? "#ddd"
-                          : "red",
+                        borderColor: errors?.EntryCountry
+                          ? "red !important"
+                          : state.isFocused
+                          ? "#86b7fe"
+                          : baseStyles.borderColor,
                       },
+                    }),
+                    menuPortal: (base) => ({
+                      ...base,
                       zIndex: 9999,
                     }),
                   }}
@@ -260,6 +359,77 @@ const AddModalFirst = ({
                 }}
               >
                 {errors?.EntryCountry?.message}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="col-sm-6">
+          <div className="mb-3">
+            <Label>
+              {t("passportType")} <span style={{ color: "red" }}>*</span>
+            </Label>
+
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: `${t("passportType")} ${t("IsRequired")}`,
+                },
+              }}
+              name="passportType"
+              render={({ field: { onChange, value } }) => (
+                <Select
+                  className="react-select"
+                  options={passportTypes}
+                  value={value}
+                  menuPortalTarget={document.body}
+                  menuPosition={"fixed"}
+                  placeholder={t("select")}
+                  aria-invalid={!!errors?.passportType}
+                  onChange={(val) => {
+                    setValue("passportType", null);
+                    onChange(val);
+                  }}
+                  styles={{
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      borderColor: errors?.passportType
+                        ? "red !important"
+                        : state.isFocused
+                        ? "#86b7fe"
+                        : baseStyles.borderColor,
+                      boxShadow: errors?.passportType
+                        ? "0 0 0 1px red !important"
+                        : state.isFocused
+                        ? "0 0 0 1px #86b7fe"
+                        : baseStyles.boxShadow,
+                      "&:hover": {
+                        borderColor: errors?.passportType
+                          ? "red !important"
+                          : state.isFocused
+                          ? "#86b7fe"
+                          : baseStyles.borderColor,
+                      },
+                    }),
+                    menuPortal: (base) => ({
+                      ...base,
+                      zIndex: 9999,
+                    }),
+                  }}
+                />
+              )}
+            />
+            {errors?.passportType && (
+              <div
+                style={{
+                  width: "100%",
+                  marginTop: " 0.25rem",
+                  fontSize: " .875em",
+                  color: "#dc3545",
+                }}
+              >
+                {errors?.passportType?.message}
               </div>
             )}
           </div>

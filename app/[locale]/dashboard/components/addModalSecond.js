@@ -222,6 +222,7 @@ const AddModalSecond = ({
     formData.append("DepartureDate", globalWatch("DepartureDate"));
     formData.append("ReturnDate", globalWatch("ReturnDate"));
     formData.append("VisaType", globalWatch("VisaType"));
+    formData.append("passportType", globalWatch("passportType")?.value);
     formData.append("EntryCountry", globalWatch("EntryCountry")?.value);
     formData.append(
       "DestinationCountryId",

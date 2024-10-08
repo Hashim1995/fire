@@ -306,6 +306,7 @@ const Main = () => {
           setVisaAppointmentId={setVisaAppointmentId}
           modal={showAddModal}
           setModal={setShowAddModal}
+          setRefreshComponent={setRefreshComponent}
         />
       )}
       {showProvideModal && (
