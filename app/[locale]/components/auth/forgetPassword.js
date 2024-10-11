@@ -8,12 +8,14 @@ import {
   ModalFooter,
   Input,
   FormFeedback,
+  FormText,
 } from "reactstrap";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import "./login.scss";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { FaInfoCircle } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -218,6 +220,14 @@ const ForgetPassword = ({ setModal, modal }) => {
                     />
                   )}
                 />
+                <FormText
+                  color="secondary"
+                  className="small d-flex gap-2 align-items-center"
+                >
+                  <FaInfoCircle className="mr-1" />
+                  An OTP code will be sent to your registered email.
+                </FormText>
+
                 {errors?.otpCode && (
                   <FormFeedback>{errors?.otpCode?.message}</FormFeedback>
                 )}

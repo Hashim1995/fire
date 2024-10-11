@@ -53,48 +53,54 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
       <ModalBody>
         {selectedId ? (
           <Container>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("visaCategory")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {getEnumLabel(VisaCategories, 1) || t("noText")}
               </Col>
             </Row>
 
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("VisaType")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId?.visaType === 1
@@ -105,47 +111,53 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
               </Col>
             </Row>
 
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("DestinationCountryId")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.country?.title || t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("EntryCountry")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {getEnumLabel(countriesStatic, selectedId.entryCountry) ||
@@ -153,93 +165,105 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
               </Col>
             </Row>
 
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("DepartureDate")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.departureDate || t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("ReturnDate")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.returnDate || t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("passportType")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId?.travelDocumentType || t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("applicant")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.customer?.firstname
@@ -247,47 +271,53 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   : t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("email")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.customer?.email || t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("paymentType")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId?.paymentType === 1
@@ -299,15 +329,15 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
             </Row>
 
             {selectedId?.extraOptions?.length ? (
-              <Row className="py-2">
+              <Row>
                 <Col
                   xs={6}
-                  className="font-italic p-1"
+                  className="p-2"
                   style={{
-                    color: "#333333",
+                    color: "#6B7280",
                     borderRadius: "4px",
                     fontSize: "16px",
-                    backgroundColor: "#cbcbcb99",
+                    fontWeight: 600,
                   }}
                 >
                   {t("additionalOptions")}
@@ -333,24 +363,27 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                 </Col>
               </Row>
             ) : null}
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("totalPrice")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.totalPrice
@@ -358,24 +391,27 @@ const ViewModal = ({ setShowViewModal, showViewModal, selectedId }) => {
                   : t("noText")}
               </Col>
             </Row>
-            <Row className="py-2">
+            <Row>
               <Col
                 xs={6}
-                className="font-italic p-1"
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("visaStatus")}
               </Col>
               <Col
                 xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {getEnumLabel(VisaLevels, selectedId.visaLevel) || t("noText")}

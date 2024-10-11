@@ -90,183 +90,189 @@ const ViewDetailedModal = ({
       <ModalBody>
         {selectedId ? (
           <Container>
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("Name")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.firstname || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("Lastname")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.lastname || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("email")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.email || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("contactNumber")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.phoneNumber || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("passportCode")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.passportNo || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("finCode")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.personalNo || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("dateOfBirth")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.dateOfBirth
@@ -275,78 +281,81 @@ const ViewDetailedModal = ({
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("countryCode")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.countryCode || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("nationality")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.nationality || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("gender")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.gender
@@ -358,15 +367,15 @@ const ViewDetailedModal = ({
                   : t("noText")}
               </Col>
             </Row>
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("passportFile")}
@@ -381,7 +390,7 @@ const ViewDetailedModal = ({
                   color: selectedId.passportUri ? "blue" : "#333333",
                   fontSize: "16px",
                   cursor: "pointer",
-                  maxWidth: "200px",
+                  // maxWidth: "200px",
                   display: "flex",
                   alignItems: "center",
                 }}
@@ -389,26 +398,27 @@ const ViewDetailedModal = ({
                 {selectedId.passportUri || t("noText")}
               </Col>
             </Row>
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("passportDateOfIssue")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.passportDateOfIssue
@@ -420,26 +430,27 @@ const ViewDetailedModal = ({
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("passportDateOfExpiry")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.passportDateOfExpiry
@@ -450,52 +461,54 @@ const ViewDetailedModal = ({
                   : t("noText")}
               </Col>
             </Row>
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("meetDate")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.meetingDate || t("noText")}
               </Col>
             </Row>
 
-            <Row className="mb-2">
+            <Row>
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("isApplicantAdult")}
               </Col>
               <Col
-                xs="6"
+                xs={6}
+                className="p-2"
                 style={{
+                  color: "#1F2937",
                   fontSize: "16px",
-                  color: "#333333",
-                  display: "flex",
-                  alignItems: "center",
+                  fontWeight: 500,
+                  textAlign: "start",
                 }}
               >
                 {selectedId.isAdult ? t("yes") : t("no")}
@@ -503,13 +516,13 @@ const ViewDetailedModal = ({
             </Row>
             <Row className="py-2">
               <Col
-                xs="6"
-                className="font-italic p-1"
+                xs={6}
+                className="p-2"
                 style={{
-                  color: "#333333",
+                  color: "#6B7280",
                   borderRadius: "4px",
                   fontSize: "16px",
-                  backgroundColor: "#cbcbcb99",
+                  fontWeight: 600,
                 }}
               >
                 {t("doYouHaveEuropeanRelative")}
@@ -842,7 +855,7 @@ const ViewDetailedModal = ({
                                 color: "blue",
                                 fontSize: "16px",
                                 cursor: "pointer",
-                                maxWidth: "200px",
+                                // maxWidth: "200px",
                               }}
                             >
                               {item?.uri}
