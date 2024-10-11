@@ -27,6 +27,7 @@ const PaymentTypeModal = ({
   setShowPaymentTypeModal,
   showPaymentTypeModal,
   visaAppointmentId,
+  setRefreshComponent,
 }) => {
   const [loading, setLoading] = useState(true);
   const [price, setPrice] = useState(null);
@@ -78,6 +79,7 @@ const PaymentTypeModal = ({
       if (response?.data?.succeeded) {
         setShowPaymentTypeModal(false);
         setBtnLoader(false);
+        setRefreshComponent((z) => !z);
         if (response?.data?.data?.paymentLink) {
           window.open(response?.data?.data?.paymentLink);
         }
