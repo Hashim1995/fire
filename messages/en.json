@@ -185,5 +185,7 @@
   "servicesIncludedPackageListVip": "Consultation,Appointment,Application form,Checking documents,Travel planning,Hotel Reservation,Ticket Booking,Travel insurance,Notarial translation and confirmation works,Delivery of documents",
   "totalPrice": "Total price",
   "select": "Select",
-  "passportType": "Travel Document type"
+  "passportType": "Travel Document type",
+  "confirmation": "Confirmation",
+  "passportFinConfirmationText": "Are you sure that the Passport number and FIN code are written correctly?"
 }

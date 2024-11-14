@@ -100,7 +100,7 @@ const Main = () => {
       case 8:
         return "dark";
       default:
-        return "secondary"; // Default color if none matches
+        return "secondary";
     }
   };
 
@@ -194,7 +194,7 @@ const Main = () => {
                                   }`}
                                   color={getBadgeColor(item.visaLevel)}
                                 >
-                                  {getEnumLabel(VisaLevels, item.visaLevel)}
+                                  {item?.visaLevelText}
                                 </Badge>
                               ) : (
                                 "-"
