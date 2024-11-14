@@ -20,6 +20,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { convertArray } from "@/utils/toLabelValue";
 import { useParams } from "next/navigation";
+import ConfirmationModal from "@/app/[locale]/components/ConfirmationModal";
 
 const AddModalThird = ({
   extractData,
@@ -32,6 +33,7 @@ const AddModalThird = ({
   const [transformedData, setTransformedData] = useState(null);
   const [nationalities, setNationalities] = useState(null);
   const [formattedFiles, setFormattedFiles] = useState([]);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const t = useTranslations();
   const router = useParams();
 
@@ -57,9 +59,11 @@ const AddModalThird = ({
   const session = useSession();
 
   const onSubmit = async (formData) => {
+    console.log(formData, "submited");
     const data = transformData(formData);
-    sendToBack(data);
+    // sendToBack(data);
     setTransformedData(data);
+    setShowConfirmation(true);
   };
 
   const fetchNationalities = async () => {
@@ -114,6 +118,13 @@ const AddModalThird = ({
       }
     }
     setLoading(false);
+  };
+
+  const handleConfirm = () => {
+    setShowConfirmation(false);
+    if (transformedData) {
+      sendToBack(transformedData);
+    }
   };
 
   const transformData = (formData) => {
@@ -1361,30 +1372,44 @@ const AddModalThird = ({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {Array.from({ length: extractData?.documentData?.length }, (_, index) =>
-        renderForm(index)
-      )}
-      <div className="mb-3 mb-3 d-flex justify-content-end">
-        <Button
-          disabled={loading}
-          type="submit"
-          className="theme-btn me-1 border-0 rounded-0 btn-style-one"
-        >
-          <span className="btn-title text-white">
-            {loading ? (
-              <Spinner
-                style={{ width: "0.7rem", height: "0.7rem" }}
-                type="grow"
-                color="light"
-              />
-            ) : (
-              t("Send")
-            )}
-          </span>
-        </Button>
-      </div>
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {Array.from({ length: extractData?.documentData?.length }, (_, index) =>
+          renderForm(index)
+        )}
+        <div className="mb-3 mb-3 d-flex justify-content-end">
+          <Button
+            disabled={loading}
+            type="submit"
+            className="theme-btn me-1 border-0 rounded-0 btn-style-one"
+          >
+            <span className="btn-title text-white">
+              {loading ? (
+                <Spinner
+                  style={{ width: "0.7rem", height: "0.7rem" }}
+                  type="grow"
+                  color="light"
+                />
+              ) : (
+                t("Send")
+              )}
+            </span>
+          </Button>
+        </div>
+      </form>
+
+      <ConfirmationModal
+        isOpen={showConfirmation}
+        toggle={() => setShowConfirmation(false)}
+        title={t("confirmation")}
+        content={t("passportFinConfirmationText")}
+        okText={t("yes")}
+        closeText={t("no")}
+        onConfirm={handleConfirm}
+        loading={loading}
+        disabled={!showConfirmation}
+      />
+    </>
   );
 };
 

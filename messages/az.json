@@ -185,5 +185,7 @@
   "servicesIncludedPackageListVip": "Konsultasiya,Appointment,Müraciət form hazırlanması,Sənədlərin düzgünlüyünün yoxlanılması,Səyahət planının hazırlanması,Otel Bronu,Bilet Bronu,Səyahət sığortası,Notarial tərcümə və təsdiq işləri,Kuryer vasitəsi ilə sənədlərin təhvil alınması və çatdırılması",
   "totalPrice": "Ümumi ödəniləcək məbləğ",
   "select": "Seçin",
-  "passportType": "Passportun növü"
+  "passportType": "Passportun növü",
+  "confirmation": "Təsdiqləmə",
+  "passportFinConfirmationText": "Passport nömrəsi və Fin kod doğru yazıldığından əminsinizmi?"
 }
